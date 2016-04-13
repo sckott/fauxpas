@@ -1,0 +1,63 @@
+fauxpas
+=======
+
+```{r echo=FALSE}
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines) == 1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+[![Build Status](https://travis-ci.org/sckott/fauxpas.svg)](https://travis-ci.org/sckott/fauxpas)
+
+[![codecov.io](https://codecov.io/github/sckott/fauxpas/coverage.svg?branch=master)](https://codecov.io/github/sckott/fauxpas?branch=master)
+
+`fauxpas` does http errors
+
+## Install
+
+```{r eval=FALSE}
+devtools::install_github("sckott/fauxpas")
+```
+
+```{r}
+library("fauxpas")
+```
+
+## xxx
+
+xxx
+
+```{r}
+"x"
+```
+
+## Meta
+
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
