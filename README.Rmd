@@ -49,12 +49,12 @@ devtools::install_github("sckott/fauxpas")
 library("fauxpas")
 ```
 
-## xxx
-
-xxx
+## use with httr
 
 ```{r}
-"x"
+library("httr")
+res <- GET("https://httpbin.org/status/418")
+
 ```
 
 ## Meta

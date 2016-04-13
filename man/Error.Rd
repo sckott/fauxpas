@@ -5,9 +5,10 @@
 \alias{Error}
 \title{Error class}
 \arguments{
-\item{name}{Name of the error}
-
 \item{behavior}{Behavior of the error. See Details}
+
+\item{call.}{(logical) indicating if the call should become part
+of the error message. Default: \code{FALSE}}
 }
 \description{
 Error class
@@ -29,9 +30,25 @@ Error class
 }
 \examples{
 \dontrun{
-(x <- Error$new(name = "hello"))
-(y <- Error$new(name = "hello", behavior = function(x) x^2))
-(z <- Error$new(name = "hello", message_template = "{{status}} - {{message}}"))
+library("httr")
+
+(x <- Error$new())
+(y <- Error$new(fun = function(x) x^2))
+(z <- Error$new(message_template = "{{status}} - {{message}}"))
+
+res <- GET("https://httpbin.org/status/418")
+
+# stop
+(x <- Error$new(behavior = "stop"))
+x$do(res)
+
+# warn
+(x <- Error$new(behavior = "warning"))
+x$do(res)
+
+x <- HTTPRequestURITooLong$new(behavior = "stop")
+res <- GET("https://httpbin.org/status/414")
+x$do(res)
 }
 }
 \keyword{datasets}

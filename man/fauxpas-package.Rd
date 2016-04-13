@@ -8,11 +8,6 @@
 \description{
 HTTP Error Helpers
 }
-\examples{
-\dontrun{
-"x"
-}
-}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
