@@ -8,6 +8,18 @@ fauxpas
 
 `fauxpas` does http errors
 
+The plan is:
+
+* HTTP error classes more in line with Ruby/Python/Etc.
+* An error class for each HTTP error in case a user wants to 
+be specific to an HTTP error, and general purpose handlers 
+for any error
+* Work with any of the major R http clients: `httr`, `curl`, `RCurl` - 
+so use probably S3 dispatch to handle inputs from those clients 
+appropriately
+* Provide flexiblity for what to do on an HTTP error, including 
+custom functions
+
 ## Install
 
 
