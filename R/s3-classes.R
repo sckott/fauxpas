@@ -123,3 +123,25 @@ error_414.response <- error_414_
 error_414.HttpResponse <- error_414_
 #' @export
 error_414.list <- error_414_
+
+
+# 418 ----------------------
+error_418_ <- function(x, behavior = "stop", message_template = NULL) {
+  tmp <- HTTPTeaPot$new(behavior = behavior, message_template = message_template)
+  tmp$do(x)
+}
+#' @export
+#' @rdname error_http
+error_418 <- function(x, behavior = "stop", message_template = NULL) {
+  UseMethod("error_418")
+}
+#' @export
+error_418.default <- function(x, behavior = "stop", message_template = NULL) {
+  stop("no 'error_418' method for ", class(x), call. = FALSE)
+}
+#' @export
+error_418.response <- error_418_
+#' @export
+error_418.HttpResponse <- error_418_
+#' @export
+error_418.list <- error_418_

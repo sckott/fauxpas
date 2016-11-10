@@ -203,5 +203,6 @@ mssgs <- list(
   internally configurable mechanism, that an old resource is permanently
   unavailable and has no forwarding address. This status code is commonly
   used when the server does not wish to reveal exactly why the request has
-  been refused, or when no other response is applicable."
+  been refused, or when no other response is applicable.",
+  HTTPTeaPot = "\n not a real HTTP status code, but often used for demonstration purposes"
 )

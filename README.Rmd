@@ -18,14 +18,14 @@ knitr::opts_chunk$set(
 The plan is:
 
 * HTTP error classes more in line with Ruby/Python/Etc.
-* An error class for each HTTP error in case a user wants to 
-be specific to an HTTP error, and general purpose handlers 
+* An error class for each HTTP status in case a user wants to 
+be specific to an HTTP status code, and general purpose handlers 
 for any error
-* Work with any of the major R http clients: `httr`, `curl`, `RCurl` - 
-so use probably S3 dispatch to handle inputs from those clients 
-appropriately
+* Work with any of the major R http clients: `crul`, `curl`, `httr`, (maybe 
+`RCurl` later) - so use probably S3 dispatch to handle inputs from those 
+clients appropriately
 * Provide flexiblity for what to do on an HTTP error, including 
-custom functions
+custom functions and message templates
 
 Links:
 
@@ -44,12 +44,21 @@ devtools::install_github("sckott/fauxpas")
 library("fauxpas")
 ```
 
-## use with httr
+## use with crul
 
 ```{r eval=FALSE}
-library("httr")
-res <- GET("https://httpbin.org/status/414")
+library("crul")
+cli <- HttpClient$new("https://httpbin.org/status/414")
+res <- cli$get()
+error_http(res)
+#> Error: Request-URI Too Long (HTTP 414).
 error_414(res)
+#> Error: Request-URI Too Long (HTTP 414).
+```
+
+```{r eval=FALSE}
+x <- HTTPRequestURITooLong$new()
+x$do_verbose(res)
 #> Error: Request-URI Too Long (HTTP 414).
 #> The server is refusing to service the request because the Request-URI is
 #>    longer than the server is willing to interpret. This rare condition is only likely
@@ -59,6 +68,42 @@ error_414(res)
 #>    or when the server is under attack by a client attempting to exploit security
 #>    holes present in some servers using fixed-length buffers for reading or
 #>    manipulating the Request-URI.
+```
+
+## use with curl
+
+```{r eval=FALSE}
+library("curl")
+h <- curl::new_handle()
+curl::handle_setopt(h)
+resp <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
+error_http(resp)
+#> Error: I'm a teapot (HTTP 418).
+error_418(resp)
+#> Error: I'm a teapot (HTTP 418).
+```
+
+```{r eval=FALSE}
+x <- HTTPTeaPot$new()
+x$do_verbose(resp)
+#> Error: I'm a teapot (HTTP 418).
+#>  not a real HTTP status code, but often used for demonstration purposes
+```
+
+## use with httr
+
+```{r eval=FALSE}
+library("httr")
+res <- GET("https://httpbin.org/status/404")
+error_404(res)
+#> Error: Not Found (HTTP 404).
+```
+
+```{r eval=FALSE}
+x <- HTTPRequestNotFound$new()
+x$do_verbose(res)
+#> Error: Not Found (HTTP 404).
+#> The server has not found anything matching the Request-URI. No ...
 ```
 
 ## Meta

@@ -4,6 +4,7 @@
 \alias{error_101}
 \alias{error_404}
 \alias{error_414}
+\alias{error_418}
 \alias{error_http}
 \title{higher level error wrappers}
 \usage{
@@ -14,6 +15,8 @@ error_101(x, behavior = "stop", message_template = NULL)
 error_404(x, behavior = "stop", message_template = NULL)
 
 error_414(x, behavior = "stop", message_template = NULL)
+
+error_418(x, behavior = "stop", message_template = NULL)
 }
 \arguments{
 \item{x}{the result of a call via \pkg{crul}, \pkg{curl}, or \pkg{httr}}

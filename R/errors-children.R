@@ -133,3 +133,8 @@ HTTPRequestURITooLong <- error_child_generator(
 #' @rdname Error-Classes
 HTTPRequestNotFound <- error_child_generator(
   class_name = "HTTPRequestNotFound", mssg = mssgs[["HTTPRequestNotFound"]])
+
+#' @export
+#' @rdname Error-Classes
+HTTPTeaPot <- error_child_generator(
+  class_name = "HTTPTeaPot", mssg = mssgs[["HTTPTeaPot"]])

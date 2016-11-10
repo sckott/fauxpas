@@ -19,6 +19,7 @@
 \alias{HTTPResetContent}
 \alias{HTTPSeeOther}
 \alias{HTTPSwitchProtocol}
+\alias{HTTPTeaPot}
 \title{Individual error classes}
 \format{An object of class \code{R6ClassGenerator} of length 24.}
 \usage{
@@ -53,6 +54,8 @@ HTTPNotModified
 HTTPRequestURITooLong
 
 HTTPRequestNotFound
+
+HTTPTeaPot
 }
 \description{
 These error classes are for each HTTP error, and inherit from
