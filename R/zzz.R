@@ -7,7 +7,8 @@ pluck <- function(x, name, type) {
 }
 
 is_url <- function(x){
-  grepl("https?://", x, ignore.case = TRUE) || grepl("localhost:[0-9]{4}", x, ignore.case = TRUE)
+  grepl("https?://", x, ignore.case = TRUE) ||
+    grepl("localhost:[0-9]{4}", x, ignore.case = TRUE)
 }
 
 is_port <- function(x) {

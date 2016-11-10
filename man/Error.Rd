@@ -16,7 +16,9 @@ Error class
 \details{
 \strong{Methods}
 \describe{
- \item{\code{xx}}
+  \item{\code{do}}
+  Execute condition, whether it be message, warning, error, or your
+  own custom function.
 }
 }
 \section{behavior options}{
@@ -48,7 +50,9 @@ x$do(res)
 
 x <- HTTPRequestURITooLong$new(behavior = "stop")
 res <- GET("https://httpbin.org/status/414")
+error_414(res)
 x$do(res)
+x$doit(res)
 }
 }
 \keyword{datasets}

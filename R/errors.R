@@ -7,7 +7,9 @@
 #' @details
 #' \strong{Methods}
 #' \describe{
-#'  \item{\code{xx}}
+#'   \item{\code{do}}
+#'   Execute condition, whether it be message, warning, error, or your
+#'   own custom function.
 #' }
 #'
 #' @section behavior options:
@@ -38,42 +40,36 @@
 #'
 #' x <- HTTPRequestURITooLong$new(behavior = "stop")
 #' res <- GET("https://httpbin.org/status/414")
+#' error_414(res)
 #' x$do(res)
+#' x$doit(res)
 #' }
 Error <- R6::R6Class(
   "Error",
   #portable = FALSE,
   public = list(
+    name = 'HTTP Error',
     behavior = NULL,
     behavior_name = NULL,
     behavior_type = NULL,
     fun = NULL,
-    call. = NULL,
+    call. = FALSE,
     message_template = NULL,
 
-    initialize = function(behavior = "stop", behavior_name, fun, call. = FALSE, message_template) {
-      #if (!missing(behavior)) {
-        # if (!inherits(behavior, "function")) {
-        #   if (!behavior %in% c('stop', 'warning', 'message')) {
-        #     stop("'behavior' must be one of stop, warning, message, or a function", call. = FALSE)
-        #     if (is.character(behavior)) {
-        #
-        #     }
-        #   }
-        # }
-        stopifnot(inherits(behavior, "character"))
-        #self$behavior_name <- deparse(substitute(behavior))
-        if (!missing(fun)) self$fun <- fun
-        self$behavior <- behavior
-        self$behavior_type <-
-          switch(self$behavior, stop = "error", warning = "warning", message = "message")
-      #}
+    initialize = function(behavior = "stop", behavior_name, fun,
+                          call. = FALSE, message_template) {
+
+      stopifnot(inherits(behavior, "character"))
+      if (!missing(fun)) self$fun <- fun
+      self$behavior <- behavior
+      self$behavior_type <- switch(
+        self$behavior, stop = "error", warning = "warning", message = "message")
       if (!missing(call.)) self$call. <- call.
       if (!missing(message_template)) self$message_template <- message_template
     },
 
     print = function(...) {
-      cat("<HTTP Error>", sep = "\n")
+      cat(sprintf("<%s>", self$name), sep = "\n")
       cat(paste0("  behavior: ", self$behavior), sep = "\n")
       cat(paste0("  message_template: ", self$message_template), sep = "\n")
       invisible()
@@ -81,7 +77,7 @@ Error <- R6::R6Class(
 
     do = function(response, mssg = "") {
       if (self$behavior_type %in% c('error', 'warning', 'message')) {
-        call <- sys.call(-1)
+        call <- if (self$call.) sys.call(-1) else NULL
         eval(parse(text = self$behavior))(
           private$make_condition(response, self$behavior_type, call, mssg)
         )
@@ -94,42 +90,24 @@ Error <- R6::R6Class(
   private = list(
 
     make_condition = function(x, type, call, mssg) {
-      status <- status_code(x)
-      reason <- http_status(status)$reason
+      status <- private$fetch_status(x)
+      reason <- httpcode::http_code(status)$message
       message <- sprintf("%s (HTTP %d).%s", reason, status, mssg)
       status_type <- (status %/% 100) * 100
       http_class <- paste0("http_", unique(c(status, status_type,
                                              "error")))
-      structure(list(message = message, call = call), class = c(http_class,
-                                                                type, "condition"))
-    }
-
-  )
-)
-
-#' @export
-HTTPRequestURITooLong <- R6::R6Class(
-  "HTTPRequestURITooLong",
-  inherit = Error,
-  public = list(
-    mssg = "\n The server is refusing to service the request because the Request-URI is
-    longer than the server is willing to interpret. This rare condition is only likely
-    to occur when a client has improperly converted a POST request to a GET request
-    with long query information, when the client has descended into a URI black hole
-    of redirection (e.g., a redirected URI prefix that points to a suffix of itself),
-    or when the server is under attack by a client attempting to exploit security
-    holes present in some servers using fixed-length buffers for reading or
-    manipulating the Request-URI.",
-
-    print = function(...) {
-      cat("<HTTPRequestURITooLong> ", sep = "\n")
-      cat(paste0("  behavior: ", self$behavior), sep = "\n")
-      cat(paste0("  message_template: ", self$message_template), sep = "\n")
-      invisible()
+      structure(list(message = message, call = call),
+                class = c(http_class, type, "condition"))
     },
 
-    do = function(response) {
-      super$do(response, self$mssg)
+    fetch_status = function(x) {
+      switch(
+        class(x)[1],
+        response = x$status_code,
+        HttpResponse = x$status_code,
+        list = x$status_code
+      )
     }
+
   )
 )

@@ -2,30 +2,6 @@ fauxpas
 =======
 
 ```{r echo=FALSE}
-hook_output <- knitr::knit_hooks$get("output")
-knitr::knit_hooks$set(output = function(x, options) {
-   lines <- options$output.lines
-   if (is.null(lines)) {
-     return(hook_output(x, options))  # pass to default hook
-   }
-   x <- unlist(strsplit(x, "\n"))
-   more <- "..."
-   if (length(lines) == 1) {        # first n lines
-     if (length(x) > lines) {
-       # truncate the output, but add ....
-       x <- c(head(x, lines), more)
-     }
-   } else {
-     x <- c(if (abs(lines[1])>1) more else NULL,
-            x[lines],
-            if (length(x)>lines[abs(length(lines))]) more else NULL
-           )
-   }
-   # paste these lines together
-   x <- paste(c(x, ""), collapse = "\n")
-   hook_output(x, options)
- })
-
 knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
@@ -51,6 +27,13 @@ appropriately
 * Provide flexiblity for what to do on an HTTP error, including 
 custom functions
 
+Links:
+
+* HTTP on wikipedia: <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol>
+* HTTP2 on wikipedia: <https://en.wikipedia.org/wiki/HTTP/2>
+* HTTP/1.1: <https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>
+* HTTP/2: <https://tools.ietf.org/html/rfc7540>
+
 ## Install
 
 ```{r eval=FALSE}
@@ -67,7 +50,7 @@ library("fauxpas")
 library("httr")
 res <- GET("https://httpbin.org/status/414")
 error_414(res)
-#> Error in tmp$do(x) : Request-URI Too Long (HTTP 414).
+#> Error: Request-URI Too Long (HTTP 414).
 #> The server is refusing to service the request because the Request-URI is
 #>    longer than the server is willing to interpret. This rare condition is only likely
 #>    to occur when a client has improperly converted a POST request to a GET request
@@ -80,4 +63,5 @@ error_414(res)
 
 ## Meta
 
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+By participating in this project you agree to abide by its terms.
