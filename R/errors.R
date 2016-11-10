@@ -65,6 +65,9 @@ Error <- R6::R6Class(
       stopifnot(inherits(behavior, "character"))
       if (!missing(fun)) self$fun <- fun
       self$behavior <- behavior
+      if (!self$behavior %in% c('stop', 'warning', 'message', 'function')) {
+        stop("'behavior' must be one of stop, warning, message, or a function", call. = FALSE)
+      }
       self$behavior_type <- switch(
         self$behavior, stop = "error", warning = "warning", message = "message")
       if (!missing(call.)) self$call. <- call.
