@@ -1,4 +1,5 @@
 error_child_generator <- function(class_name, mssg) {
+  self <- super <- NULL
   R6::R6Class(
     class_name,
     inherit = Error,
@@ -24,10 +25,9 @@ error_child_generator <- function(class_name, mssg) {
 #' (see below)
 #'
 #' \strong{Methods}
-#' \describe{
-#'   \item{\code{do_verbose(response)}}
+#' \itemize{
+#'   \item \code{do_verbose(response)}
 #'   \code{response} is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
-#'
 #'   Execute condition, whether it be message, warning, error, or your
 #'   own custom function.
 #' }
@@ -40,10 +40,13 @@ error_child_generator <- function(class_name, mssg) {
 #'
 #' @examples
 #' if (requireNamespace("crul")) {
+#'  library("crul")
 #'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
 #'  x <- HTTPRequestURITooLong$new(behavior = "stop")
+#'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)
+#'  }
 #' }
 #'
 #' @format NULL

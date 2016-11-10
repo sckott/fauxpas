@@ -13,9 +13,8 @@ Imports:
 Suggests:
     crul (>= 0.1.0),
     curl (>= 2.2),
-    httr (>= 1.2.0)
-    jsonlite (>= 1.1)
-Suggests:
+    httr (>= 1.2.0),
+    jsonlite (>= 1.1),
     testthat,
     covr
 RoxygenNote: 5.0.1

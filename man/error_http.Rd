@@ -26,41 +26,40 @@ error_414(x, behavior = "stop", message_template = NULL)
 higher level error wrappers
 }
 \examples{
-\dontrun{
 if (requireNamespace("crul")) {
+ library("crul")
  res <- HttpClient$new("https://httpbin.org/status/418")$get()
- error_http(res)
+ \dontrun{error_http(res)}
+ error_http(res, behavior = "warning")
+ error_http(res, behavior = "message")
 
  res <- HttpClient$new("https://httpbin.org/status/414")$get()
- error_414(res)
+ \dontrun{error_414(res)}
+ error_http(res, behavior = "warning")
+ error_http(res, behavior = "message")
 
  res <- HttpClient$new("https://httpbin.org/asdfafadsf")$get()
- error_404(res)
+ \dontrun{error_404(res)}
+ error_http(res, behavior = "warning")
+ error_http(res, behavior = "message")
 }
 
 if (requireNamespace("curl")) {
+ library("curl")
  h <- curl::new_handle()
  curl::handle_setopt(h)
  resp <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
- error_http(resp)
-
- resp <- curl::curl_fetch_memory("https://httpbin.org/status/414", h)
- error_414(res)
-
- resp <- curl::curl_fetch_memory("https://httpbin.org/asdfadfasdf", h)
- error_404(res)
+ \dontrun{error_http(resp)}
+ error_http(res, behavior = "warning")
+ error_http(res, behavior = "message")
 }
 
 if (requireNamespace("httr")) {
+ library("httr")
  res <- GET("https://httpbin.org/status/418")
- error_http(res)
-
- res <- GET("https://httpbin.org/status/414")
- error_414(res)
-
- res <- GET("http://localhost:9800/gettttt")
- error_404(res)
-}
+ \dontrun{error_http(res)}
+ error_http(res, behavior = "warning")
+ error_http(res, behavior = "message")
 }
 }
 

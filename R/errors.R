@@ -6,8 +6,8 @@
 #' of the error message. Default: \code{FALSE}
 #' @details
 #' \strong{Methods}
-#' \describe{
-#'   \item{\code{do}}
+#' \itemize{
+#'   \item \code{do}
 #'   Execute condition, whether it be message, warning, error, or your
 #'   own custom function.
 #' }
@@ -21,28 +21,31 @@
 #' }
 #' @format NULL
 #' @usage NULL
-#' @examples \dontrun{
-#' library("httr")
-#'
+#' @examples
+#' # create error classes
 #' (x <- Error$new())
 #' (y <- Error$new(fun = function(x) x^2))
 #' (z <- Error$new(message_template = "{{status}} - {{message}}"))
 #'
-#' res <- GET("https://httpbin.org/status/418")
+#' if (requireNamespace("crul")) {
+#'  library("crul")
+#'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
 #'
-#' # stop
-#' (x <- Error$new(behavior = "stop"))
-#' x$do(res)
+#'  # stop
+#'  (x <- Error$new(behavior = "stop"))
+#'  \dontrun{x$do(res)}
 #'
-#' # warn
-#' (x <- Error$new(behavior = "warning"))
-#' x$do(res)
+#'  # warn
+#'  (x <- Error$new(behavior = "warning"))
+#'  x$do(res)
 #'
-#' x <- HTTPRequestURITooLong$new(behavior = "stop")
-#' res <- GET("https://httpbin.org/status/414")
-#' error_414(res)
-#' x$do(res)
-#' x$doit(res)
+#'  x <- HTTPRequestURITooLong$new(behavior = "stop")
+#'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
+#'  \dontrun{
+#'  error_414(res)
+#'  x$do(res)
+#'  x$do_verbose(res)
+#'  }
 #' }
 Error <- R6::R6Class(
   "Error",
