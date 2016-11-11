@@ -3,21 +3,21 @@ fauxpas
 
 
 
-[![Build Status](https://travis-ci.org/sckott/fauxpas.svg)](https://travis-ci.org/sckott/fauxpas)
-[![codecov.io](https://codecov.io/github/sckott/fauxpas/coverage.svg?branch=master)](https://codecov.io/github/sckott/fauxpas?branch=master)
+[![Build Status](https://travis-ci.org/ropenscilabs/fauxpas.svg)](https://travis-ci.org/ropenscilabs/fauxpas)
+[![codecov.io](https://codecov.io/github/ropenscilabs/fauxpas/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/fauxpas?branch=master)
 
 `fauxpas` does http errors
 
 The plan is:
 
 * HTTP error classes more in line with Ruby/Python/Etc.
-* An error class for each HTTP status in case a user wants to 
-be specific to an HTTP status code, and general purpose handlers 
+* An error class for each HTTP status in case a user wants to
+be specific to an HTTP status code, and general purpose handlers
 for any error
-* Work with any of the major R http clients: `crul`, `curl`, `httr`, (maybe 
-`RCurl` later) - so use probably S3 dispatch to handle inputs from those 
+* Work with any of the major R http clients: `crul`, `curl`, `httr`, (maybe
+`RCurl` later) - so use probably S3 dispatch to handle inputs from those
 clients appropriately
-* Provide flexiblity for what to do on an HTTP error, including 
+* Provide flexiblity for what to do on an HTTP error, including
 custom functions and message templates
 
 Links:
@@ -31,7 +31,7 @@ Links:
 
 
 ```r
-devtools::install_github("sckott/fauxpas")
+devtools::install_github("ropenscilabs/fauxpas")
 ```
 
 
@@ -109,5 +109,5 @@ x$do_verbose(res)
 
 ## Meta
 
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md).
 By participating in this project you agree to abide by its terms.

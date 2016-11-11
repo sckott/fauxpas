@@ -6,8 +6,8 @@ Version: 0.0.4.9100
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
-URL: https://github.com/sckott/fauxpas
-BugReports: https://github.com/sckott/fauxpas/issues
+URL: https://github.com/ropenscilabs/fauxpas
+BugReports: https://github.com/ropenscilabs/fauxpas/issues
 Imports:
     R6 (>= 2.1.2)
 Suggests:
