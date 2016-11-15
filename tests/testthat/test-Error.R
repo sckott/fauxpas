@@ -12,7 +12,10 @@ test_that("Error works", {
   expect_is(x$behavior, "character")
   expect_is(z$behavior, "character")
 
-  expect_null(x$message_template)
+  expect_is(x$message_template, "character")
+  expect_match(x$message_template, "HTTP")
   expect_is(z$message_template, "character")
+  expect_false(grepl("HTTP", z$message_template))
+  expect_false(grepl("reason", z$message_template))
 })
 
