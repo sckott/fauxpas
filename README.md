@@ -4,7 +4,6 @@ fauxpas
 
 
 [![Build Status](https://travis-ci.org/ropenscilabs/fauxpas.svg)](https://travis-ci.org/ropenscilabs/fauxpas)
-[![codecov.io](https://codecov.io/github/ropenscilabs/fauxpas/coverage.svg?branch=master)](https://codecov.io/github/ropenscilabs/fauxpas?branch=master)
 
 `fauxpas` does http errors
 

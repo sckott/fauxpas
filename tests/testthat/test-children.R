@@ -17,28 +17,18 @@ test_that("http children methods: HTTPContinue", {
   expect_null(suppressMessages(bb$do(res)))
   #expect_null(suppressWarnings(cc$do(res)))
 
-  expect_error(aa$do_verbose(res), "Method Not Allowed")
-  expect_error(aa$do_verbose(res), "Method Not Allowed")
-  expect_message(bb$do_verbose(res), "Method Not Allowed")
-  expect_warning(cc$do_verbose(res), "Method Not Allowed")
+  expect_error(aa$do_verbose(res),
+               "The method specified in the Request-Line is not allowed")
+  expect_message(bb$do_verbose(res),
+                 "The method specified in the Request-Line is not allowed")
+  expect_warning(cc$do_verbose(res),
+                 "The method specified in the Request-Line is not allowed")
 })
 
 test_that("http fails well", {
   skip_on_cran()
 
-  expect_error(http(5), "no 'http' method for numeric")
-  expect_error(http("asdfadfasf"), "no 'http' method for character")
-  expect_error(http(mtcars), "no 'http' method for data.frame")
-
-  library("crul")
-  res <- HttpClient$new("https://httpbin.org/status/418")$get()
-
-  # behavior fails well
-  expect_error(http(res, behavior = "asdfasdf"),
-               "'behavior' must be one of")
-
-  # message_template fails well
-  expect_error(http(res, message_template = 5),
-               "'message_template' must be of class character")
+  expect_error(HTTPAccepted$new(behavior = 5), "is not TRUE")
+  expect_error(HTTPBadGateway$new(a = "asdfadfasf"), "unused argument")
 })
 
