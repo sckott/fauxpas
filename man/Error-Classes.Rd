@@ -265,5 +265,8 @@ if (requireNamespace("crul")) {
 }
 
 }
+\seealso{
+\code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
+}
 \keyword{datasets}
 

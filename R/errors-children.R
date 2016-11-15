@@ -43,6 +43,8 @@ error_child_generator <- function(class_name, x) {
 #'   own custom function.
 #' }
 #'
+#' @seealso \code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
+#'
 #' @examples
 #' if (requireNamespace("crul")) {
 #'  library("crul")

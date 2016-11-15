@@ -1,13 +1,10 @@
 #' Error class
 #'
 #' @export
-#' @param behavior Behavior of the error. See Details
+#' @template params
 #' @param call.	(logical) indicating if the call should become part
 #' of the error message. Default: \code{FALSE}
-#' @param message_template A message template. optional. use whisker
-#' templating. names to use are: reason, status, message. use in template
-#' like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
-#' \code{\{\{message\}\}}
+#'
 #' @details
 #' \strong{Methods}
 #' \itemize{
@@ -15,14 +12,11 @@
 #'   Execute condition, whether it be message, warning, or error.
 #' }
 #'
-#' @section behavior parameter options:
-#' \itemize{
-#'  \item stop - stop on error
-#'  \item warning - warning on error
-#'  \item message - message on error
-#' }
 #' @format NULL
 #' @usage NULL
+#'
+#' @seealso \code{\link[fauxpas]{http}}, \code{\link[fauxpas]{Error-Classes}}
+#'
 #' @examples
 #' Error$new()
 #'

@@ -10,4 +10,4 @@ NEWS.md
 cran-comments.md
 ^extra$
 ^Makefile$
-
+man-roxygen

@@ -7,13 +7,13 @@
 \arguments{
 \item{behavior}{Behavior of the error. See Details}
 
-\item{call.}{(logical) indicating if the call should become part
-of the error message. Default: \code{FALSE}}
-
 \item{message_template}{A message template. optional. use whisker
 templating. names to use are: reason, status, message. use in template
 like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
 \code{\{\{message\}\}}}
+
+\item{call.}{(logical) indicating if the call should become part
+of the error message. Default: \code{FALSE}}
 }
 \description{
 Error class
@@ -87,6 +87,9 @@ if (requireNamespace("crul")) {
  yy$do_verbose(res)
  }
 }
+}
+\seealso{
+\code{\link[fauxpas]{http}}, \code{\link[fauxpas]{Error-Classes}}
 }
 \keyword{datasets}
 

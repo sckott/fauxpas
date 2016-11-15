@@ -1,1520 +1,1520 @@
-error_100_ <- function(x, behavior = "stop", message_template) {
+http100_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPContinue$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_100 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_100")
+#' @rdname http
+http100 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http100")
 }
 #' @export
-error_100.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_100' method for ", class(x), call. = FALSE)
+http100.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http100' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_100.response <- error_100_
+http100.response <- http100_
 #' @export
-error_100.HttpResponse <- error_100_
+http100.HttpResponse <- http100_
 #' @export
-error_100.list <- error_100_
+http100.list <- http100_
 
-error_101_ <- function(x, behavior = "stop", message_template) {
+http101_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSwitchProtocol$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_101 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_101")
+#' @rdname http
+http101 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http101")
 }
 #' @export
-error_101.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_101' method for ", class(x), call. = FALSE)
+http101.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http101' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_101.response <- error_101_
+http101.response <- http101_
 #' @export
-error_101.HttpResponse <- error_101_
+http101.HttpResponse <- http101_
 #' @export
-error_101.list <- error_101_
+http101.list <- http101_
 
-error_102_ <- function(x, behavior = "stop", message_template) {
+http102_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPProcessing$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_102 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_102")
+#' @rdname http
+http102 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http102")
 }
 #' @export
-error_102.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_102' method for ", class(x), call. = FALSE)
+http102.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http102' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_102.response <- error_102_
+http102.response <- http102_
 #' @export
-error_102.HttpResponse <- error_102_
+http102.HttpResponse <- http102_
 #' @export
-error_102.list <- error_102_
+http102.list <- http102_
 
-error_200_ <- function(x, behavior = "stop", message_template) {
+http200_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPOK$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_200 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_200")
+#' @rdname http
+http200 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http200")
 }
 #' @export
-error_200.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_200' method for ", class(x), call. = FALSE)
+http200.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http200' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_200.response <- error_200_
+http200.response <- http200_
 #' @export
-error_200.HttpResponse <- error_200_
+http200.HttpResponse <- http200_
 #' @export
-error_200.list <- error_200_
+http200.list <- http200_
 
-error_201_ <- function(x, behavior = "stop", message_template) {
+http201_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPCreated$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_201 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_201")
+#' @rdname http
+http201 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http201")
 }
 #' @export
-error_201.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_201' method for ", class(x), call. = FALSE)
+http201.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http201' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_201.response <- error_201_
+http201.response <- http201_
 #' @export
-error_201.HttpResponse <- error_201_
+http201.HttpResponse <- http201_
 #' @export
-error_201.list <- error_201_
+http201.list <- http201_
 
-error_202_ <- function(x, behavior = "stop", message_template) {
+http202_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAccepted$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_202 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_202")
+#' @rdname http
+http202 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http202")
 }
 #' @export
-error_202.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_202' method for ", class(x), call. = FALSE)
+http202.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http202' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_202.response <- error_202_
+http202.response <- http202_
 #' @export
-error_202.HttpResponse <- error_202_
+http202.HttpResponse <- http202_
 #' @export
-error_202.list <- error_202_
+http202.list <- http202_
 
-error_203_ <- function(x, behavior = "stop", message_template) {
+http203_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNonAuthoritativeInformation$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_203 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_203")
+#' @rdname http
+http203 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http203")
 }
 #' @export
-error_203.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_203' method for ", class(x), call. = FALSE)
+http203.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http203' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_203.response <- error_203_
+http203.response <- http203_
 #' @export
-error_203.HttpResponse <- error_203_
+http203.HttpResponse <- http203_
 #' @export
-error_203.list <- error_203_
+http203.list <- http203_
 
-error_204_ <- function(x, behavior = "stop", message_template) {
+http204_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoContent$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_204 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_204")
+#' @rdname http
+http204 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http204")
 }
 #' @export
-error_204.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_204' method for ", class(x), call. = FALSE)
+http204.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http204' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_204.response <- error_204_
+http204.response <- http204_
 #' @export
-error_204.HttpResponse <- error_204_
+http204.HttpResponse <- http204_
 #' @export
-error_204.list <- error_204_
+http204.list <- http204_
 
-error_205_ <- function(x, behavior = "stop", message_template) {
+http205_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPResetContent$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_205 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_205")
+#' @rdname http
+http205 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http205")
 }
 #' @export
-error_205.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_205' method for ", class(x), call. = FALSE)
+http205.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http205' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_205.response <- error_205_
+http205.response <- http205_
 #' @export
-error_205.HttpResponse <- error_205_
+http205.HttpResponse <- http205_
 #' @export
-error_205.list <- error_205_
+http205.list <- http205_
 
-error_206_ <- function(x, behavior = "stop", message_template) {
+http206_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPartialContent$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_206 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_206")
+#' @rdname http
+http206 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http206")
 }
 #' @export
-error_206.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_206' method for ", class(x), call. = FALSE)
+http206.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http206' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_206.response <- error_206_
+http206.response <- http206_
 #' @export
-error_206.HttpResponse <- error_206_
+http206.HttpResponse <- http206_
 #' @export
-error_206.list <- error_206_
+http206.list <- http206_
 
-error_207_ <- function(x, behavior = "stop", message_template) {
+http207_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMultiStatus$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_207 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_207")
+#' @rdname http
+http207 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http207")
 }
 #' @export
-error_207.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_207' method for ", class(x), call. = FALSE)
+http207.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http207' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_207.response <- error_207_
+http207.response <- http207_
 #' @export
-error_207.HttpResponse <- error_207_
+http207.HttpResponse <- http207_
 #' @export
-error_207.list <- error_207_
+http207.list <- http207_
 
-error_208_ <- function(x, behavior = "stop", message_template) {
+http208_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAlreadyReported$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_208 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_208")
+#' @rdname http
+http208 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http208")
 }
 #' @export
-error_208.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_208' method for ", class(x), call. = FALSE)
+http208.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http208' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_208.response <- error_208_
+http208.response <- http208_
 #' @export
-error_208.HttpResponse <- error_208_
+http208.HttpResponse <- http208_
 #' @export
-error_208.list <- error_208_
+http208.list <- http208_
 
-error_226_ <- function(x, behavior = "stop", message_template) {
+http226_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPImUsed$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_226 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_226")
+#' @rdname http
+http226 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http226")
 }
 #' @export
-error_226.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_226' method for ", class(x), call. = FALSE)
+http226.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http226' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_226.response <- error_226_
+http226.response <- http226_
 #' @export
-error_226.HttpResponse <- error_226_
+http226.HttpResponse <- http226_
 #' @export
-error_226.list <- error_226_
+http226.list <- http226_
 
-error_300_ <- function(x, behavior = "stop", message_template) {
+http300_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMultipleChoices$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_300 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_300")
+#' @rdname http
+http300 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http300")
 }
 #' @export
-error_300.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_300' method for ", class(x), call. = FALSE)
+http300.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http300' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_300.response <- error_300_
+http300.response <- http300_
 #' @export
-error_300.HttpResponse <- error_300_
+http300.HttpResponse <- http300_
 #' @export
-error_300.list <- error_300_
+http300.list <- http300_
 
-error_301_ <- function(x, behavior = "stop", message_template) {
+http301_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMovedPermanently$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_301 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_301")
+#' @rdname http
+http301 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http301")
 }
 #' @export
-error_301.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_301' method for ", class(x), call. = FALSE)
+http301.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http301' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_301.response <- error_301_
+http301.response <- http301_
 #' @export
-error_301.HttpResponse <- error_301_
+http301.HttpResponse <- http301_
 #' @export
-error_301.list <- error_301_
+http301.list <- http301_
 
-error_302_ <- function(x, behavior = "stop", message_template) {
+http302_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPFound$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_302 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_302")
+#' @rdname http
+http302 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http302")
 }
 #' @export
-error_302.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_302' method for ", class(x), call. = FALSE)
+http302.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http302' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_302.response <- error_302_
+http302.response <- http302_
 #' @export
-error_302.HttpResponse <- error_302_
+http302.HttpResponse <- http302_
 #' @export
-error_302.list <- error_302_
+http302.list <- http302_
 
-error_303_ <- function(x, behavior = "stop", message_template) {
+http303_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSeeOther$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_303 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_303")
+#' @rdname http
+http303 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http303")
 }
 #' @export
-error_303.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_303' method for ", class(x), call. = FALSE)
+http303.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http303' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_303.response <- error_303_
+http303.response <- http303_
 #' @export
-error_303.HttpResponse <- error_303_
+http303.HttpResponse <- http303_
 #' @export
-error_303.list <- error_303_
+http303.list <- http303_
 
-error_304_ <- function(x, behavior = "stop", message_template) {
+http304_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotModified$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_304 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_304")
+#' @rdname http
+http304 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http304")
 }
 #' @export
-error_304.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_304' method for ", class(x), call. = FALSE)
+http304.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http304' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_304.response <- error_304_
+http304.response <- http304_
 #' @export
-error_304.HttpResponse <- error_304_
+http304.HttpResponse <- http304_
 #' @export
-error_304.list <- error_304_
+http304.list <- http304_
 
-error_305_ <- function(x, behavior = "stop", message_template) {
+http305_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUseProxy$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_305 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_305")
+#' @rdname http
+http305 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http305")
 }
 #' @export
-error_305.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_305' method for ", class(x), call. = FALSE)
+http305.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http305' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_305.response <- error_305_
+http305.response <- http305_
 #' @export
-error_305.HttpResponse <- error_305_
+http305.HttpResponse <- http305_
 #' @export
-error_305.list <- error_305_
+http305.list <- http305_
 
-error_306_ <- function(x, behavior = "stop", message_template) {
+http306_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSwitchProxy$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_306 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_306")
+#' @rdname http
+http306 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http306")
 }
 #' @export
-error_306.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_306' method for ", class(x), call. = FALSE)
+http306.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http306' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_306.response <- error_306_
+http306.response <- http306_
 #' @export
-error_306.HttpResponse <- error_306_
+http306.HttpResponse <- http306_
 #' @export
-error_306.list <- error_306_
+http306.list <- http306_
 
-error_307_ <- function(x, behavior = "stop", message_template) {
+http307_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTemporaryRedirect$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_307 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_307")
+#' @rdname http
+http307 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http307")
 }
 #' @export
-error_307.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_307' method for ", class(x), call. = FALSE)
+http307.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http307' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_307.response <- error_307_
+http307.response <- http307_
 #' @export
-error_307.HttpResponse <- error_307_
+http307.HttpResponse <- http307_
 #' @export
-error_307.list <- error_307_
+http307.list <- http307_
 
-error_308_ <- function(x, behavior = "stop", message_template) {
+http308_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPermanentRedirect$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_308 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_308")
+#' @rdname http
+http308 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http308")
 }
 #' @export
-error_308.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_308' method for ", class(x), call. = FALSE)
+http308.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http308' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_308.response <- error_308_
+http308.response <- http308_
 #' @export
-error_308.HttpResponse <- error_308_
+http308.HttpResponse <- http308_
 #' @export
-error_308.list <- error_308_
+http308.list <- http308_
 
-error_400_ <- function(x, behavior = "stop", message_template) {
+http400_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBadRequest$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_400 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_400")
+#' @rdname http
+http400 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http400")
 }
 #' @export
-error_400.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_400' method for ", class(x), call. = FALSE)
+http400.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http400' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_400.response <- error_400_
+http400.response <- http400_
 #' @export
-error_400.HttpResponse <- error_400_
+http400.HttpResponse <- http400_
 #' @export
-error_400.list <- error_400_
+http400.list <- http400_
 
-error_401_ <- function(x, behavior = "stop", message_template) {
+http401_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnauthorized$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_401 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_401")
+#' @rdname http
+http401 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http401")
 }
 #' @export
-error_401.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_401' method for ", class(x), call. = FALSE)
+http401.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http401' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_401.response <- error_401_
+http401.response <- http401_
 #' @export
-error_401.HttpResponse <- error_401_
+http401.HttpResponse <- http401_
 #' @export
-error_401.list <- error_401_
+http401.list <- http401_
 
-error_402_ <- function(x, behavior = "stop", message_template) {
+http402_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPaymentRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_402 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_402")
+#' @rdname http
+http402 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http402")
 }
 #' @export
-error_402.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_402' method for ", class(x), call. = FALSE)
+http402.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http402' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_402.response <- error_402_
+http402.response <- http402_
 #' @export
-error_402.HttpResponse <- error_402_
+http402.HttpResponse <- http402_
 #' @export
-error_402.list <- error_402_
+http402.list <- http402_
 
-error_403_ <- function(x, behavior = "stop", message_template) {
+http403_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPForbidden$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_403 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_403")
+#' @rdname http
+http403 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http403")
 }
 #' @export
-error_403.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_403' method for ", class(x), call. = FALSE)
+http403.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http403' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_403.response <- error_403_
+http403.response <- http403_
 #' @export
-error_403.HttpResponse <- error_403_
+http403.HttpResponse <- http403_
 #' @export
-error_403.list <- error_403_
+http403.list <- http403_
 
-error_404_ <- function(x, behavior = "stop", message_template) {
+http404_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotFound$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_404 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_404")
+#' @rdname http
+http404 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http404")
 }
 #' @export
-error_404.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_404' method for ", class(x), call. = FALSE)
+http404.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http404' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_404.response <- error_404_
+http404.response <- http404_
 #' @export
-error_404.HttpResponse <- error_404_
+http404.HttpResponse <- http404_
 #' @export
-error_404.list <- error_404_
+http404.list <- http404_
 
-error_405_ <- function(x, behavior = "stop", message_template) {
+http405_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMethodNotAllowed$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_405 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_405")
+#' @rdname http
+http405 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http405")
 }
 #' @export
-error_405.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_405' method for ", class(x), call. = FALSE)
+http405.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http405' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_405.response <- error_405_
+http405.response <- http405_
 #' @export
-error_405.HttpResponse <- error_405_
+http405.HttpResponse <- http405_
 #' @export
-error_405.list <- error_405_
+http405.list <- http405_
 
-error_406_ <- function(x, behavior = "stop", message_template) {
+http406_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotAcceptable$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_406 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_406")
+#' @rdname http
+http406 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http406")
 }
 #' @export
-error_406.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_406' method for ", class(x), call. = FALSE)
+http406.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http406' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_406.response <- error_406_
+http406.response <- http406_
 #' @export
-error_406.HttpResponse <- error_406_
+http406.HttpResponse <- http406_
 #' @export
-error_406.list <- error_406_
+http406.list <- http406_
 
-error_407_ <- function(x, behavior = "stop", message_template) {
+http407_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPProxyAuthenticationRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_407 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_407")
+#' @rdname http
+http407 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http407")
 }
 #' @export
-error_407.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_407' method for ", class(x), call. = FALSE)
+http407.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http407' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_407.response <- error_407_
+http407.response <- http407_
 #' @export
-error_407.HttpResponse <- error_407_
+http407.HttpResponse <- http407_
 #' @export
-error_407.list <- error_407_
+http407.list <- http407_
 
-error_408_ <- function(x, behavior = "stop", message_template) {
+http408_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestTimeout$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_408 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_408")
+#' @rdname http
+http408 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http408")
 }
 #' @export
-error_408.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_408' method for ", class(x), call. = FALSE)
+http408.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http408' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_408.response <- error_408_
+http408.response <- http408_
 #' @export
-error_408.HttpResponse <- error_408_
+http408.HttpResponse <- http408_
 #' @export
-error_408.list <- error_408_
+http408.list <- http408_
 
-error_409_ <- function(x, behavior = "stop", message_template) {
+http409_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPConflict$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_409 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_409")
+#' @rdname http
+http409 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http409")
 }
 #' @export
-error_409.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_409' method for ", class(x), call. = FALSE)
+http409.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http409' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_409.response <- error_409_
+http409.response <- http409_
 #' @export
-error_409.HttpResponse <- error_409_
+http409.HttpResponse <- http409_
 #' @export
-error_409.list <- error_409_
+http409.list <- http409_
 
-error_410_ <- function(x, behavior = "stop", message_template) {
+http410_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPGone$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_410 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_410")
+#' @rdname http
+http410 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http410")
 }
 #' @export
-error_410.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_410' method for ", class(x), call. = FALSE)
+http410.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http410' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_410.response <- error_410_
+http410.response <- http410_
 #' @export
-error_410.HttpResponse <- error_410_
+http410.HttpResponse <- http410_
 #' @export
-error_410.list <- error_410_
+http410.list <- http410_
 
-error_411_ <- function(x, behavior = "stop", message_template) {
+http411_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLengthRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_411 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_411")
+#' @rdname http
+http411 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http411")
 }
 #' @export
-error_411.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_411' method for ", class(x), call. = FALSE)
+http411.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http411' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_411.response <- error_411_
+http411.response <- http411_
 #' @export
-error_411.HttpResponse <- error_411_
+http411.HttpResponse <- http411_
 #' @export
-error_411.list <- error_411_
+http411.list <- http411_
 
-error_412_ <- function(x, behavior = "stop", message_template) {
+http412_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPreconditionFailed$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_412 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_412")
+#' @rdname http
+http412 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http412")
 }
 #' @export
-error_412.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_412' method for ", class(x), call. = FALSE)
+http412.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http412' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_412.response <- error_412_
+http412.response <- http412_
 #' @export
-error_412.HttpResponse <- error_412_
+http412.HttpResponse <- http412_
 #' @export
-error_412.list <- error_412_
+http412.list <- http412_
 
-error_413_ <- function(x, behavior = "stop", message_template) {
+http413_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestEntityTooLarge$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_413 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_413")
+#' @rdname http
+http413 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http413")
 }
 #' @export
-error_413.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_413' method for ", class(x), call. = FALSE)
+http413.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http413' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_413.response <- error_413_
+http413.response <- http413_
 #' @export
-error_413.HttpResponse <- error_413_
+http413.HttpResponse <- http413_
 #' @export
-error_413.list <- error_413_
+http413.list <- http413_
 
-error_414_ <- function(x, behavior = "stop", message_template) {
+http414_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestURITooLong$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_414 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_414")
+#' @rdname http
+http414 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http414")
 }
 #' @export
-error_414.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_414' method for ", class(x), call. = FALSE)
+http414.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http414' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_414.response <- error_414_
+http414.response <- http414_
 #' @export
-error_414.HttpResponse <- error_414_
+http414.HttpResponse <- http414_
 #' @export
-error_414.list <- error_414_
+http414.list <- http414_
 
-error_415_ <- function(x, behavior = "stop", message_template) {
+http415_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnsupportedMediaType$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_415 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_415")
+#' @rdname http
+http415 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http415")
 }
 #' @export
-error_415.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_415' method for ", class(x), call. = FALSE)
+http415.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http415' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_415.response <- error_415_
+http415.response <- http415_
 #' @export
-error_415.HttpResponse <- error_415_
+http415.HttpResponse <- http415_
 #' @export
-error_415.list <- error_415_
+http415.list <- http415_
 
-error_416_ <- function(x, behavior = "stop", message_template) {
+http416_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestRangeNotSatisfiable$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_416 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_416")
+#' @rdname http
+http416 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http416")
 }
 #' @export
-error_416.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_416' method for ", class(x), call. = FALSE)
+http416.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http416' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_416.response <- error_416_
+http416.response <- http416_
 #' @export
-error_416.HttpResponse <- error_416_
+http416.HttpResponse <- http416_
 #' @export
-error_416.list <- error_416_
+http416.list <- http416_
 
-error_417_ <- function(x, behavior = "stop", message_template) {
+http417_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPExpectationFailed$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_417 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_417")
+#' @rdname http
+http417 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http417")
 }
 #' @export
-error_417.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_417' method for ", class(x), call. = FALSE)
+http417.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http417' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_417.response <- error_417_
+http417.response <- http417_
 #' @export
-error_417.HttpResponse <- error_417_
+http417.HttpResponse <- http417_
 #' @export
-error_417.list <- error_417_
+http417.list <- http417_
 
-error_418_ <- function(x, behavior = "stop", message_template) {
+http418_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTeaPot$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_418 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_418")
+#' @rdname http
+http418 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http418")
 }
 #' @export
-error_418.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_418' method for ", class(x), call. = FALSE)
+http418.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http418' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_418.response <- error_418_
+http418.response <- http418_
 #' @export
-error_418.HttpResponse <- error_418_
+http418.HttpResponse <- http418_
 #' @export
-error_418.list <- error_418_
+http418.list <- http418_
 
-error_419_ <- function(x, behavior = "stop", message_template) {
+http419_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAuthenticationTimeout$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_419 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_419")
+#' @rdname http
+http419 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http419")
 }
 #' @export
-error_419.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_419' method for ", class(x), call. = FALSE)
+http419.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http419' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_419.response <- error_419_
+http419.response <- http419_
 #' @export
-error_419.HttpResponse <- error_419_
+http419.HttpResponse <- http419_
 #' @export
-error_419.list <- error_419_
+http419.list <- http419_
 
-error_420_ <- function(x, behavior = "stop", message_template) {
+http420_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMethodFailure$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_420 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_420")
+#' @rdname http
+http420 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http420")
 }
 #' @export
-error_420.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_420' method for ", class(x), call. = FALSE)
+http420.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http420' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_420.response <- error_420_
+http420.response <- http420_
 #' @export
-error_420.HttpResponse <- error_420_
+http420.HttpResponse <- http420_
 #' @export
-error_420.list <- error_420_
+http420.list <- http420_
 
-error_422_ <- function(x, behavior = "stop", message_template) {
+http422_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnprocessableEntity$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_422 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_422")
+#' @rdname http
+http422 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http422")
 }
 #' @export
-error_422.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_422' method for ", class(x), call. = FALSE)
+http422.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http422' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_422.response <- error_422_
+http422.response <- http422_
 #' @export
-error_422.HttpResponse <- error_422_
+http422.HttpResponse <- http422_
 #' @export
-error_422.list <- error_422_
+http422.list <- http422_
 
-error_423_ <- function(x, behavior = "stop", message_template) {
+http423_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLocked$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_423 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_423")
+#' @rdname http
+http423 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http423")
 }
 #' @export
-error_423.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_423' method for ", class(x), call. = FALSE)
+http423.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http423' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_423.response <- error_423_
+http423.response <- http423_
 #' @export
-error_423.HttpResponse <- error_423_
+http423.HttpResponse <- http423_
 #' @export
-error_423.list <- error_423_
+http423.list <- http423_
 
-error_424_ <- function(x, behavior = "stop", message_template) {
+http424_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPFailedDependency$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_424 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_424")
+#' @rdname http
+http424 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http424")
 }
 #' @export
-error_424.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_424' method for ", class(x), call. = FALSE)
+http424.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http424' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_424.response <- error_424_
+http424.response <- http424_
 #' @export
-error_424.HttpResponse <- error_424_
+http424.HttpResponse <- http424_
 #' @export
-error_424.list <- error_424_
+http424.list <- http424_
 
-error_425_ <- function(x, behavior = "stop", message_template) {
+http425_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnorderedCollection$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_425 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_425")
+#' @rdname http
+http425 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http425")
 }
 #' @export
-error_425.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_425' method for ", class(x), call. = FALSE)
+http425.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http425' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_425.response <- error_425_
+http425.response <- http425_
 #' @export
-error_425.HttpResponse <- error_425_
+http425.HttpResponse <- http425_
 #' @export
-error_425.list <- error_425_
+http425.list <- http425_
 
-error_426_ <- function(x, behavior = "stop", message_template) {
+http426_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUpgradeRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_426 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_426")
+#' @rdname http
+http426 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http426")
 }
 #' @export
-error_426.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_426' method for ", class(x), call. = FALSE)
+http426.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http426' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_426.response <- error_426_
+http426.response <- http426_
 #' @export
-error_426.HttpResponse <- error_426_
+http426.HttpResponse <- http426_
 #' @export
-error_426.list <- error_426_
+http426.list <- http426_
 
-error_428_ <- function(x, behavior = "stop", message_template) {
+http428_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPreconditionRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_428 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_428")
+#' @rdname http
+http428 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http428")
 }
 #' @export
-error_428.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_428' method for ", class(x), call. = FALSE)
+http428.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http428' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_428.response <- error_428_
+http428.response <- http428_
 #' @export
-error_428.HttpResponse <- error_428_
+http428.HttpResponse <- http428_
 #' @export
-error_428.list <- error_428_
+http428.list <- http428_
 
-error_429_ <- function(x, behavior = "stop", message_template) {
+http429_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTooManyRequests$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_429 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_429")
+#' @rdname http
+http429 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http429")
 }
 #' @export
-error_429.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_429' method for ", class(x), call. = FALSE)
+http429.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http429' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_429.response <- error_429_
+http429.response <- http429_
 #' @export
-error_429.HttpResponse <- error_429_
+http429.HttpResponse <- http429_
 #' @export
-error_429.list <- error_429_
+http429.list <- http429_
 
-error_431_ <- function(x, behavior = "stop", message_template) {
+http431_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestHeaderFieldsTooLarge$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_431 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_431")
+#' @rdname http
+http431 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http431")
 }
 #' @export
-error_431.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_431' method for ", class(x), call. = FALSE)
+http431.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http431' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_431.response <- error_431_
+http431.response <- http431_
 #' @export
-error_431.HttpResponse <- error_431_
+http431.HttpResponse <- http431_
 #' @export
-error_431.list <- error_431_
+http431.list <- http431_
 
-error_440_ <- function(x, behavior = "stop", message_template) {
+http440_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLoginTimeout$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_440 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_440")
+#' @rdname http
+http440 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http440")
 }
 #' @export
-error_440.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_440' method for ", class(x), call. = FALSE)
+http440.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http440' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_440.response <- error_440_
+http440.response <- http440_
 #' @export
-error_440.HttpResponse <- error_440_
+http440.HttpResponse <- http440_
 #' @export
-error_440.list <- error_440_
+http440.list <- http440_
 
-error_444_ <- function(x, behavior = "stop", message_template) {
+http444_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoResponse$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_444 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_444")
+#' @rdname http
+http444 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http444")
 }
 #' @export
-error_444.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_444' method for ", class(x), call. = FALSE)
+http444.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http444' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_444.response <- error_444_
+http444.response <- http444_
 #' @export
-error_444.HttpResponse <- error_444_
+http444.HttpResponse <- http444_
 #' @export
-error_444.list <- error_444_
+http444.list <- http444_
 
-error_449_ <- function(x, behavior = "stop", message_template) {
+http449_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRetryWith$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_449 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_449")
+#' @rdname http
+http449 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http449")
 }
 #' @export
-error_449.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_449' method for ", class(x), call. = FALSE)
+http449.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http449' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_449.response <- error_449_
+http449.response <- http449_
 #' @export
-error_449.HttpResponse <- error_449_
+http449.HttpResponse <- http449_
 #' @export
-error_449.list <- error_449_
+http449.list <- http449_
 
-error_450_ <- function(x, behavior = "stop", message_template) {
+http450_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBlockedByWindowsParentalControls$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_450 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_450")
+#' @rdname http
+http450 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http450")
 }
 #' @export
-error_450.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_450' method for ", class(x), call. = FALSE)
+http450.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http450' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_450.response <- error_450_
+http450.response <- http450_
 #' @export
-error_450.HttpResponse <- error_450_
+http450.HttpResponse <- http450_
 #' @export
-error_450.list <- error_450_
+http450.list <- http450_
 
-error_451_ <- function(x, behavior = "stop", message_template) {
+http451_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnavailableForLegalReasons$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_451 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_451")
+#' @rdname http
+http451 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http451")
 }
 #' @export
-error_451.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_451' method for ", class(x), call. = FALSE)
+http451.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http451' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_451.response <- error_451_
+http451.response <- http451_
 #' @export
-error_451.HttpResponse <- error_451_
+http451.HttpResponse <- http451_
 #' @export
-error_451.list <- error_451_
+http451.list <- http451_
 
-error_494_ <- function(x, behavior = "stop", message_template) {
+http494_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestHeaderTooLarge$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_494 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_494")
+#' @rdname http
+http494 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http494")
 }
 #' @export
-error_494.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_494' method for ", class(x), call. = FALSE)
+http494.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http494' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_494.response <- error_494_
+http494.response <- http494_
 #' @export
-error_494.HttpResponse <- error_494_
+http494.HttpResponse <- http494_
 #' @export
-error_494.list <- error_494_
+http494.list <- http494_
 
-error_495_ <- function(x, behavior = "stop", message_template) {
+http495_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPCertError$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_495 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_495")
+#' @rdname http
+http495 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http495")
 }
 #' @export
-error_495.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_495' method for ", class(x), call. = FALSE)
+http495.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http495' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_495.response <- error_495_
+http495.response <- http495_
 #' @export
-error_495.HttpResponse <- error_495_
+http495.HttpResponse <- http495_
 #' @export
-error_495.list <- error_495_
+http495.list <- http495_
 
-error_496_ <- function(x, behavior = "stop", message_template) {
+http496_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoCert$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_496 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_496")
+#' @rdname http
+http496 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http496")
 }
 #' @export
-error_496.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_496' method for ", class(x), call. = FALSE)
+http496.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http496' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_496.response <- error_496_
+http496.response <- http496_
 #' @export
-error_496.HttpResponse <- error_496_
+http496.HttpResponse <- http496_
 #' @export
-error_496.list <- error_496_
+http496.list <- http496_
 
-error_497_ <- function(x, behavior = "stop", message_template) {
+http497_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPHTTPToHTTPS$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_497 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_497")
+#' @rdname http
+http497 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http497")
 }
 #' @export
-error_497.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_497' method for ", class(x), call. = FALSE)
+http497.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http497' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_497.response <- error_497_
+http497.response <- http497_
 #' @export
-error_497.HttpResponse <- error_497_
+http497.HttpResponse <- http497_
 #' @export
-error_497.list <- error_497_
+http497.list <- http497_
 
-error_498_ <- function(x, behavior = "stop", message_template) {
+http498_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTokenExpiredInvalid$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_498 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_498")
+#' @rdname http
+http498 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http498")
 }
 #' @export
-error_498.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_498' method for ", class(x), call. = FALSE)
+http498.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http498' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_498.response <- error_498_
+http498.response <- http498_
 #' @export
-error_498.HttpResponse <- error_498_
+http498.HttpResponse <- http498_
 #' @export
-error_498.list <- error_498_
+http498.list <- http498_
 
-error_499_ <- function(x, behavior = "stop", message_template) {
+http499_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPClientClosedRequest$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_499 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_499")
+#' @rdname http
+http499 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http499")
 }
 #' @export
-error_499.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_499' method for ", class(x), call. = FALSE)
+http499.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http499' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_499.response <- error_499_
+http499.response <- http499_
 #' @export
-error_499.HttpResponse <- error_499_
+http499.HttpResponse <- http499_
 #' @export
-error_499.list <- error_499_
+http499.list <- http499_
 
-error_500_ <- function(x, behavior = "stop", message_template) {
+http500_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPInternalServerError$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_500 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_500")
+#' @rdname http
+http500 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http500")
 }
 #' @export
-error_500.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_500' method for ", class(x), call. = FALSE)
+http500.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http500' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_500.response <- error_500_
+http500.response <- http500_
 #' @export
-error_500.HttpResponse <- error_500_
+http500.HttpResponse <- http500_
 #' @export
-error_500.list <- error_500_
+http500.list <- http500_
 
-error_501_ <- function(x, behavior = "stop", message_template) {
+http501_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotImplemented$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_501 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_501")
+#' @rdname http
+http501 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http501")
 }
 #' @export
-error_501.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_501' method for ", class(x), call. = FALSE)
+http501.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http501' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_501.response <- error_501_
+http501.response <- http501_
 #' @export
-error_501.HttpResponse <- error_501_
+http501.HttpResponse <- http501_
 #' @export
-error_501.list <- error_501_
+http501.list <- http501_
 
-error_502_ <- function(x, behavior = "stop", message_template) {
+http502_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBadGateway$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_502 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_502")
+#' @rdname http
+http502 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http502")
 }
 #' @export
-error_502.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_502' method for ", class(x), call. = FALSE)
+http502.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http502' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_502.response <- error_502_
+http502.response <- http502_
 #' @export
-error_502.HttpResponse <- error_502_
+http502.HttpResponse <- http502_
 #' @export
-error_502.list <- error_502_
+http502.list <- http502_
 
-error_503_ <- function(x, behavior = "stop", message_template) {
+http503_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPServiceUnavailable$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_503 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_503")
+#' @rdname http
+http503 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http503")
 }
 #' @export
-error_503.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_503' method for ", class(x), call. = FALSE)
+http503.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http503' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_503.response <- error_503_
+http503.response <- http503_
 #' @export
-error_503.HttpResponse <- error_503_
+http503.HttpResponse <- http503_
 #' @export
-error_503.list <- error_503_
+http503.list <- http503_
 
-error_504_ <- function(x, behavior = "stop", message_template) {
+http504_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPGatewayTimeout$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_504 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_504")
+#' @rdname http
+http504 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http504")
 }
 #' @export
-error_504.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_504' method for ", class(x), call. = FALSE)
+http504.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http504' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_504.response <- error_504_
+http504.response <- http504_
 #' @export
-error_504.HttpResponse <- error_504_
+http504.HttpResponse <- http504_
 #' @export
-error_504.list <- error_504_
+http504.list <- http504_
 
-error_505_ <- function(x, behavior = "stop", message_template) {
+http505_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPHTTPVersionNotSupported$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_505 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_505")
+#' @rdname http
+http505 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http505")
 }
 #' @export
-error_505.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_505' method for ", class(x), call. = FALSE)
+http505.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http505' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_505.response <- error_505_
+http505.response <- http505_
 #' @export
-error_505.HttpResponse <- error_505_
+http505.HttpResponse <- http505_
 #' @export
-error_505.list <- error_505_
+http505.list <- http505_
 
-error_506_ <- function(x, behavior = "stop", message_template) {
+http506_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPVariantAlsoNegotiates$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_506 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_506")
+#' @rdname http
+http506 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http506")
 }
 #' @export
-error_506.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_506' method for ", class(x), call. = FALSE)
+http506.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http506' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_506.response <- error_506_
+http506.response <- http506_
 #' @export
-error_506.HttpResponse <- error_506_
+http506.HttpResponse <- http506_
 #' @export
-error_506.list <- error_506_
+http506.list <- http506_
 
-error_507_ <- function(x, behavior = "stop", message_template) {
+http507_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPInsufficientStorage$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_507 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_507")
+#' @rdname http
+http507 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http507")
 }
 #' @export
-error_507.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_507' method for ", class(x), call. = FALSE)
+http507.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http507' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_507.response <- error_507_
+http507.response <- http507_
 #' @export
-error_507.HttpResponse <- error_507_
+http507.HttpResponse <- http507_
 #' @export
-error_507.list <- error_507_
+http507.list <- http507_
 
-error_508_ <- function(x, behavior = "stop", message_template) {
+http508_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLoopDetected$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_508 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_508")
+#' @rdname http
+http508 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http508")
 }
 #' @export
-error_508.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_508' method for ", class(x), call. = FALSE)
+http508.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http508' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_508.response <- error_508_
+http508.response <- http508_
 #' @export
-error_508.HttpResponse <- error_508_
+http508.HttpResponse <- http508_
 #' @export
-error_508.list <- error_508_
+http508.list <- http508_
 
-error_509_ <- function(x, behavior = "stop", message_template) {
+http509_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBandwidthLimitExceeded$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_509 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_509")
+#' @rdname http
+http509 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http509")
 }
 #' @export
-error_509.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_509' method for ", class(x), call. = FALSE)
+http509.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http509' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_509.response <- error_509_
+http509.response <- http509_
 #' @export
-error_509.HttpResponse <- error_509_
+http509.HttpResponse <- http509_
 #' @export
-error_509.list <- error_509_
+http509.list <- http509_
 
-error_510_ <- function(x, behavior = "stop", message_template) {
+http510_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotExtended$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_510 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_510")
+#' @rdname http
+http510 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http510")
 }
 #' @export
-error_510.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_510' method for ", class(x), call. = FALSE)
+http510.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http510' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_510.response <- error_510_
+http510.response <- http510_
 #' @export
-error_510.HttpResponse <- error_510_
+http510.HttpResponse <- http510_
 #' @export
-error_510.list <- error_510_
+http510.list <- http510_
 
-error_511_ <- function(x, behavior = "stop", message_template) {
+http511_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkAuthenticationRequired$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_511 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_511")
+#' @rdname http
+http511 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http511")
 }
 #' @export
-error_511.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_511' method for ", class(x), call. = FALSE)
+http511.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http511' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_511.response <- error_511_
+http511.response <- http511_
 #' @export
-error_511.HttpResponse <- error_511_
+http511.HttpResponse <- http511_
 #' @export
-error_511.list <- error_511_
+http511.list <- http511_
 
-error_598_ <- function(x, behavior = "stop", message_template) {
+http598_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkReadTimeoutError$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_598 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_598")
+#' @rdname http
+http598 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http598")
 }
 #' @export
-error_598.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_598' method for ", class(x), call. = FALSE)
+http598.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http598' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_598.response <- error_598_
+http598.response <- http598_
 #' @export
-error_598.HttpResponse <- error_598_
+http598.HttpResponse <- http598_
 #' @export
-error_598.list <- error_598_
+http598.list <- http598_
 
-error_599_ <- function(x, behavior = "stop", message_template) {
+http599_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkConnectTimeoutError$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_599 <- function(x, behavior = "stop", message_template) {
-  UseMethod("error_599")
+#' @rdname http
+http599 <- function(response, behavior = "stop", message_template) {
+  UseMethod("http599")
 }
 #' @export
-error_599.default <- function(x, behavior = "stop", message_template) {
-  stop("no 'error_599' method for ", class(x), call. = FALSE)
+http599.default <- function(response, behavior = "stop", message_template) {
+  stop("no 'http599' method for ", class(response), call. = FALSE)
 }
 #' @export
-error_599.response <- error_599_
+http599.response <- http599_
 #' @export
-error_599.HttpResponse <- error_599_
+http599.HttpResponse <- http599_
 #' @export
-error_599.list <- error_599_
+http599.list <- http599_
 

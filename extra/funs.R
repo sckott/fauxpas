@@ -1,24 +1,24 @@
 error_http_generator <- function(code) {
   sprintf(
-    "error_%2$s_ <- function(x, behavior = \"stop\", message_template) {
+    "http%2$s_ <- function(response, behavior = \"stop\", message_template) {
   tmp <- %s$new(behavior = behavior, message_template = message_template)
-  tmp$do(x)
+  tmp$do(response)
 }
 #' @export
-#' @rdname error_http
-error_%2$s <- function(x, behavior = \"stop\", message_template) {
-  UseMethod(\"error_%2$s\")
+#' @rdname http
+http%2$s <- function(response, behavior = \"stop\", message_template) {
+  UseMethod(\"http%2$s\")
 }
 #' @export
-error_%2$s.default <- function(x, behavior = \"stop\", message_template) {
-  stop(\"no 'error_%2$s' method for \", class(x), call. = FALSE)
+http%2$s.default <- function(response, behavior = \"stop\", message_template) {
+  stop(\"no 'http%2$s' method for \", class(response), call. = FALSE)
 }
 #' @export
-error_%2$s.response <- error_%2$s_
+http%2$s.response <- http%2$s_
 #' @export
-error_%2$s.HttpResponse <- error_%2$s_
+http%2$s.HttpResponse <- http%2$s_
 #' @export
-error_%2$s.list <- error_%2$s_\n",
+http%2$s.list <- http%2$s_\n",
 
     find_http_method(code), code
   )
