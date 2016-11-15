@@ -9,3 +9,5 @@ appveyor.yml
 NEWS.md
 cran-comments.md
 ^extra$
+^Makefile$
+

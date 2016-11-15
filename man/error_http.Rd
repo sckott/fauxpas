@@ -80,166 +80,162 @@
 \alias{error_http}
 \title{higher level error wrappers}
 \usage{
-error_100(x, behavior = "stop", message_template = NULL)
+error_100(x, behavior = "stop", message_template)
 
-error_101(x, behavior = "stop", message_template = NULL)
+error_101(x, behavior = "stop", message_template)
 
-error_102(x, behavior = "stop", message_template = NULL)
+error_102(x, behavior = "stop", message_template)
 
-error_200(x, behavior = "stop", message_template = NULL)
+error_200(x, behavior = "stop", message_template)
 
-error_201(x, behavior = "stop", message_template = NULL)
+error_201(x, behavior = "stop", message_template)
 
-error_202(x, behavior = "stop", message_template = NULL)
+error_202(x, behavior = "stop", message_template)
 
-error_203(x, behavior = "stop", message_template = NULL)
+error_203(x, behavior = "stop", message_template)
 
-error_204(x, behavior = "stop", message_template = NULL)
+error_204(x, behavior = "stop", message_template)
 
-error_205(x, behavior = "stop", message_template = NULL)
+error_205(x, behavior = "stop", message_template)
 
-error_206(x, behavior = "stop", message_template = NULL)
+error_206(x, behavior = "stop", message_template)
 
-error_207(x, behavior = "stop", message_template = NULL)
+error_207(x, behavior = "stop", message_template)
 
-error_208(x, behavior = "stop", message_template = NULL)
+error_208(x, behavior = "stop", message_template)
 
-error_226(x, behavior = "stop", message_template = NULL)
+error_226(x, behavior = "stop", message_template)
 
-error_300(x, behavior = "stop", message_template = NULL)
+error_300(x, behavior = "stop", message_template)
 
-error_301(x, behavior = "stop", message_template = NULL)
+error_301(x, behavior = "stop", message_template)
 
-error_302(x, behavior = "stop", message_template = NULL)
+error_302(x, behavior = "stop", message_template)
 
-error_303(x, behavior = "stop", message_template = NULL)
+error_303(x, behavior = "stop", message_template)
 
-error_304(x, behavior = "stop", message_template = NULL)
+error_304(x, behavior = "stop", message_template)
 
-error_305(x, behavior = "stop", message_template = NULL)
+error_305(x, behavior = "stop", message_template)
 
-error_306(x, behavior = "stop", message_template = NULL)
+error_306(x, behavior = "stop", message_template)
 
-error_307(x, behavior = "stop", message_template = NULL)
+error_307(x, behavior = "stop", message_template)
 
-error_308(x, behavior = "stop", message_template = NULL)
+error_308(x, behavior = "stop", message_template)
 
-error_400(x, behavior = "stop", message_template = NULL)
+error_400(x, behavior = "stop", message_template)
 
-error_401(x, behavior = "stop", message_template = NULL)
+error_401(x, behavior = "stop", message_template)
 
-error_402(x, behavior = "stop", message_template = NULL)
+error_402(x, behavior = "stop", message_template)
 
-error_403(x, behavior = "stop", message_template = NULL)
+error_403(x, behavior = "stop", message_template)
 
-error_404(x, behavior = "stop", message_template = NULL)
+error_404(x, behavior = "stop", message_template)
 
-error_405(x, behavior = "stop", message_template = NULL)
+error_405(x, behavior = "stop", message_template)
 
-error_406(x, behavior = "stop", message_template = NULL)
+error_406(x, behavior = "stop", message_template)
 
-error_407(x, behavior = "stop", message_template = NULL)
+error_407(x, behavior = "stop", message_template)
 
-error_408(x, behavior = "stop", message_template = NULL)
+error_408(x, behavior = "stop", message_template)
 
-error_409(x, behavior = "stop", message_template = NULL)
+error_409(x, behavior = "stop", message_template)
 
-error_410(x, behavior = "stop", message_template = NULL)
+error_410(x, behavior = "stop", message_template)
 
-error_411(x, behavior = "stop", message_template = NULL)
+error_411(x, behavior = "stop", message_template)
 
-error_412(x, behavior = "stop", message_template = NULL)
+error_412(x, behavior = "stop", message_template)
 
-error_413(x, behavior = "stop", message_template = NULL)
+error_413(x, behavior = "stop", message_template)
 
-error_414(x, behavior = "stop", message_template = NULL)
+error_414(x, behavior = "stop", message_template)
 
-error_415(x, behavior = "stop", message_template = NULL)
+error_415(x, behavior = "stop", message_template)
 
-error_416(x, behavior = "stop", message_template = NULL)
+error_416(x, behavior = "stop", message_template)
 
-error_417(x, behavior = "stop", message_template = NULL)
+error_417(x, behavior = "stop", message_template)
 
-error_418(x, behavior = "stop", message_template = NULL)
+error_418(x, behavior = "stop", message_template)
 
-error_419(x, behavior = "stop", message_template = NULL)
+error_419(x, behavior = "stop", message_template)
 
-error_420(x, behavior = "stop", message_template = NULL)
+error_420(x, behavior = "stop", message_template)
 
-error_422(x, behavior = "stop", message_template = NULL)
+error_422(x, behavior = "stop", message_template)
 
-error_423(x, behavior = "stop", message_template = NULL)
+error_423(x, behavior = "stop", message_template)
 
-error_424(x, behavior = "stop", message_template = NULL)
+error_424(x, behavior = "stop", message_template)
 
-error_425(x, behavior = "stop", message_template = NULL)
+error_425(x, behavior = "stop", message_template)
 
-error_426(x, behavior = "stop", message_template = NULL)
+error_426(x, behavior = "stop", message_template)
 
-error_428(x, behavior = "stop", message_template = NULL)
+error_428(x, behavior = "stop", message_template)
 
-error_429(x, behavior = "stop", message_template = NULL)
+error_429(x, behavior = "stop", message_template)
 
-error_431(x, behavior = "stop", message_template = NULL)
+error_431(x, behavior = "stop", message_template)
 
-error_440(x, behavior = "stop", message_template = NULL)
+error_440(x, behavior = "stop", message_template)
 
-error_444(x, behavior = "stop", message_template = NULL)
+error_444(x, behavior = "stop", message_template)
 
-error_449(x, behavior = "stop", message_template = NULL)
+error_449(x, behavior = "stop", message_template)
 
-error_450(x, behavior = "stop", message_template = NULL)
+error_450(x, behavior = "stop", message_template)
 
-error_451(x, behavior = "stop", message_template = NULL)
+error_451(x, behavior = "stop", message_template)
 
-error_494(x, behavior = "stop", message_template = NULL)
+error_494(x, behavior = "stop", message_template)
 
-error_495(x, behavior = "stop", message_template = NULL)
+error_495(x, behavior = "stop", message_template)
 
-error_496(x, behavior = "stop", message_template = NULL)
+error_496(x, behavior = "stop", message_template)
 
-error_497(x, behavior = "stop", message_template = NULL)
+error_497(x, behavior = "stop", message_template)
 
-error_498(x, behavior = "stop", message_template = NULL)
+error_498(x, behavior = "stop", message_template)
 
-error_499(x, behavior = "stop", message_template = NULL)
+error_499(x, behavior = "stop", message_template)
 
-error_500(x, behavior = "stop", message_template = NULL)
+error_500(x, behavior = "stop", message_template)
 
-error_501(x, behavior = "stop", message_template = NULL)
+error_501(x, behavior = "stop", message_template)
 
-error_502(x, behavior = "stop", message_template = NULL)
+error_502(x, behavior = "stop", message_template)
 
-error_503(x, behavior = "stop", message_template = NULL)
+error_503(x, behavior = "stop", message_template)
 
-error_504(x, behavior = "stop", message_template = NULL)
+error_504(x, behavior = "stop", message_template)
 
-error_505(x, behavior = "stop", message_template = NULL)
+error_505(x, behavior = "stop", message_template)
 
-error_506(x, behavior = "stop", message_template = NULL)
+error_506(x, behavior = "stop", message_template)
 
-error_507(x, behavior = "stop", message_template = NULL)
+error_507(x, behavior = "stop", message_template)
 
-error_508(x, behavior = "stop", message_template = NULL)
+error_508(x, behavior = "stop", message_template)
 
-error_509(x, behavior = "stop", message_template = NULL)
+error_509(x, behavior = "stop", message_template)
 
-error_510(x, behavior = "stop", message_template = NULL)
+error_510(x, behavior = "stop", message_template)
 
-error_511(x, behavior = "stop", message_template = NULL)
+error_511(x, behavior = "stop", message_template)
 
-error_598(x, behavior = "stop", message_template = NULL)
+error_598(x, behavior = "stop", message_template)
 
-error_599(x, behavior = "stop", message_template = NULL)
+error_599(x, behavior = "stop", message_template)
 
-error_http(x, behavior = "stop", message_template = NULL)
+error_http(x, behavior = "stop", message_template)
 }
 \arguments{
 \item{x}{the result of a call via \pkg{crul}, \pkg{curl}, or \pkg{httr}}
-
-\item{behavior}{Behavior of the error. See \code{\link{Error}}}
-
-\item{message_template}{A message template, not working yet}
 }
 \description{
 higher level error wrappers

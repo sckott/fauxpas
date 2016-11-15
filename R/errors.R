@@ -4,14 +4,18 @@
 #' @param behavior Behavior of the error. See Details
 #' @param call.	(logical) indicating if the call should become part
 #' of the error message. Default: \code{FALSE}
+#' @param message_template A message template. optional. use whisker
+#' templating. names to use are: reason, status, message. use in template
+#' like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
+#' \code{\{\{message\}\}}
 #' @details
 #' \strong{Methods}
 #' \itemize{
-#'   \item \code{do}
+#'   \item \code{do(response, mssg)}
 #'   Execute condition, whether it be message, warning, or error.
 #' }
 #'
-#' @section behavior options:
+#' @section behavior parameter options:
 #' \itemize{
 #'  \item stop - stop on error
 #'  \item warning - warning on error
@@ -20,9 +24,7 @@
 #' @format NULL
 #' @usage NULL
 #' @examples
-#' # create error classes
-#' (x <- Error$new())
-#' (y <- Error$new(message_template = "{{status}} - {{message}}"))
+#' Error$new()
 #'
 #' if (requireNamespace("crul")) {
 #'  library("crul")
@@ -41,6 +43,8 @@
 #'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
 #'  \dontrun{
 #'  error_414(res)
+#'  ## with template
+#'  error_414(res, message_template = "{{status}}\n  --> {{reason}}")
 #'  x$do(res)
 #'  x$do_verbose(res)
 #'  }
@@ -48,23 +52,42 @@
 #'  # i'm a teapot
 #'  x <- HTTPTeaPot$new(behavior = "stop")
 #'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+#'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)
+#'  }
+#'
+#'  # message template
+#'  y <- Error$new(message_template = "{{reason}} ............ {{status}}")
+#'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+#'  \dontrun{
+#'  y$do(res)
+#'  }
+#'
+#'  yy <- Error$new(message_template = "{{status}}\n  --> {{reason}}")
+#'  \dontrun{
+#'  yy$do(res)
+#'  }
+#'
+#'  ## with verbose message
+#'  yy <- HTTPBadGateway$new(
+#'    message_template = "HTTP({{status}}): {{reason}}\n  {{message}}"
+#'  )
+#'  \dontrun{
+#'  yy$do_verbose(res)
+#'  }
 #' }
 Error <- R6::R6Class(
   "Error",
-  #portable = FALSE,
+  portable = TRUE,
   public = list(
     name = 'HTTP Error',
-    behavior = NULL,
-    behavior_name = NULL,
+    behavior = "stop",
     behavior_type = NULL,
     call. = FALSE,
     message_template = NULL,
 
-    initialize = function(behavior = "stop", behavior_name,
-                          call. = FALSE, message_template) {
-
+    initialize = function(behavior = "stop", call. = FALSE, message_template) {
       stopifnot(inherits(behavior, "character"))
       self$behavior <- behavior
       if (!self$behavior %in% c('stop', 'warning', 'message')) {
@@ -73,7 +96,14 @@ Error <- R6::R6Class(
       self$behavior_type <- switch(
         self$behavior, stop = "error", warning = "warning", message = "message")
       if (!missing(call.)) self$call. <- call.
-      if (!missing(message_template)) self$message_template <- message_template
+      if (!missing(message_template)) {
+        if (!is.null(message_template)) {
+          self$message_template <- message_template
+        }
+      }
+      if (missing(message_template)) {
+        self$message_template <- "{{reason}} (HTTP {{status}}). {{message}}"
+      }
     },
 
     print = function(...) {
@@ -96,12 +126,8 @@ Error <- R6::R6Class(
     make_condition = function(x, type, call, mssg) {
       status <- private$fetch_status(x)
       reason <- httpcode::http_code(status)$message
-      message <- sprintf(
-        "%s (HTTP %d). %s",
-        reason,
-        status,
-        if (mssg == "") '' else paste0('\n  -  ', mssg)
-      )
+      xx <- list(reason = reason, status = status, message = mssg)
+      message <- whisker::whisker.render(self$message_template, xx)
       status_type <- (status %/% 100) * 100
       http_class <- paste0("http_", unique(c(status, status_type,
                                              "error")))

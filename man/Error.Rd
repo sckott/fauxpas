@@ -9,6 +9,11 @@
 
 \item{call.}{(logical) indicating if the call should become part
 of the error message. Default: \code{FALSE}}
+
+\item{message_template}{A message template. optional. use whisker
+templating. names to use are: reason, status, message. use in template
+like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
+\code{\{\{message\}\}}}
 }
 \description{
 Error class
@@ -16,11 +21,11 @@ Error class
 \details{
 \strong{Methods}
 \itemize{
-  \item \code{do}
+  \item \code{do(response, mssg)}
   Execute condition, whether it be message, warning, or error.
 }
 }
-\section{behavior options}{
+\section{behavior parameter options}{
 
 \itemize{
  \item stop - stop on error
@@ -29,9 +34,7 @@ Error class
 }
 }
 \examples{
-# create error classes
-(x <- Error$new())
-(y <- Error$new(message_template = "{{status}} - {{message}}"))
+Error$new()
 
 if (requireNamespace("crul")) {
  library("crul")
@@ -50,6 +53,8 @@ if (requireNamespace("crul")) {
  res <- HttpClient$new("https://httpbin.org/status/414")$get()
  \dontrun{
  error_414(res)
+ ## with template
+ error_414(res, message_template = "{{status}}\\n  --> {{reason}}")
  x$do(res)
  x$do_verbose(res)
  }
@@ -57,8 +62,30 @@ if (requireNamespace("crul")) {
  # i'm a teapot
  x <- HTTPTeaPot$new(behavior = "stop")
  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+ \dontrun{
  x$do(res)
  x$do_verbose(res)
+ }
+
+ # message template
+ y <- Error$new(message_template = "{{reason}} ............ {{status}}")
+ res <- HttpClient$new("https://httpbin.org/status/418")$get()
+ \dontrun{
+ y$do(res)
+ }
+
+ yy <- Error$new(message_template = "{{status}}\\n  --> {{reason}}")
+ \dontrun{
+ yy$do(res)
+ }
+
+ ## with verbose message
+ yy <- HTTPBadGateway$new(
+   message_template = "HTTP({{status}}): {{reason}}\\n  {{message}}"
+ )
+ \dontrun{
+ yy$do_verbose(res)
+ }
 }
 }
 \keyword{datasets}

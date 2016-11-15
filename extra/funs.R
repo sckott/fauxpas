@@ -1,16 +1,16 @@
 error_http_generator <- function(code) {
   sprintf(
-    "error_%2$s_ <- function(x, behavior = \"stop\", message_template = NULL) {
+    "error_%2$s_ <- function(x, behavior = \"stop\", message_template) {
   tmp <- %s$new(behavior = behavior, message_template = message_template)
   tmp$do(x)
 }
 #' @export
 #' @rdname error_http
-error_%2$s <- function(x, behavior = \"stop\", message_template = NULL) {
+error_%2$s <- function(x, behavior = \"stop\", message_template) {
   UseMethod(\"error_%2$s\")
 }
 #' @export
-error_%2$s.default <- function(x, behavior = \"stop\", message_template = NULL) {
+error_%2$s.default <- function(x, behavior = \"stop\", message_template) {
   stop(\"no 'error_%2$s' method for \", class(x), call. = FALSE)
 }
 #' @export
@@ -26,13 +26,13 @@ error_%2$s.list <- error_%2$s_\n",
 
 find_http_method <- function(code) {
   chnames <- vapply(
-    fauxpas::fauxpas_env$http_children,
+    fauxpas:::fauxpas_env$http_children,
     function(x) x$public_fields$name,
     ""
   )
   chnames[which(
     vapply(
-      fauxpas::fauxpas_env$http_children,
+      fauxpas:::fauxpas_env$http_children,
       function(x) x$public_fields$status_code,
       1
     ) == code
@@ -41,7 +41,7 @@ find_http_method <- function(code) {
 
 get_codes <- function(x) {
   vapply(
-    fauxpas::fauxpas_env$http_children,
+    fauxpas:::fauxpas_env$http_children,
     function(x) x$public_fields$status_code,
     1
   )

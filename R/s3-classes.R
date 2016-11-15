@@ -2,8 +2,8 @@
 #'
 #' @export
 #' @param x the result of a call via \pkg{crul}, \pkg{curl}, or \pkg{httr}
-#' @param behavior Behavior of the error. See \code{\link{Error}}
-#' @param message_template A message template, not working yet
+#' @inheritParams Error
+#' \code{\link{Error}} for details.
 #'
 #' @examples
 #' if (requireNamespace("crul")) {
@@ -41,15 +41,15 @@
 #'  error_http(res, behavior = "warning")
 #'  error_http(res, behavior = "message")
 #' }
-error_http <- function(x, behavior = "stop", message_template = NULL) {
+error_http <- function(x, behavior = "stop", message_template) {
   UseMethod("error_http")
 }
-error_http_ <- function(x, behavior = "stop", message_template = NULL) {
+error_http_ <- function(x, behavior = "stop", message_template) {
   tmp <- Error$new(behavior = behavior, message_template = message_template)
   tmp$do(x)
 }
 #' @export
-error_http.default <- function(x, behavior = "stop", message_template = NULL) {
+error_http.default <- function(x, behavior = "stop", message_template) {
   stop("no 'error_http' method for ", class(x), call. = FALSE)
 }
 #' @export

@@ -10,7 +10,8 @@ URL: https://github.com/ropenscilabs/fauxpas
 BugReports: https://github.com/ropenscilabs/fauxpas/issues
 Imports:
     R6 (>= 2.1.2),
-    httpcode (>= 0.2.0)
+    httpcode (>= 0.2.0),
+    whisker
 Suggests:
     crul (>= 0.1.0),
     curl (>= 2.2),
