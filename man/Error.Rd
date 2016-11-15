@@ -52,16 +52,16 @@ if (requireNamespace("crul")) {
  x <- HTTPRequestURITooLong$new(behavior = "stop")
  res <- HttpClient$new("https://httpbin.org/status/414")$get()
  \dontrun{
- error_414(res)
+ http414(res)
  ## with template
- error_414(res, message_template = "{{status}}\\n  --> {{reason}}")
+ http414(res, message_template = "{{status}}\\n  --> {{reason}}")
  x$do(res)
  x$do_verbose(res)
  }
 
- # i'm a teapot
- x <- HTTPTeaPot$new(behavior = "stop")
- res <- HttpClient$new("https://httpbin.org/status/418")$get()
+ # service unavailable
+ x <- HTTPServiceUnavailable$new(behavior = "stop")
+ res <- HttpClient$new("https://httpbin.org/status/503")$get()
  \dontrun{
  x$do(res)
  x$do_verbose(res)

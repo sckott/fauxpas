@@ -16,8 +16,10 @@ error_child_generator <- function(class_name, x) {
       name = class_name,
       status_code = x,
       mssg = gv(x),
+      #message_template = "{{reason}} (HTTP {{status}}).\n - {{message}}",
+
       do_verbose = function(response) {
-        super$do(response, self$mssg)
+        super$do(response, self$mssg, "{{reason}} (HTTP {{status}}).\n - {{message}}")
       }
     )
   )
@@ -47,9 +49,32 @@ error_child_generator <- function(class_name, x) {
 #'
 #' @examples
 #' if (requireNamespace("crul")) {
+#'
 #'  library("crul")
-#'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
-#'  x <- HTTPRequestURITooLong$new(behavior = "stop")
+#'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
+#'  x <- HTTPRequestURITooLong$new()
+#'  \dontrun{
+#'  x$do(res)
+#'  x$do_verbose(res)
+#'  }
+#'
+#'  # behavior
+#'  x <- HTTPRequestURITooLong$new(behavior = "warning")
+#'  \dontrun{
+#'  x$do(res)
+#'  x$do_verbose(res)
+#'  }
+#'
+#'  x <- HTTPRequestURITooLong$new(behavior = "message")
+#'  \dontrun{
+#'  x$do(res)
+#'  x$do_verbose(res)
+#'  }
+#'
+#'  # with message template
+#'  x <- HTTPRequestURITooLong$new(
+#'    message_template = "{{reason}} ............ {{status}}"
+#'  )
 #'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)

@@ -36,16 +36,16 @@
 #'  x <- HTTPRequestURITooLong$new(behavior = "stop")
 #'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
 #'  \dontrun{
-#'  error_414(res)
+#'  http414(res)
 #'  ## with template
-#'  error_414(res, message_template = "{{status}}\n  --> {{reason}}")
+#'  http414(res, message_template = "{{status}}\n  --> {{reason}}")
 #'  x$do(res)
 #'  x$do_verbose(res)
 #'  }
 #'
-#'  # i'm a teapot
-#'  x <- HTTPTeaPot$new(behavior = "stop")
-#'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+#'  # service unavailable
+#'  x <- HTTPServiceUnavailable$new(behavior = "stop")
+#'  res <- HttpClient$new("https://httpbin.org/status/503")$get()
 #'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)
@@ -92,11 +92,14 @@ Error <- R6::R6Class(
       if (!missing(call.)) self$call. <- call.
       if (!missing(message_template)) {
         if (!is.null(message_template)) {
+          if (!inherits(message_template, "character")) {
+            stop("'message_template' must be of class character", call. = FALSE)
+          }
           self$message_template <- message_template
         }
       }
       if (missing(message_template)) {
-        self$message_template <- "{{reason}} (HTTP {{status}}). {{message}}"
+        self$message_template <- "{{reason}} (HTTP {{status}})."
       }
     },
 
@@ -107,21 +110,21 @@ Error <- R6::R6Class(
       invisible()
     },
 
-    do = function(response, mssg = "") {
+    do = function(response, mssg = "", template = self$message_template) {
       call <- if (self$call.) sys.call(-1) else NULL
       eval(parse(text = self$behavior))(
-        private$make_condition(response, self$behavior_type, call, mssg)
+        private$make_condition(response, self$behavior_type, call, mssg, template)
       )
     }
   ),
 
   private = list(
 
-    make_condition = function(x, type, call, mssg) {
+    make_condition = function(x, type, call, mssg, template) {
       status <- private$fetch_status(x)
       reason <- httpcode::http_code(status)$message
       xx <- list(reason = reason, status = status, message = mssg)
-      message <- whisker::whisker.render(self$message_template, xx)
+      message <- whisker::whisker.render(template, xx)
       status_type <- (status %/% 100) * 100
       http_class <- paste0("http_", unique(c(status, status_type,
                                              "error")))
