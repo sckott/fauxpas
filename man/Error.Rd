@@ -55,6 +55,11 @@ if (requireNamespace("crul")) {
  x$do(res)
  x$do_verbose(res)
  }
+
+ x <- HTTPTeaPot$new(behavior = "stop")
+ res <- HttpClient$new("https://httpbin.org/status/418")$get()
+ x$do(res)
+ x$do_verbose(res)
 }
 }
 \keyword{datasets}

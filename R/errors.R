@@ -46,6 +46,11 @@
 #'  x$do(res)
 #'  x$do_verbose(res)
 #'  }
+#'
+#'  x <- HTTPTeaPot$new(behavior = "stop")
+#'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+#'  x$do(res)
+#'  x$do_verbose(res)
 #' }
 Error <- R6::R6Class(
   "Error",
@@ -98,7 +103,12 @@ Error <- R6::R6Class(
     make_condition = function(x, type, call, mssg) {
       status <- private$fetch_status(x)
       reason <- httpcode::http_code(status)$message
-      message <- sprintf("%s (HTTP %d).%s", reason, status, mssg)
+      message <- sprintf(
+        "%s (HTTP %d). %s",
+        reason,
+        status,
+        if (mssg == "") '' else paste0('\n  -  ', mssg)
+      )
       status_type <- (status %/% 100) * 100
       http_class <- paste0("http_", unique(c(status, status_type,
                                              "error")))

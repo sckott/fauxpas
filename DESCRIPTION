@@ -1,15 +1,16 @@
 Package: fauxpas
 Title: HTTP Error Helpers
 Description: HTTP error helpers. Currently supports integration
-    with crul, curl, and httr (RCurl may come later).
-Version: 0.0.4.9100
+    with crul, curl, and httr.
+Version: 0.0.7.9100
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/fauxpas
 BugReports: https://github.com/ropenscilabs/fauxpas/issues
 Imports:
-    R6 (>= 2.1.2)
+    R6 (>= 2.1.2),
+    httpcode (>= 0.2.0)
 Suggests:
     crul (>= 0.1.0),
     curl (>= 2.2),
