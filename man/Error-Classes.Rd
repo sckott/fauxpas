@@ -253,13 +253,6 @@ You can include that message in your condition by using \code{do_verbose}
   own custom function.
 }
 }
-\section{Functions}{
-
-\itemize{
- \item \code{\link{HTTPRequestURITooLong}}
- \item \code{\link{HTTPRequestNotFound}}
-}
-}
 \examples{
 if (requireNamespace("crul")) {
  library("crul")

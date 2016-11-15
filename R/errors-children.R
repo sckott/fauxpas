@@ -43,12 +43,6 @@ error_child_generator <- function(class_name, x) {
 #'   own custom function.
 #' }
 #'
-#' @section Functions:
-#' \itemize{
-#'  \item \code{\link{HTTPRequestURITooLong}}
-#'  \item \code{\link{HTTPRequestNotFound}}
-#' }
-#'
 #' @examples
 #' if (requireNamespace("crul")) {
 #'  library("crul")
