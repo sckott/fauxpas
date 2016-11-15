@@ -29,6 +29,15 @@ Links:
 
 ## Install
 
+CRAN version
+
+
+```r
+install.packages("fauxpas")
+```
+
+Dev version
+
 
 ```r
 devtools::install_github("ropenscilabs/fauxpas")
