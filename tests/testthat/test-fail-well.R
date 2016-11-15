@@ -8,5 +8,5 @@ test_that("Error fails well", {
   expect_error(Error$new(behavior = 5), "is not TRUE")
 
   expect_error(Error$new(behavior = "asdfadfs"),
-               "'behavior' must be one of stop, warning, message, or a function")
+               "'behavior' must be one of stop, warning, or message")
 })
