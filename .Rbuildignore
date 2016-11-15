@@ -6,7 +6,6 @@ README.html
 appveyor.yml
 ^\.httr-oauth$
 ^CONDUCT\.md$
-NEWS.md
 cran-comments.md
 ^extra$
 ^Makefile$
