@@ -8,8 +8,7 @@
 #' \strong{Methods}
 #' \itemize{
 #'   \item \code{do}
-#'   Execute condition, whether it be message, warning, error, or your
-#'   own custom function.
+#'   Execute condition, whether it be message, warning, or error.
 #' }
 #'
 #' @section behavior options:
@@ -17,15 +16,13 @@
 #'  \item stop - stop on error
 #'  \item warning - warning on error
 #'  \item message - message on error
-#'  \item function - use function on error
 #' }
 #' @format NULL
 #' @usage NULL
 #' @examples
 #' # create error classes
 #' (x <- Error$new())
-#' (y <- Error$new(fun = function(x) x^2))
-#' (z <- Error$new(message_template = "{{status}} - {{message}}"))
+#' (y <- Error$new(message_template = "{{status}} - {{message}}"))
 #'
 #' if (requireNamespace("crul")) {
 #'  library("crul")
@@ -39,6 +36,7 @@
 #'  (x <- Error$new(behavior = "warning"))
 #'  x$do(res)
 #'
+#'  # do vs. do_verbose
 #'  x <- HTTPRequestURITooLong$new(behavior = "stop")
 #'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
 #'  \dontrun{
@@ -47,6 +45,7 @@
 #'  x$do_verbose(res)
 #'  }
 #'
+#'  # i'm a teapot
 #'  x <- HTTPTeaPot$new(behavior = "stop")
 #'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
 #'  x$do(res)
@@ -60,18 +59,16 @@ Error <- R6::R6Class(
     behavior = NULL,
     behavior_name = NULL,
     behavior_type = NULL,
-    fun = NULL,
     call. = FALSE,
     message_template = NULL,
 
-    initialize = function(behavior = "stop", behavior_name, fun,
+    initialize = function(behavior = "stop", behavior_name,
                           call. = FALSE, message_template) {
 
       stopifnot(inherits(behavior, "character"))
-      if (!missing(fun)) self$fun <- fun
       self$behavior <- behavior
-      if (!self$behavior %in% c('stop', 'warning', 'message', 'function')) {
-        stop("'behavior' must be one of stop, warning, message, or a function", call. = FALSE)
+      if (!self$behavior %in% c('stop', 'warning', 'message')) {
+        stop("'behavior' must be one of stop, warning, or message", call. = FALSE)
       }
       self$behavior_type <- switch(
         self$behavior, stop = "error", warning = "warning", message = "message")
@@ -87,14 +84,10 @@ Error <- R6::R6Class(
     },
 
     do = function(response, mssg = "") {
-      if (self$behavior_type %in% c('error', 'warning', 'message')) {
-        call <- if (self$call.) sys.call(-1) else NULL
-        eval(parse(text = self$behavior))(
-          private$make_condition(response, self$behavior_type, call, mssg)
-        )
-      } else {
-        self$fun(private$make_condition(response))
-      }
+      call <- if (self$call.) sys.call(-1) else NULL
+      eval(parse(text = self$behavior))(
+        private$make_condition(response, self$behavior_type, call, mssg)
+      )
     }
   ),
 

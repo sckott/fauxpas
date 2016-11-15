@@ -17,8 +17,7 @@ Error class
 \strong{Methods}
 \itemize{
   \item \code{do}
-  Execute condition, whether it be message, warning, error, or your
-  own custom function.
+  Execute condition, whether it be message, warning, or error.
 }
 }
 \section{behavior options}{
@@ -27,14 +26,12 @@ Error class
  \item stop - stop on error
  \item warning - warning on error
  \item message - message on error
- \item function - use function on error
 }
 }
 \examples{
 # create error classes
 (x <- Error$new())
-(y <- Error$new(fun = function(x) x^2))
-(z <- Error$new(message_template = "{{status}} - {{message}}"))
+(y <- Error$new(message_template = "{{status}} - {{message}}"))
 
 if (requireNamespace("crul")) {
  library("crul")
@@ -48,6 +45,7 @@ if (requireNamespace("crul")) {
  (x <- Error$new(behavior = "warning"))
  x$do(res)
 
+ # do vs. do_verbose
  x <- HTTPRequestURITooLong$new(behavior = "stop")
  res <- HttpClient$new("https://httpbin.org/status/414")$get()
  \dontrun{
@@ -56,6 +54,7 @@ if (requireNamespace("crul")) {
  x$do_verbose(res)
  }
 
+ # i'm a teapot
  x <- HTTPTeaPot$new(behavior = "stop")
  res <- HttpClient$new("https://httpbin.org/status/418")$get()
  x$do(res)
