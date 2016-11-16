@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
 ```
 
 [![Build Status](https://travis-ci.org/ropenscilabs/fauxpas.svg)](https://travis-ci.org/ropenscilabs/fauxpas)
+[![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
 
 `fauxpas` does http errors
 

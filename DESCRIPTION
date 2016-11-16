@@ -7,7 +7,7 @@ Description: HTTP error helpers. Methods included for general purpose HTTP
     Includes ability to use custom whisker template to have any configuration
     of status code, short description, and verbose message. Currently 
     supports integration with 'crul', 'curl', and 'httr'.
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
