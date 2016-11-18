@@ -5,22 +5,20 @@ fauxpas
 
 [![Build Status](https://travis-ci.org/ropenscilabs/fauxpas.svg)](https://travis-ci.org/ropenscilabs/fauxpas)
 [![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/metacran/cranlogs.app)
 
 `fauxpas` does http errors
-
-The plan is:
 
 * HTTP error classes more in line with Ruby/Python/Etc.
 * An error class for each HTTP status in case a user wants to
 be specific to an HTTP status code, and general purpose handlers
 for any error
 * Work with any of the major R http clients: `crul`, `curl`, `httr`, (maybe
-`RCurl` later) - so use probably S3 dispatch to handle inputs from those
-clients appropriately
+`RCurl` later)
 * Provide flexiblity for what to do on an HTTP error, including
 custom functions and message templates
 
-Links:
+Info Links:
 
 * HTTP on wikipedia: <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol>
 * HTTP2 on wikipedia: <https://en.wikipedia.org/wiki/HTTP/2>
@@ -95,12 +93,12 @@ http404(resp)
 x <- HTTPNotFound$new()
 x$do_verbose(resp)
 #> Error:  Not Found (HTTP 404).
-#>  - The server has not found anything matching the Request-URI. No indication is 
-#> given of whether the condition is temporary or permanent. The 410 (Gone) status 
-#> code SHOULD be used if the server knows, through some internally configurable 
-#> mechanism, that an old resource is permanently unavailable and has no forwarding 
-#> address. #> This status code is commonly used when the server does not wish to 
-#> reveal exactly why the request has been refused, or when no other response is 
+#>  - The server has not found anything matching the Request-URI. No indication is
+#> given of whether the condition is temporary or permanent. The 410 (Gone) status
+#> code SHOULD be used if the server knows, through some internally configurable
+#> mechanism, that an old resource is permanently unavailable and has no forwarding
+#> address. #> This status code is commonly used when the server does not wish to
+#> reveal exactly why the request has been refused, or when no other response is
 #> applicable.
 ```
 
@@ -119,8 +117,8 @@ http405(res)
 x <- HTTPMethodNotAllowed$new()
 x$do_verbose(res)
 #> Error: Method Not Allowed (HTTP 405).
-#>  - The method specified in the Request-Line is not allowed for the resource 
-#> identified by the Request-URI. The response MUST include an Allow header 
+#>  - The method specified in the Request-Line is not allowed for the resource
+#> identified by the Request-URI. The response MUST include an Allow header
 #> containing a list of valid methods for the requested resource.
 ```
 
