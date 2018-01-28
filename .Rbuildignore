@@ -10,3 +10,4 @@ cran-comments.md
 ^extra$
 ^Makefile$
 man-roxygen
+^codemeta\.json$
