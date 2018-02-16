@@ -135,9 +135,11 @@ Error <- R6::R6Class(
     fetch_status = function(x) {
       switch(
         class(x)[1],
-        response = x$status_code,
-        HttpResponse = x$status_code,
-        list = x$status_code
+        response = x$status_code, # httr
+        Response = x$status_code, # webmockr
+        VcrResponse = x$stats$status_code, # vcr
+        HttpResponse = x$status_code, # crul
+        list = x$status_code # curl
       )
     }
 
