@@ -2,8 +2,8 @@
 % Please edit documentation in R/fauxpas-package.R
 \docType{package}
 \name{fauxpas-package}
-\alias{fauxpas}
 \alias{fauxpas-package}
+\alias{fauxpas}
 \title{HTTP Error Helpers}
 \description{
 HTTP Error Helpers
@@ -12,4 +12,3 @@ HTTP Error Helpers
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

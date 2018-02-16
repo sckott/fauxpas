@@ -33,6 +33,7 @@ Error class
  \item message - message on error
 }
 }
+
 \examples{
 Error$new()
 
@@ -92,4 +93,3 @@ if (requireNamespace("crul")) {
 \code{\link[fauxpas]{http}}, \code{\link[fauxpas]{Error-Classes}}
 }
 \keyword{datasets}
-
