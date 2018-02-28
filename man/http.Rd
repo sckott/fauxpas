@@ -257,6 +257,15 @@ higher level error wrappers
 }
 }
 
+\section{using package \pkg{curl}}{
+
+curl reponses are simple lists, so we have little to go on to make sure
+it's a response from the \pkg{curl} package. We check for list names
+internally but of course you could pass in a list with the right named
+elements, while the values are complete nonsense, in which case
+we'll probably fail badly. There's not much we can do.
+}
+
 \examples{
 if (requireNamespace("crul")) {
  library("crul")
@@ -280,8 +289,8 @@ if (requireNamespace("curl")) {
  library("curl")
  h <- curl::new_handle()
  curl::handle_setopt(h)
- resp <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
- \dontrun{http(resp)}
+ res <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
+ \dontrun{http(res)}
  http(res, behavior = "warning")
  http(res, behavior = "message")
 }

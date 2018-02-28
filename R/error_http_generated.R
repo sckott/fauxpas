@@ -1,3 +1,5 @@
+# generated from extra/generate.R
+
 http100_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPContinue$new(behavior = behavior, message_template = message_template)
   tmp$do(response)
@@ -16,7 +18,10 @@ http100.response <- http100_
 #' @export
 http100.HttpResponse <- http100_
 #' @export
-http100.list <- http100_
+http100.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http100_(response, behavior, message_template)
+}
 
 http101_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSwitchProtocol$new(behavior = behavior, message_template = message_template)
@@ -36,7 +41,10 @@ http101.response <- http101_
 #' @export
 http101.HttpResponse <- http101_
 #' @export
-http101.list <- http101_
+http101.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http101_(response, behavior, message_template)
+}
 
 http102_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPProcessing$new(behavior = behavior, message_template = message_template)
@@ -56,7 +64,10 @@ http102.response <- http102_
 #' @export
 http102.HttpResponse <- http102_
 #' @export
-http102.list <- http102_
+http102.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http102_(response, behavior, message_template)
+}
 
 http200_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPOK$new(behavior = behavior, message_template = message_template)
@@ -76,7 +87,10 @@ http200.response <- http200_
 #' @export
 http200.HttpResponse <- http200_
 #' @export
-http200.list <- http200_
+http200.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http200_(response, behavior, message_template)
+}
 
 http201_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPCreated$new(behavior = behavior, message_template = message_template)
@@ -96,7 +110,10 @@ http201.response <- http201_
 #' @export
 http201.HttpResponse <- http201_
 #' @export
-http201.list <- http201_
+http201.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http201_(response, behavior, message_template)
+}
 
 http202_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAccepted$new(behavior = behavior, message_template = message_template)
@@ -116,7 +133,10 @@ http202.response <- http202_
 #' @export
 http202.HttpResponse <- http202_
 #' @export
-http202.list <- http202_
+http202.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http202_(response, behavior, message_template)
+}
 
 http203_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNonAuthoritativeInformation$new(behavior = behavior, message_template = message_template)
@@ -136,7 +156,10 @@ http203.response <- http203_
 #' @export
 http203.HttpResponse <- http203_
 #' @export
-http203.list <- http203_
+http203.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http203_(response, behavior, message_template)
+}
 
 http204_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoContent$new(behavior = behavior, message_template = message_template)
@@ -156,7 +179,10 @@ http204.response <- http204_
 #' @export
 http204.HttpResponse <- http204_
 #' @export
-http204.list <- http204_
+http204.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http204_(response, behavior, message_template)
+}
 
 http205_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPResetContent$new(behavior = behavior, message_template = message_template)
@@ -176,7 +202,10 @@ http205.response <- http205_
 #' @export
 http205.HttpResponse <- http205_
 #' @export
-http205.list <- http205_
+http205.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http205_(response, behavior, message_template)
+}
 
 http206_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPartialContent$new(behavior = behavior, message_template = message_template)
@@ -196,7 +225,10 @@ http206.response <- http206_
 #' @export
 http206.HttpResponse <- http206_
 #' @export
-http206.list <- http206_
+http206.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http206_(response, behavior, message_template)
+}
 
 http207_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMultiStatus$new(behavior = behavior, message_template = message_template)
@@ -216,7 +248,10 @@ http207.response <- http207_
 #' @export
 http207.HttpResponse <- http207_
 #' @export
-http207.list <- http207_
+http207.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http207_(response, behavior, message_template)
+}
 
 http208_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAlreadyReported$new(behavior = behavior, message_template = message_template)
@@ -236,7 +271,10 @@ http208.response <- http208_
 #' @export
 http208.HttpResponse <- http208_
 #' @export
-http208.list <- http208_
+http208.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http208_(response, behavior, message_template)
+}
 
 http226_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPImUsed$new(behavior = behavior, message_template = message_template)
@@ -256,7 +294,10 @@ http226.response <- http226_
 #' @export
 http226.HttpResponse <- http226_
 #' @export
-http226.list <- http226_
+http226.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http226_(response, behavior, message_template)
+}
 
 http300_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMultipleChoices$new(behavior = behavior, message_template = message_template)
@@ -276,7 +317,10 @@ http300.response <- http300_
 #' @export
 http300.HttpResponse <- http300_
 #' @export
-http300.list <- http300_
+http300.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http300_(response, behavior, message_template)
+}
 
 http301_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMovedPermanently$new(behavior = behavior, message_template = message_template)
@@ -296,7 +340,10 @@ http301.response <- http301_
 #' @export
 http301.HttpResponse <- http301_
 #' @export
-http301.list <- http301_
+http301.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http301_(response, behavior, message_template)
+}
 
 http302_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPFound$new(behavior = behavior, message_template = message_template)
@@ -316,7 +363,10 @@ http302.response <- http302_
 #' @export
 http302.HttpResponse <- http302_
 #' @export
-http302.list <- http302_
+http302.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http302_(response, behavior, message_template)
+}
 
 http303_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSeeOther$new(behavior = behavior, message_template = message_template)
@@ -336,7 +386,10 @@ http303.response <- http303_
 #' @export
 http303.HttpResponse <- http303_
 #' @export
-http303.list <- http303_
+http303.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http303_(response, behavior, message_template)
+}
 
 http304_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotModified$new(behavior = behavior, message_template = message_template)
@@ -356,7 +409,10 @@ http304.response <- http304_
 #' @export
 http304.HttpResponse <- http304_
 #' @export
-http304.list <- http304_
+http304.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http304_(response, behavior, message_template)
+}
 
 http305_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUseProxy$new(behavior = behavior, message_template = message_template)
@@ -376,7 +432,10 @@ http305.response <- http305_
 #' @export
 http305.HttpResponse <- http305_
 #' @export
-http305.list <- http305_
+http305.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http305_(response, behavior, message_template)
+}
 
 http306_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPSwitchProxy$new(behavior = behavior, message_template = message_template)
@@ -396,7 +455,10 @@ http306.response <- http306_
 #' @export
 http306.HttpResponse <- http306_
 #' @export
-http306.list <- http306_
+http306.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http306_(response, behavior, message_template)
+}
 
 http307_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTemporaryRedirect$new(behavior = behavior, message_template = message_template)
@@ -416,7 +478,10 @@ http307.response <- http307_
 #' @export
 http307.HttpResponse <- http307_
 #' @export
-http307.list <- http307_
+http307.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http307_(response, behavior, message_template)
+}
 
 http308_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPermanentRedirect$new(behavior = behavior, message_template = message_template)
@@ -436,7 +501,10 @@ http308.response <- http308_
 #' @export
 http308.HttpResponse <- http308_
 #' @export
-http308.list <- http308_
+http308.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http308_(response, behavior, message_template)
+}
 
 http400_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBadRequest$new(behavior = behavior, message_template = message_template)
@@ -456,7 +524,10 @@ http400.response <- http400_
 #' @export
 http400.HttpResponse <- http400_
 #' @export
-http400.list <- http400_
+http400.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http400_(response, behavior, message_template)
+}
 
 http401_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnauthorized$new(behavior = behavior, message_template = message_template)
@@ -476,7 +547,10 @@ http401.response <- http401_
 #' @export
 http401.HttpResponse <- http401_
 #' @export
-http401.list <- http401_
+http401.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http401_(response, behavior, message_template)
+}
 
 http402_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPaymentRequired$new(behavior = behavior, message_template = message_template)
@@ -496,7 +570,10 @@ http402.response <- http402_
 #' @export
 http402.HttpResponse <- http402_
 #' @export
-http402.list <- http402_
+http402.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http402_(response, behavior, message_template)
+}
 
 http403_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPForbidden$new(behavior = behavior, message_template = message_template)
@@ -516,7 +593,10 @@ http403.response <- http403_
 #' @export
 http403.HttpResponse <- http403_
 #' @export
-http403.list <- http403_
+http403.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http403_(response, behavior, message_template)
+}
 
 http404_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotFound$new(behavior = behavior, message_template = message_template)
@@ -536,7 +616,10 @@ http404.response <- http404_
 #' @export
 http404.HttpResponse <- http404_
 #' @export
-http404.list <- http404_
+http404.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http404_(response, behavior, message_template)
+}
 
 http405_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMethodNotAllowed$new(behavior = behavior, message_template = message_template)
@@ -556,7 +639,10 @@ http405.response <- http405_
 #' @export
 http405.HttpResponse <- http405_
 #' @export
-http405.list <- http405_
+http405.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http405_(response, behavior, message_template)
+}
 
 http406_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotAcceptable$new(behavior = behavior, message_template = message_template)
@@ -576,7 +662,10 @@ http406.response <- http406_
 #' @export
 http406.HttpResponse <- http406_
 #' @export
-http406.list <- http406_
+http406.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http406_(response, behavior, message_template)
+}
 
 http407_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPProxyAuthenticationRequired$new(behavior = behavior, message_template = message_template)
@@ -596,7 +685,10 @@ http407.response <- http407_
 #' @export
 http407.HttpResponse <- http407_
 #' @export
-http407.list <- http407_
+http407.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http407_(response, behavior, message_template)
+}
 
 http408_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestTimeout$new(behavior = behavior, message_template = message_template)
@@ -616,7 +708,10 @@ http408.response <- http408_
 #' @export
 http408.HttpResponse <- http408_
 #' @export
-http408.list <- http408_
+http408.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http408_(response, behavior, message_template)
+}
 
 http409_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPConflict$new(behavior = behavior, message_template = message_template)
@@ -636,7 +731,10 @@ http409.response <- http409_
 #' @export
 http409.HttpResponse <- http409_
 #' @export
-http409.list <- http409_
+http409.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http409_(response, behavior, message_template)
+}
 
 http410_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPGone$new(behavior = behavior, message_template = message_template)
@@ -656,7 +754,10 @@ http410.response <- http410_
 #' @export
 http410.HttpResponse <- http410_
 #' @export
-http410.list <- http410_
+http410.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http410_(response, behavior, message_template)
+}
 
 http411_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLengthRequired$new(behavior = behavior, message_template = message_template)
@@ -676,7 +777,10 @@ http411.response <- http411_
 #' @export
 http411.HttpResponse <- http411_
 #' @export
-http411.list <- http411_
+http411.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http411_(response, behavior, message_template)
+}
 
 http412_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPreconditionFailed$new(behavior = behavior, message_template = message_template)
@@ -696,7 +800,10 @@ http412.response <- http412_
 #' @export
 http412.HttpResponse <- http412_
 #' @export
-http412.list <- http412_
+http412.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http412_(response, behavior, message_template)
+}
 
 http413_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestEntityTooLarge$new(behavior = behavior, message_template = message_template)
@@ -716,7 +823,10 @@ http413.response <- http413_
 #' @export
 http413.HttpResponse <- http413_
 #' @export
-http413.list <- http413_
+http413.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http413_(response, behavior, message_template)
+}
 
 http414_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestURITooLong$new(behavior = behavior, message_template = message_template)
@@ -736,7 +846,10 @@ http414.response <- http414_
 #' @export
 http414.HttpResponse <- http414_
 #' @export
-http414.list <- http414_
+http414.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http414_(response, behavior, message_template)
+}
 
 http415_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnsupportedMediaType$new(behavior = behavior, message_template = message_template)
@@ -756,7 +869,10 @@ http415.response <- http415_
 #' @export
 http415.HttpResponse <- http415_
 #' @export
-http415.list <- http415_
+http415.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http415_(response, behavior, message_template)
+}
 
 http416_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestRangeNotSatisfiable$new(behavior = behavior, message_template = message_template)
@@ -776,7 +892,10 @@ http416.response <- http416_
 #' @export
 http416.HttpResponse <- http416_
 #' @export
-http416.list <- http416_
+http416.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http416_(response, behavior, message_template)
+}
 
 http417_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPExpectationFailed$new(behavior = behavior, message_template = message_template)
@@ -796,7 +915,10 @@ http417.response <- http417_
 #' @export
 http417.HttpResponse <- http417_
 #' @export
-http417.list <- http417_
+http417.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http417_(response, behavior, message_template)
+}
 
 http418_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTeaPot$new(behavior = behavior, message_template = message_template)
@@ -816,7 +938,10 @@ http418.response <- http418_
 #' @export
 http418.HttpResponse <- http418_
 #' @export
-http418.list <- http418_
+http418.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http418_(response, behavior, message_template)
+}
 
 http419_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPAuthenticationTimeout$new(behavior = behavior, message_template = message_template)
@@ -836,7 +961,10 @@ http419.response <- http419_
 #' @export
 http419.HttpResponse <- http419_
 #' @export
-http419.list <- http419_
+http419.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http419_(response, behavior, message_template)
+}
 
 http420_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPMethodFailure$new(behavior = behavior, message_template = message_template)
@@ -856,7 +984,10 @@ http420.response <- http420_
 #' @export
 http420.HttpResponse <- http420_
 #' @export
-http420.list <- http420_
+http420.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http420_(response, behavior, message_template)
+}
 
 http422_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnprocessableEntity$new(behavior = behavior, message_template = message_template)
@@ -876,7 +1007,10 @@ http422.response <- http422_
 #' @export
 http422.HttpResponse <- http422_
 #' @export
-http422.list <- http422_
+http422.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http422_(response, behavior, message_template)
+}
 
 http423_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLocked$new(behavior = behavior, message_template = message_template)
@@ -896,7 +1030,10 @@ http423.response <- http423_
 #' @export
 http423.HttpResponse <- http423_
 #' @export
-http423.list <- http423_
+http423.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http423_(response, behavior, message_template)
+}
 
 http424_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPFailedDependency$new(behavior = behavior, message_template = message_template)
@@ -916,7 +1053,10 @@ http424.response <- http424_
 #' @export
 http424.HttpResponse <- http424_
 #' @export
-http424.list <- http424_
+http424.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http424_(response, behavior, message_template)
+}
 
 http425_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnorderedCollection$new(behavior = behavior, message_template = message_template)
@@ -936,7 +1076,10 @@ http425.response <- http425_
 #' @export
 http425.HttpResponse <- http425_
 #' @export
-http425.list <- http425_
+http425.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http425_(response, behavior, message_template)
+}
 
 http426_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUpgradeRequired$new(behavior = behavior, message_template = message_template)
@@ -956,7 +1099,10 @@ http426.response <- http426_
 #' @export
 http426.HttpResponse <- http426_
 #' @export
-http426.list <- http426_
+http426.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http426_(response, behavior, message_template)
+}
 
 http428_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPPreconditionRequired$new(behavior = behavior, message_template = message_template)
@@ -976,7 +1122,10 @@ http428.response <- http428_
 #' @export
 http428.HttpResponse <- http428_
 #' @export
-http428.list <- http428_
+http428.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http428_(response, behavior, message_template)
+}
 
 http429_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTooManyRequests$new(behavior = behavior, message_template = message_template)
@@ -996,7 +1145,10 @@ http429.response <- http429_
 #' @export
 http429.HttpResponse <- http429_
 #' @export
-http429.list <- http429_
+http429.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http429_(response, behavior, message_template)
+}
 
 http431_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestHeaderFieldsTooLarge$new(behavior = behavior, message_template = message_template)
@@ -1016,7 +1168,10 @@ http431.response <- http431_
 #' @export
 http431.HttpResponse <- http431_
 #' @export
-http431.list <- http431_
+http431.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http431_(response, behavior, message_template)
+}
 
 http440_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLoginTimeout$new(behavior = behavior, message_template = message_template)
@@ -1036,7 +1191,10 @@ http440.response <- http440_
 #' @export
 http440.HttpResponse <- http440_
 #' @export
-http440.list <- http440_
+http440.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http440_(response, behavior, message_template)
+}
 
 http444_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoResponse$new(behavior = behavior, message_template = message_template)
@@ -1056,7 +1214,10 @@ http444.response <- http444_
 #' @export
 http444.HttpResponse <- http444_
 #' @export
-http444.list <- http444_
+http444.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http444_(response, behavior, message_template)
+}
 
 http449_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRetryWith$new(behavior = behavior, message_template = message_template)
@@ -1076,7 +1237,10 @@ http449.response <- http449_
 #' @export
 http449.HttpResponse <- http449_
 #' @export
-http449.list <- http449_
+http449.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http449_(response, behavior, message_template)
+}
 
 http450_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBlockedByWindowsParentalControls$new(behavior = behavior, message_template = message_template)
@@ -1096,7 +1260,10 @@ http450.response <- http450_
 #' @export
 http450.HttpResponse <- http450_
 #' @export
-http450.list <- http450_
+http450.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http450_(response, behavior, message_template)
+}
 
 http451_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPUnavailableForLegalReasons$new(behavior = behavior, message_template = message_template)
@@ -1116,7 +1283,10 @@ http451.response <- http451_
 #' @export
 http451.HttpResponse <- http451_
 #' @export
-http451.list <- http451_
+http451.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http451_(response, behavior, message_template)
+}
 
 http494_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPRequestHeaderTooLarge$new(behavior = behavior, message_template = message_template)
@@ -1136,7 +1306,10 @@ http494.response <- http494_
 #' @export
 http494.HttpResponse <- http494_
 #' @export
-http494.list <- http494_
+http494.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http494_(response, behavior, message_template)
+}
 
 http495_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPCertError$new(behavior = behavior, message_template = message_template)
@@ -1156,7 +1329,10 @@ http495.response <- http495_
 #' @export
 http495.HttpResponse <- http495_
 #' @export
-http495.list <- http495_
+http495.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http495_(response, behavior, message_template)
+}
 
 http496_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNoCert$new(behavior = behavior, message_template = message_template)
@@ -1176,7 +1352,10 @@ http496.response <- http496_
 #' @export
 http496.HttpResponse <- http496_
 #' @export
-http496.list <- http496_
+http496.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http496_(response, behavior, message_template)
+}
 
 http497_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPHTTPToHTTPS$new(behavior = behavior, message_template = message_template)
@@ -1196,7 +1375,10 @@ http497.response <- http497_
 #' @export
 http497.HttpResponse <- http497_
 #' @export
-http497.list <- http497_
+http497.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http497_(response, behavior, message_template)
+}
 
 http498_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPTokenExpiredInvalid$new(behavior = behavior, message_template = message_template)
@@ -1216,7 +1398,10 @@ http498.response <- http498_
 #' @export
 http498.HttpResponse <- http498_
 #' @export
-http498.list <- http498_
+http498.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http498_(response, behavior, message_template)
+}
 
 http499_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPClientClosedRequest$new(behavior = behavior, message_template = message_template)
@@ -1236,7 +1421,10 @@ http499.response <- http499_
 #' @export
 http499.HttpResponse <- http499_
 #' @export
-http499.list <- http499_
+http499.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http499_(response, behavior, message_template)
+}
 
 http500_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPInternalServerError$new(behavior = behavior, message_template = message_template)
@@ -1256,7 +1444,10 @@ http500.response <- http500_
 #' @export
 http500.HttpResponse <- http500_
 #' @export
-http500.list <- http500_
+http500.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http500_(response, behavior, message_template)
+}
 
 http501_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotImplemented$new(behavior = behavior, message_template = message_template)
@@ -1276,7 +1467,10 @@ http501.response <- http501_
 #' @export
 http501.HttpResponse <- http501_
 #' @export
-http501.list <- http501_
+http501.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http501_(response, behavior, message_template)
+}
 
 http502_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBadGateway$new(behavior = behavior, message_template = message_template)
@@ -1296,7 +1490,10 @@ http502.response <- http502_
 #' @export
 http502.HttpResponse <- http502_
 #' @export
-http502.list <- http502_
+http502.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http502_(response, behavior, message_template)
+}
 
 http503_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPServiceUnavailable$new(behavior = behavior, message_template = message_template)
@@ -1316,7 +1513,10 @@ http503.response <- http503_
 #' @export
 http503.HttpResponse <- http503_
 #' @export
-http503.list <- http503_
+http503.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http503_(response, behavior, message_template)
+}
 
 http504_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPGatewayTimeout$new(behavior = behavior, message_template = message_template)
@@ -1336,7 +1536,10 @@ http504.response <- http504_
 #' @export
 http504.HttpResponse <- http504_
 #' @export
-http504.list <- http504_
+http504.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http504_(response, behavior, message_template)
+}
 
 http505_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPHTTPVersionNotSupported$new(behavior = behavior, message_template = message_template)
@@ -1356,7 +1559,10 @@ http505.response <- http505_
 #' @export
 http505.HttpResponse <- http505_
 #' @export
-http505.list <- http505_
+http505.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http505_(response, behavior, message_template)
+}
 
 http506_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPVariantAlsoNegotiates$new(behavior = behavior, message_template = message_template)
@@ -1376,7 +1582,10 @@ http506.response <- http506_
 #' @export
 http506.HttpResponse <- http506_
 #' @export
-http506.list <- http506_
+http506.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http506_(response, behavior, message_template)
+}
 
 http507_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPInsufficientStorage$new(behavior = behavior, message_template = message_template)
@@ -1396,7 +1605,10 @@ http507.response <- http507_
 #' @export
 http507.HttpResponse <- http507_
 #' @export
-http507.list <- http507_
+http507.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http507_(response, behavior, message_template)
+}
 
 http508_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPLoopDetected$new(behavior = behavior, message_template = message_template)
@@ -1416,7 +1628,10 @@ http508.response <- http508_
 #' @export
 http508.HttpResponse <- http508_
 #' @export
-http508.list <- http508_
+http508.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http508_(response, behavior, message_template)
+}
 
 http509_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPBandwidthLimitExceeded$new(behavior = behavior, message_template = message_template)
@@ -1436,7 +1651,10 @@ http509.response <- http509_
 #' @export
 http509.HttpResponse <- http509_
 #' @export
-http509.list <- http509_
+http509.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http509_(response, behavior, message_template)
+}
 
 http510_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNotExtended$new(behavior = behavior, message_template = message_template)
@@ -1456,7 +1674,10 @@ http510.response <- http510_
 #' @export
 http510.HttpResponse <- http510_
 #' @export
-http510.list <- http510_
+http510.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http510_(response, behavior, message_template)
+}
 
 http511_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkAuthenticationRequired$new(behavior = behavior, message_template = message_template)
@@ -1476,7 +1697,10 @@ http511.response <- http511_
 #' @export
 http511.HttpResponse <- http511_
 #' @export
-http511.list <- http511_
+http511.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http511_(response, behavior, message_template)
+}
 
 http598_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkReadTimeoutError$new(behavior = behavior, message_template = message_template)
@@ -1496,7 +1720,10 @@ http598.response <- http598_
 #' @export
 http598.HttpResponse <- http598_
 #' @export
-http598.list <- http598_
+http598.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http598_(response, behavior, message_template)
+}
 
 http599_ <- function(response, behavior = "stop", message_template) {
   tmp <- HTTPNetworkConnectTimeoutError$new(behavior = behavior, message_template = message_template)
@@ -1516,5 +1743,8 @@ http599.response <- http599_
 #' @export
 http599.HttpResponse <- http599_
 #' @export
-http599.list <- http599_
+http599.list <- function(response, behavior = "stop", message_template) {
+  check_curl_list(response)
+  http599_(response, behavior, message_template)
+}
 

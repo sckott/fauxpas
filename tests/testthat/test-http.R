@@ -33,3 +33,15 @@ test_that("http fails well", {
                "'message_template' must be of class character")
 })
 
+
+test_that("http fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  library("curl")
+  expect_error(http(list()),
+               "curl response list must have named elements")
+  expect_error(http(list(a = 5)),
+               "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http(alst), "is not TRUE")
+})
