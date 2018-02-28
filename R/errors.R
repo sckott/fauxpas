@@ -13,17 +13,22 @@
 #' @details
 #' \strong{Methods}
 #' \itemize{
-#'   \item \code{do(response, mssg)}
+#'   \item \code{do(response, mssg)} {
+#'
 #'   Execute condition, whether it be message, warning, or error.
 #'
-#'   - response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+#'   \itemize{
+#'    \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
 #'   Execute condition, whether it be message, warning, error, or your
 #'   own custom function. This method uses \code{message_template_verbose},
 #'   and uses it's default value.
-#'   - mssg: character string message to include in call. ignored if
+#'    \item mssg: character string message to include in call. ignored if
 #'   template does not have a \code{message} entry
+#'    }
+#'   }
 #'
 #'   \item \code{set_behavior(behavior)}
+#'
 #'   Set behavior, same as setting behavior on initializing with \code{$new()}
 #' }
 #'

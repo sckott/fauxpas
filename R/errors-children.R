@@ -77,15 +77,19 @@ error_child_generator <- function(class_name, x) {
 #' In addition to the methods documented in \code{\link{Error}}, these methods
 #' also have:
 #' \itemize{
-#'   \item \code{do_verbose(response, template)}
+#'   \item \code{do_verbose(response, template)} {
+#'
 #'   Execute condition, whether it be message, warning, or error.
 #'
-#'   - response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+#'   \itemize{
+#'    \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
 #'   Execute condition, whether it be message, warning, error, or your
 #'   own custom function. This method uses \code{message_template_verbose},
 #'   and uses it's default value.
-#'   - template: a template to use for the verbose message, see \code{\link{Error}}
+#'    \item template: a template to use for the verbose message, see \code{\link{Error}}
 #'   for details
+#'   }
+#'   }
 #' }
 #'
 #' @seealso \code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
