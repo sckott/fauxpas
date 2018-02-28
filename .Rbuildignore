@@ -5,7 +5,7 @@ README.html
 .travis.yml
 appveyor.yml
 ^\.httr-oauth$
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 cran-comments.md
 ^extra$
 ^Makefile$
