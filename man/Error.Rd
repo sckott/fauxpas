@@ -8,12 +8,19 @@
 \item{behavior}{Behavior of the error. See Details}
 
 \item{message_template}{A message template. optional. use whisker
-templating. names to use are: reason, status, message. use in template
-like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
-\code{\{\{message\}\}}}
+templating. names to use are: reason and status. use in template
+like \code{\{\{reason\}\}} and  \code{\{\{status\}\}}. Note that
+\code{\{\{message\}\}} that is used in \code{message_template_verbose}
+will be ignored here.}
 
 \item{call.}{(logical) indicating if the call should become part
 of the error message. Default: \code{FALSE}}
+
+\item{message_template_verbose}{A verbose message template. optional.
+use whisker templating. names to use are: reason, status, message.
+use in template like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
+\code{\{\{message\}\}}. Note that this is ignored here, but is
+used in the \code{HTTP*} methods (e.g. \code{HTTPBadRequest})}
 }
 \description{
 Error class
@@ -23,6 +30,14 @@ Error class
 \itemize{
   \item \code{do(response, mssg)}
   Execute condition, whether it be message, warning, or error.
+
+  - response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+  Execute condition, whether it be message, warning, error, or your
+  own custom function. This method uses \code{message_template_verbose},
+  and uses it's default value.
+  - mssg: character string message to include in call. ignored if
+  template does not have a \code{message} entry
+
   \item \code{set_behavior(behavior)}
   Set behavior, same as setting behavior on initializing with \code{$new()}
 }
@@ -82,17 +97,31 @@ if (requireNamespace("crul")) {
  }
 
  yy <- Error$new(message_template = "{{status}}\\n  --> {{reason}}")
+ yy$message_template
  \dontrun{
  yy$do(res)
  }
 
  ## with verbose message
- yy <- HTTPBadGateway$new(
+ library(crul)
+ res <- HttpClient$new("https://httpbin.org/status/401")$get()
+ yy <- HTTPUnauthorized$new()
+ zz <- HTTPUnauthorized$new(
    message_template = "HTTP({{status}}): {{reason}}\\n  {{message}}"
  )
+ yy$message_template; zz$message_template
  \dontrun{
+ yy$do(res)
+ zz$do(res)
  yy$do_verbose(res)
+ zz$do_verbose(res)
  }
+
+ yy <- Error$new(
+   message_template = "HTTP({{status}}): {{reason}}\\n  {{message}}"
+ )
+ yy$message_template
+ \dontrun{yy$do(res)}
 }
 }
 \seealso{

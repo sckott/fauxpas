@@ -13,6 +13,9 @@
 #' internally but of course you could pass in a list with the right named
 #' elements, while the values are complete nonsense, in which case
 #' we'll probably fail badly. There's not much we can do.
+#' 
+#' @note These \code{http*} methods only use \code{$do} and not 
+#' \code{$do_verbose}.
 #'
 #' @examples
 #' if (requireNamespace("crul")) {

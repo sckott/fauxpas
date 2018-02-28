@@ -7,6 +7,42 @@ gv <- function(x) {
   ) %||% ""
 }
 
+# error_child_generator <- function(class_name, x) {
+#   self <- super <- NULL
+#   R6::R6Class(
+#     class_name,
+#     inherit = Error,
+#     public = list(
+#       name = class_name,
+#       status_code = x,
+#       mssg = gv(x),
+#       message_template_verbose = NULL,
+#
+#       initialize = function(behavior = "stop", call. = FALSE, message_template,
+#                             message_template_verbose) {
+#         super$initialize(behavior = behavior, call. = call.,
+#                          message_template = message_template)
+#         if (missing(message_template_verbose)) {
+#           self$message_template_verbose <- "{{reason}} (HTTP {{status}}).\n - {{message}}"
+#         }
+#       },
+#
+#       print = function(...) {
+#         cat(sprintf("<%s>", self$name), sep = "\n")
+#         cat(paste0("  behavior: ", self$behavior), sep = "\n")
+#         cat(paste0("  message_template: ", self$message_template), sep = "\n")
+#         cat(paste0("  message_template_verbose: ", self$message_template_verbose), sep = "\n")
+#         invisible()
+#       },
+#
+#       do_verbose = function(response) {
+#         # super$do(response, self$mssg, "{{reason}} (HTTP {{status}}).\n - {{message}}")
+#         super$do(response, self$mssg, self$message_template_verbose)
+#       }
+#     )
+#   )
+# }
+
 error_child_generator <- function(class_name, x) {
   self <- super <- NULL
   R6::R6Class(
@@ -16,10 +52,9 @@ error_child_generator <- function(class_name, x) {
       name = class_name,
       status_code = x,
       mssg = gv(x),
-      #message_template = "{{reason}} (HTTP {{status}}).\n - {{message}}",
 
-      do_verbose = function(response) {
-        super$do(response, self$mssg, "{{reason}} (HTTP {{status}}).\n - {{message}}")
+      do_verbose = function(response, template = self$message_template_verbose) {
+        super$do(response, self$mssg, template)
       }
     )
   )
@@ -38,11 +73,19 @@ error_child_generator <- function(class_name, x) {
 #' (see below)
 #'
 #' \strong{Methods}
+#'
+#' In addition to the methods documented in \code{\link{Error}}, these methods
+#' also have:
 #' \itemize{
-#'   \item \code{do_verbose(response)}
-#'   \code{response} is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+#'   \item \code{do_verbose(response, template)}
+#'   Execute condition, whether it be message, warning, or error.
+#'
+#'   - response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
 #'   Execute condition, whether it be message, warning, error, or your
-#'   own custom function.
+#'   own custom function. This method uses \code{message_template_verbose},
+#'   and uses it's default value.
+#'   - template: a template to use for the verbose message, see \code{\link{Error}}
+#'   for details
 #' }
 #'
 #' @seealso \code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
@@ -53,6 +96,7 @@ error_child_generator <- function(class_name, x) {
 #'  library("crul")
 #'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
 #'  x <- HTTPRequestURITooLong$new()
+#'  x
 #'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)
@@ -72,9 +116,10 @@ error_child_generator <- function(class_name, x) {
 #'  }
 #'
 #'  # with message template
-#'  x <- HTTPRequestURITooLong$new(
-#'    message_template = "{{reason}} ............ {{status}}"
-#'  )
+#'  (x <- HTTPRequestURITooLong$new(
+#'    message_template = "{{reason}} ............ {{status}}",
+#'    message_template_verbose = "{{reason}} .>.>.>.>.>.> {{status}}\n {{message}}"
+#'  ))
 #'  \dontrun{
 #'  x$do(res)
 #'  x$do_verbose(res)

@@ -241,12 +241,17 @@ http(response, behavior = "stop", message_template)
 \item{behavior}{Behavior of the error. See Details}
 
 \item{message_template}{A message template. optional. use whisker
-templating. names to use are: reason, status, message. use in template
-like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
-\code{\{\{message\}\}}}
+templating. names to use are: reason and status. use in template
+like \code{\{\{reason\}\}} and  \code{\{\{status\}\}}. Note that
+\code{\{\{message\}\}} that is used in \code{message_template_verbose}
+will be ignored here.}
 }
 \description{
 higher level error wrappers
+}
+\note{
+These \code{http*} methods only use \code{$do} and not 
+\code{$do_verbose}.
 }
 \section{behavior parameter options}{
 
