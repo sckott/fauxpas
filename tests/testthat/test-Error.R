@@ -19,3 +19,19 @@ test_that("Error works", {
   expect_false(grepl("reason", z$message_template))
 })
 
+
+test_that("Error - can set behavior", {
+  skip_on_cran()
+
+  x <- Error$new()
+  expect_is(x, "Error")
+  expect_equal(x$behavior, "stop")
+  expect_equal(x$.__enclos_env__$private$behavior_type, "error")
+
+  # reset behavior
+  x$set_behavior("message")
+  expect_is(x, "Error")
+  expect_equal(x$behavior, "message")
+  expect_equal(x$.__enclos_env__$private$behavior_type, "message")
+})
+

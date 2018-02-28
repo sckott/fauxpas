@@ -10,6 +10,8 @@
 #' \itemize{
 #'   \item \code{do(response, mssg)}
 #'   Execute condition, whether it be message, warning, or error.
+#'   \item \code{set_behavior(behavior)}
+#'   Set behavior, same as setting behavior on initializing with \code{$new()}
 #' }
 #'
 #' @format NULL
@@ -19,6 +21,10 @@
 #'
 #' @examples
 #' Error$new()
+#' # reset behavior
+#' (z <- Error$new())
+#' z$set_behavior("warning")
+#' z
 #'
 #' if (requireNamespace("crul")) {
 #'  library("crul")
@@ -77,17 +83,16 @@ Error <- R6::R6Class(
   public = list(
     name = 'HTTP Error',
     behavior = "stop",
-    behavior_type = NULL,
     call. = FALSE,
     message_template = NULL,
 
     initialize = function(behavior = "stop", call. = FALSE, message_template) {
       stopifnot(inherits(behavior, "character"))
-      self$behavior <- behavior
-      if (!self$behavior %in% c('stop', 'warning', 'message')) {
+      if (!behavior %in% c('stop', 'warning', 'message')) {
         stop("'behavior' must be one of stop, warning, or message", call. = FALSE)
       }
-      self$behavior_type <- switch(
+      self$behavior <- behavior
+      private$behavior_type <- switch(
         self$behavior, stop = "error", warning = "warning", message = "message")
       if (!missing(call.)) self$call. <- call.
       if (!missing(message_template)) {
@@ -113,13 +118,24 @@ Error <- R6::R6Class(
     do = function(response, mssg = "", template = self$message_template) {
       call <- if (self$call.) sys.call(-1) else NULL
       eval(parse(text = self$behavior))(
-        private$make_condition(response, self$behavior_type, call, mssg, template)
+        private$make_condition(response, private$behavior_type, call, mssg, template)
       )
+    },
+
+    set_behavior = function(behavior) {
+      stopifnot(inherits(behavior, "character"))
+      if (!behavior %in% c('stop', 'warning', 'message')) {
+        stop("'behavior' must be one of stop, warning, or message", call. = FALSE)
+      }
+      self$behavior <- behavior
+      # and set behavior_type
+      private$behavior_type <- switch(
+        self$behavior, stop = "error", warning = "warning", message = "message")
     }
   ),
 
   private = list(
-
+    behavior_type = NULL,
     make_condition = function(x, type, call, mssg, template) {
       status <- private$fetch_status(x)
       reason <- httpcode::http_code(status)$message

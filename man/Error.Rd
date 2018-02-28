@@ -23,6 +23,8 @@ Error class
 \itemize{
   \item \code{do(response, mssg)}
   Execute condition, whether it be message, warning, or error.
+  \item \code{set_behavior(behavior)}
+  Set behavior, same as setting behavior on initializing with \code{$new()}
 }
 }
 \section{behavior parameter options}{
@@ -36,6 +38,10 @@ Error class
 
 \examples{
 Error$new()
+# reset behavior
+(z <- Error$new())
+z$set_behavior("warning")
+z
 
 if (requireNamespace("crul")) {
  library("crul")
