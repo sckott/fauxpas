@@ -1,5 +1,8 @@
 {
-  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
+  "@context": [
+    "http://purl.org/codemeta/2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "fauxpas",
   "description": "HTTP error helpers. Methods included for general purpose HTTP \n    error handling, as well as individual methods for every HTTP status\n    code, both via status code numbers as well as their descriptive names.\n    Supports ability to adjust behavior to stop, message or warning.\n    Includes ability to use custom whisker template to have any configuration\n    of status code, short description, and verbose message. Currently \n    supports integration with 'crul', 'curl', and 'httr'.",
@@ -7,7 +10,7 @@
   "codeRepository": "https://github.com/ropenscilabs/fauxpas",
   "issueTracker": "https://github.com/ropenscilabs/fauxpas/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.0.9000",
+  "version": "0.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -40,7 +43,7 @@
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": "0.1.0",
+      "version": "0.5.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -85,8 +88,19 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -135,5 +149,8 @@
   "contIntegration": "https://travis-ci.org/ropenscilabs/fauxpas",
   "releaseNotes": "https://github.com/ropenscilabs/fauxpas/blob/master/NEWS.md",
   "readme": "https://github.com/ropenscilabs/fauxpas/blob/master/README.md",
-  "fileSize": "14.662KB"
+  "fileSize": "28.394KB",
+  "applicationCategory": "Web",
+  "isPartOf": "https://ropensci.org",
+  "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error", ""]
 }
