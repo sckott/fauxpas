@@ -9,7 +9,8 @@ Description: HTTP error helpers. Methods included for general purpose HTTP
     supports integration with 'crul', 'curl', and 'httr'.
 Version: 0.2.0
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com")
+    email = "myrmecocystus@gmail.com", 
+    comment = c(ORCID = "0000-0003-1444-9135"))
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/fauxpas
 BugReports: https://github.com/ropenscilabs/fauxpas/issues
