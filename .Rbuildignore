@@ -11,3 +11,5 @@ cran-comments.md
 ^Makefile$
 man-roxygen
 ^codemeta\.json$
+revdep
+
