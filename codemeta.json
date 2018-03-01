@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropenscilabs/fauxpas",
   "issueTracker": "https://github.com/ropenscilabs/fauxpas/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.0",
+  "version": "0.2.0.9100",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -151,8 +151,8 @@
   "contIntegration": "https://travis-ci.org/ropenscilabs/fauxpas",
   "releaseNotes": "https://github.com/ropenscilabs/fauxpas/blob/master/NEWS.md",
   "readme": "https://github.com/ropenscilabs/fauxpas/blob/master/README.md",
-  "fileSize": "28.427KB",
+  "fileSize": "28.83KB",
   "applicationCategory": "Web",
   "isPartOf": "https://ropensci.org",
-  "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error", ""]
+  "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error"]
 }
