@@ -7,12 +7,13 @@ Description: HTTP error helpers. Methods included for general purpose HTTP
     Includes ability to use custom whisker template to have any configuration
     of status code, short description, and verbose message. Currently 
     supports integration with 'crul', 'curl', and 'httr'.
-Version: 0.1.8.9321
+Version: 0.1.9.9910
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
 URL: https://github.com/ropenscilabs/fauxpas
 BugReports: https://github.com/ropenscilabs/fauxpas/issues
+VignetteBuilder: knitr
 Imports:
     R6 (>= 2.1.2),
     httpcode (>= 0.2.0),
@@ -21,5 +22,7 @@ Suggests:
     crul (>= 0.5.0),
     curl (>= 2.2),
     httr (>= 1.2.0),
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.0.1

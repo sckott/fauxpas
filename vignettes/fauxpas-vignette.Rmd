@@ -1,0 +1,177 @@
+---
+title: "Introduction to the fauxpas package"
+author: "Scott Chamberlain"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+vignette: >
+  %\VignetteIndexEntry{Introduction to the fauxpas package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`fauxpas` does http errors!
+
+* HTTP error classes more in line with Ruby/Python/Etc. (psssttt: that is a good thing)
+* An error class for each HTTP status in case a user wants to
+be specific to an HTTP status code, and general purpose handlers
+for any error
+* Work with any of the major R http clients: `crul`, `curl`, `httr` (maybe
+`RCurl` later)
+* Provide flexiblity for what to do on an HTTP error, including
+custom functions and message templates
+
+To see example of `fauxpas` usage in other packages, check out the code within any of:
+
+- [nneo](https://github.com/ropenscilabs/nneo)
+- [rorcid](https://github.com/ropensci/rorcid)
+
+There are __a lot__ of functions in this package. Don't be scared away by that. 
+There are a few major sets of functions that are easy to understand and use:
+
+- There's a function `http()` that is a general purpose function that handles any 
+HTTP status codes. There's also a set of functions that follow the pattern `http*()`
+where `*` is a HTTP status code (e.g. `http201()`). You can use the general 
+purpose function `http()` or the one specific to the status code you are interested
+in.
+- There's a lower level `R6` class `Error` that is wrapped by `http()` that like 
+`http()` is a general purpose function that handles any HTTP status codes. 
+There's also a set of `R6` classes that follow the pattern `HTTP*()`
+where `*` is a HTTP name (e.g. `HTTPGatewayTimeout`). You can use the general 
+purpose class `Error()` or the one specific to the status you are interested
+in.
+
+`fauxpas` uses [httpcode][] under the hood - which holds all the info about HTTP status 
+codes. 
+
+## Install
+
+CRAN version
+
+```{r eval=FALSE}
+install.packages("fauxpas")
+```
+
+Dev version
+
+```{r eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("ropenscilabs/fauxpas")
+```
+
+```{r}
+library("fauxpas")
+```
+
+## Find classes for a HTTP status code
+
+When using `fauxpas` in another package I personally like to use the `HTTP*` classes.
+
+Since these are named with their HTTP reason (e.g. `HTTPGatewayTimeout`), it's not super
+straightforward to find them with a status code, which is what one always has as a response
+from a server. A good way to find these is with a new function `find_error_class()`. Just 
+pass the function a HTTP status code and it will find the matching class. 
+
+```{r}
+(x <- find_error_class(418))
+```
+
+Which returns the matching error class object, with which you can initialize a new object:
+
+```{r}
+x$new()
+```
+
+If you pass it a status code it doesn't know about it errors
+
+```{r eval=FALSE}
+find_error_class(999)
+#> Error in find_error_class(999) : no method found for 999
+```
+
+
+## Use fauxpas with HTTP clients
+
+### crul
+
+```{r eval=FALSE}
+library("crul")
+cli <- HttpClient$new("https://httpbin.org/status/414")
+res <- cli$get()
+http(res)
+#> Error: Request-URI Too Long (HTTP 414).
+http414(res)
+#> Error: Request-URI Too Long (HTTP 414).
+```
+
+```{r eval=FALSE}
+x <- HTTPRequestURITooLong$new()
+x$do_verbose(res)
+#> Error: Request-URI Too Long (HTTP 414).
+#> - The server is refusing to service the request because the Request-URI is
+#>    longer than the server is willing to interpret. This rare condition is only likely
+#>    to occur when a client has improperly converted a POST request to a GET request
+#>    with long query information, when the client has descended into a URI black hole
+#>    of redirection (e.g., a redirected URI prefix that points to a suffix of itself),
+#>    or when the server is under attack by a client attempting to exploit security
+#>    holes present in some servers using fixed-length buffers for reading or
+#>    manipulating the Request-URI.
+```
+
+### curl
+
+```{r eval=FALSE}
+library("curl")
+h <- curl::new_handle()
+curl::handle_setopt(h)
+resp <- curl::curl_fetch_memory("https://httpbin.org/status/404", h)
+http(resp)
+#> Error: Not Found (HTTP 404).
+http404(resp)
+#> Error: Not Found (HTTP 404).
+```
+
+```{r eval=FALSE}
+x <- HTTPNotFound$new()
+x$do_verbose(resp)
+#> Error:  Not Found (HTTP 404).
+#>  - The server has not found anything matching the Request-URI. No indication is
+#> given of whether the condition is temporary or permanent. The 410 (Gone) status
+#> code SHOULD be used if the server knows, through some internally configurable
+#> mechanism, that an old resource is permanently unavailable and has no forwarding
+#> address. #> This status code is commonly used when the server does not wish to
+#> reveal exactly why the request has been refused, or when no other response is
+#> applicable.
+```
+
+### httr
+
+```{r eval=FALSE}
+library("httr")
+res <- GET("https://httpbin.org/status/405")
+http405(res)
+#> Error: Method Not Allowed (HTTP 405).
+```
+
+```{r eval=FALSE}
+x <- HTTPMethodNotAllowed$new()
+x$do_verbose(res)
+#> Error: Method Not Allowed (HTTP 405).
+#>  - The method specified in the Request-Line is not allowed for the resource
+#> identified by the Request-URI. The response MUST include an Allow header
+#> containing a list of valid methods for the requested resource.
+```
+
+[httpcode]: https://github.com/sckott/httpcode
