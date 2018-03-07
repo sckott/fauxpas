@@ -68,7 +68,7 @@ Dev version
 
 ```{r eval=FALSE}
 # install.packages("remotes")
-remotes::install_github("ropenscilabs/fauxpas")
+remotes::install_github("ropensci/fauxpas")
 ```
 
 ```{r}

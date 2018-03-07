@@ -7,17 +7,17 @@
   "identifier": "fauxpas",
   "description": "HTTP error helpers. Methods included for general purpose HTTP \n    error handling, as well as individual methods for every HTTP status\n    code, both via status code numbers as well as their descriptive names.\n    Supports ability to adjust behavior to stop, message or warning.\n    Includes ability to use custom whisker template to have any configuration\n    of status code, short description, and verbose message. Currently \n    supports integration with 'crul', 'curl', and 'httr'.",
   "name": "fauxpas: HTTP Error Helpers",
-  "codeRepository": "https://github.com/ropenscilabs/fauxpas",
-  "issueTracker": "https://github.com/ropenscilabs/fauxpas/issues",
+  "codeRepository": "https://github.com/ropensci/fauxpas",
+  "issueTracker": "https://github.com/ropensci/fauxpas/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.2.0.9100",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.3",
+    "version": "3.4.4",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.3 Patched (2018-01-01 r74017)",
+  "runtimePlatform": "R version 3.4.4 beta (2018-03-05 r74359)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -148,10 +148,10 @@
       }
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropenscilabs/fauxpas",
-  "releaseNotes": "https://github.com/ropenscilabs/fauxpas/blob/master/NEWS.md",
-  "readme": "https://github.com/ropenscilabs/fauxpas/blob/master/README.md",
-  "fileSize": "28.83KB",
+  "contIntegration": "https://travis-ci.org/ropensci/fauxpas",
+  "releaseNotes": "https://github.com/ropensci/fauxpas/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/fauxpas/blob/master/README.md",
+  "fileSize": "28.825KB",
   "applicationCategory": "Web",
   "isPartOf": "https://ropensci.org",
   "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error"]

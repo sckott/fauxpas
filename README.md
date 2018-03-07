@@ -3,7 +3,7 @@ fauxpas
 
 
 
-[![Build Status](https://travis-ci.org/ropenscilabs/fauxpas.svg)](https://travis-ci.org/ropenscilabs/fauxpas)
+[![Build Status](https://travis-ci.org/ropensci/fauxpas.svg)](https://travis-ci.org/ropensci/fauxpas)
 [![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/metacran/cranlogs.app)
 
@@ -38,7 +38,7 @@ Dev version
 
 
 ```r
-devtools::install_github("ropenscilabs/fauxpas")
+devtools::install_github("ropensci/fauxpas")
 ```
 
 
@@ -124,7 +124,7 @@ x$do_verbose(res)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/fauxpas/issues)
+* Please [report any issues or bugs](https://github.com/ropensci/fauxpas/issues)
 * License: MIT
 * Get citation information for `fauxpas` in R doing `citation(package = 'fauxpas')`
 * Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
