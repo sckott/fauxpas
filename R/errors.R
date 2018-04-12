@@ -124,7 +124,8 @@ Error <- R6::R6Class(
 
       stopifnot(inherits(behavior, "character"))
       if (!behavior %in% c('stop', 'warning', 'message')) {
-        stop("'behavior' must be one of stop, warning, or message", call. = FALSE)
+        stop("'behavior' must be one of stop, warning, or message", 
+          call. = FALSE)
       }
       self$behavior <- behavior
       private$behavior_type <- switch(
@@ -135,7 +136,8 @@ Error <- R6::R6Class(
       if (!missing(message_template)) {
         if (!is.null(message_template)) {
           if (!inherits(message_template, "character")) {
-            stop("'message_template' must be of class character", call. = FALSE)
+            stop("'message_template' must be of class character", 
+              call. = FALSE)
           }
           self$message_template <- message_template
         }
@@ -147,7 +149,8 @@ Error <- R6::R6Class(
       if (!missing(message_template_verbose)) {
         if (!is.null(message_template_verbose)) {
           if (!inherits(message_template_verbose, "character")) {
-            stop("'message_template_verbose' must be of class character", call. = FALSE)
+            stop("'message_template_verbose' must be of class character", 
+              call. = FALSE)
           }
           self$message_template_verbose <- message_template_verbose
         }
@@ -177,7 +180,8 @@ Error <- R6::R6Class(
     set_behavior = function(behavior) {
       stopifnot(inherits(behavior, "character"))
       if (!behavior %in% c('stop', 'warning', 'message')) {
-        stop("'behavior' must be one of stop, warning, or message", call. = FALSE)
+        stop("'behavior' must be one of stop, warning, or message", 
+          call. = FALSE)
       }
       self$behavior <- behavior
       # and set behavior_type
@@ -213,3 +217,14 @@ Error <- R6::R6Class(
 
   )
 )
+
+fetch_status <- function(x) {
+  switch(
+    class(x)[1],
+    response = x$status_code, # httr
+    Response = x$status_code, # webmockr
+    VcrResponse = x$stats$status_code, # vcr
+    HttpResponse = x$status_code, # crul
+    list = x$status_code # curl
+  )
+}
