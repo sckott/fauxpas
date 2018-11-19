@@ -55,6 +55,15 @@
 #'  http(res, behavior = "warning")
 #'  http(res, behavior = "message")
 #' }
+#' 
+#' # muffle responses
+#' if (requireNamespace("crul")) {
+#'  library("crul")
+#'  res <- HttpClient$new("https://httpbin.org")$get("status/201")
+#'  \dontrun{http(res)}
+#'  http(res, behavior = "warning")
+#'  http(res, muffle = TRUE)
+#' }
 http <- function(response, behavior = "auto", message_template, muffle = FALSE) {
   UseMethod("http")
 }

@@ -1,4 +1,4 @@
-#' @param behavior Behavior of the error. See Details
+#' @param behavior Behavior of the error. default: auto. See Details
 #' @param message_template A message template. optional. use whisker
 #' templating. names to use are: reason and status. use in template
 #' like \code{\{\{reason\}\}} and  \code{\{\{status\}\}}. Note that

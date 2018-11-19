@@ -1,3 +1,12 @@
+fauxpas 0.5.0
+=============
+
+### NEW FEATURES
+
+* changed default for parameter `behavior` in function `http()` to `auto` instead of `stop` (#12)
+* `http()` gains new parameter `muffle` (logical) to optionally muffle any warning/message from http status codes in series  (#12)
+
+
 fauxpas 0.2.0
 =============
 
