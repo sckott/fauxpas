@@ -45,6 +45,7 @@
 \alias{HTTPTeaPot}
 \alias{HTTPAuthenticationTimeout}
 \alias{HTTPMethodFailure}
+\alias{HTTPMisdirectedRequest}
 \alias{HTTPUnprocessableEntity}
 \alias{HTTPLocked}
 \alias{HTTPFailedDependency}
@@ -78,6 +79,14 @@
 \alias{HTTPNetworkAuthenticationRequired}
 \alias{HTTPNetworkReadTimeoutError}
 \alias{HTTPNetworkConnectTimeoutError}
+\alias{HTTPWebServerReturnedUnknownError}
+\alias{HTTPWebServerIsDown}
+\alias{HTTPConnectionTimedOut}
+\alias{HTTPOriginIsUnreachable}
+\alias{HTTPATimeoutOccurred}
+\alias{HTTPSSLHandshakeFailed}
+\alias{HTTPInvalidSSLCertificate}
+\alias{HTTPRailgunError}
 \title{Individual error classes}
 \description{
 These error classes are for each HTTP error, and inherit from

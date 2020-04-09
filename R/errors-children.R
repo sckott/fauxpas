@@ -321,6 +321,10 @@ HTTPMethodFailure <- error_child_generator("HTTPMethodFailure", 420)
 
 #' @export
 #' @rdname Error-Classes
+HTTPMisdirectedRequest <- error_child_generator("HTTPMisdirectedRequest", 421)
+
+#' @export
+#' @rdname Error-Classes
 HTTPUnprocessableEntity <- error_child_generator("HTTPUnprocessableEntity", 422)
 
 #' @export
@@ -456,6 +460,39 @@ HTTPNetworkReadTimeoutError <- error_child_generator("HTTPNetworkReadTimeoutErro
 HTTPNetworkConnectTimeoutError <- error_child_generator("HTTPNetworkConnectTimeoutError", 599)
 
 
+# Cloudflare
+#' @export
+#' @rdname Error-Classes
+HTTPWebServerReturnedUnknownError <- error_child_generator("HTTPWebServerReturnedUnknownError", 520)
+
+#' @export
+#' @rdname Error-Classes
+HTTPWebServerIsDown <- error_child_generator("HTTPWebServerIsDown", 521)
+
+#' @export
+#' @rdname Error-Classes
+HTTPConnectionTimedOut <- error_child_generator("HTTPConnectionTimedOut", 522)
+
+#' @export
+#' @rdname Error-Classes
+HTTPOriginIsUnreachable <- error_child_generator("HTTPOriginIsUnreachable", 523)
+
+#' @export
+#' @rdname Error-Classes
+HTTPATimeoutOccurred <- error_child_generator("HTTPATimeoutOccurred", 524)
+
+#' @export
+#' @rdname Error-Classes
+HTTPSSLHandshakeFailed <- error_child_generator("HTTPSSLHandshakeFailed", 525)
+
+#' @export
+#' @rdname Error-Classes
+HTTPInvalidSSLCertificate <- error_child_generator("HTTPInvalidSSLCertificate ", 526)
+
+#' @export
+#' @rdname Error-Classes
+HTTPRailgunError <- error_child_generator("HTTPRailgunError", 527)
+
 
 ## all children
 fauxpas_env <- new.env()
@@ -469,7 +506,8 @@ assign("http_children", list(
   HTTPProxyAuthenticationRequired, HTTPRequestTimeout, HTTPConflict, HTTPGone, HTTPLengthRequired,
   HTTPPreconditionFailed, HTTPRequestEntityTooLarge, HTTPRequestURITooLong,
   HTTPUnsupportedMediaType, HTTPRequestRangeNotSatisfiable, HTTPExpectationFailed,
-  HTTPTeaPot, HTTPAuthenticationTimeout, HTTPMethodFailure, HTTPUnprocessableEntity,
+  HTTPTeaPot, HTTPAuthenticationTimeout, HTTPMethodFailure, HTTPMisdirectedRequest,
+  HTTPUnprocessableEntity,
   HTTPLocked, HTTPFailedDependency, HTTPUnorderedCollection, HTTPUpgradeRequired,
   HTTPPreconditionRequired, HTTPTooManyRequests, HTTPRequestHeaderFieldsTooLarge,
   HTTPLoginTimeout, HTTPNoResponse, HTTPRetryWith, HTTPBlockedByWindowsParentalControls,
@@ -478,5 +516,7 @@ assign("http_children", list(
   HTTPNotImplemented, HTTPBadGateway, HTTPServiceUnavailable, HTTPGatewayTimeout,
   HTTPHTTPVersionNotSupported, HTTPVariantAlsoNegotiates, HTTPInsufficientStorage,
   HTTPLoopDetected, HTTPBandwidthLimitExceeded, HTTPNotExtended, HTTPNetworkAuthenticationRequired,
-  HTTPNetworkReadTimeoutError, HTTPNetworkConnectTimeoutError
+  HTTPNetworkReadTimeoutError, HTTPNetworkConnectTimeoutError, HTTPWebServerReturnedUnknownError,
+  HTTPWebServerIsDown, HTTPConnectionTimedOut, HTTPOriginIsUnreachable, HTTPATimeoutOccurred,
+  HTTPSSLHandshakeFailed, HTTPInvalidSSLCertificate, HTTPRailgunError
 ), envir = fauxpas_env)
