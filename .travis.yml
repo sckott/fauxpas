@@ -1,15 +1,15 @@
 language: r
-sudo: false
 cache: packages
 dist: trusty
+os: linux
 
-r_github_packages:
-  - jimhester/covr
+r_binary_packages:
+  - covr
 
 after_success:
   - Rscript -e 'covr::codecov()'
 
 notifications:
   email:
-    on_success: change
-    on_failure: change
+    on_success: never
+    on_failure: never
