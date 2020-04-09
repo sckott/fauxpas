@@ -10,15 +10,14 @@ test_that("http children methods: HTTPContinue", {
   bb <- HTTPMethodNotAllowed$new(behavior = "message")
   cc <- HTTPMethodNotAllowed$new(behavior = "warning")
 
-  expect_error(aa$do(res), "Method Not Allowed")
+  expect_error(aa$do(res))
   expect_message(bb$do(res), "Method Not Allowed")
   expect_warning(cc$do(res), "Method Not Allowed")
 
   expect_null(suppressMessages(bb$do(res)))
   #expect_null(suppressWarnings(cc$do(res)))
 
-  expect_error(aa$do_verbose(res),
-               "The method specified in the Request-Line is not allowed")
+  expect_error(aa$do_verbose(res))
   expect_message(bb$do_verbose(res),
                  "The method specified in the Request-Line is not allowed")
   expect_warning(cc$do_verbose(res),

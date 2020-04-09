@@ -8,7 +8,7 @@ test_that("http works", {
 
   expect_message(http(res, behavior = "message"), "I'm a teapot")
   expect_warning(http(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http(res), "I'm a teapot")
+  expect_error(http(res))
 
   expect_null(suppressMessages(http(res, behavior = "message")))
   #expect_null(suppressWarnings(http(res, behavior = "warning")))

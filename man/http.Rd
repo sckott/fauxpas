@@ -80,157 +80,157 @@
 \alias{http}
 \title{higher level error wrappers}
 \usage{
-http100(response, behavior = "stop", message_template)
+http100(response, behavior = "auto", message_template, muffle = FALSE)
 
-http101(response, behavior = "stop", message_template)
+http101(response, behavior = "auto", message_template, muffle = FALSE)
 
-http102(response, behavior = "stop", message_template)
+http102(response, behavior = "auto", message_template, muffle = FALSE)
 
-http200(response, behavior = "stop", message_template)
+http200(response, behavior = "auto", message_template, muffle = FALSE)
 
-http201(response, behavior = "stop", message_template)
+http201(response, behavior = "auto", message_template, muffle = FALSE)
 
-http202(response, behavior = "stop", message_template)
+http202(response, behavior = "auto", message_template, muffle = FALSE)
 
-http203(response, behavior = "stop", message_template)
+http203(response, behavior = "auto", message_template, muffle = FALSE)
 
-http204(response, behavior = "stop", message_template)
+http204(response, behavior = "auto", message_template, muffle = FALSE)
 
-http205(response, behavior = "stop", message_template)
+http205(response, behavior = "auto", message_template, muffle = FALSE)
 
-http206(response, behavior = "stop", message_template)
+http206(response, behavior = "auto", message_template, muffle = FALSE)
 
-http207(response, behavior = "stop", message_template)
+http207(response, behavior = "auto", message_template, muffle = FALSE)
 
-http208(response, behavior = "stop", message_template)
+http208(response, behavior = "auto", message_template, muffle = FALSE)
 
-http226(response, behavior = "stop", message_template)
+http226(response, behavior = "auto", message_template, muffle = FALSE)
 
-http300(response, behavior = "stop", message_template)
+http300(response, behavior = "auto", message_template, muffle = FALSE)
 
-http301(response, behavior = "stop", message_template)
+http301(response, behavior = "auto", message_template, muffle = FALSE)
 
-http302(response, behavior = "stop", message_template)
+http302(response, behavior = "auto", message_template, muffle = FALSE)
 
-http303(response, behavior = "stop", message_template)
+http303(response, behavior = "auto", message_template, muffle = FALSE)
 
-http304(response, behavior = "stop", message_template)
+http304(response, behavior = "auto", message_template, muffle = FALSE)
 
-http305(response, behavior = "stop", message_template)
+http305(response, behavior = "auto", message_template, muffle = FALSE)
 
-http306(response, behavior = "stop", message_template)
+http306(response, behavior = "auto", message_template, muffle = FALSE)
 
-http307(response, behavior = "stop", message_template)
+http307(response, behavior = "auto", message_template, muffle = FALSE)
 
-http308(response, behavior = "stop", message_template)
+http308(response, behavior = "auto", message_template, muffle = FALSE)
 
-http400(response, behavior = "stop", message_template)
+http400(response, behavior = "auto", message_template, muffle = FALSE)
 
-http401(response, behavior = "stop", message_template)
+http401(response, behavior = "auto", message_template, muffle = FALSE)
 
-http402(response, behavior = "stop", message_template)
+http402(response, behavior = "auto", message_template, muffle = FALSE)
 
-http403(response, behavior = "stop", message_template)
+http403(response, behavior = "auto", message_template, muffle = FALSE)
 
-http404(response, behavior = "stop", message_template)
+http404(response, behavior = "auto", message_template, muffle = FALSE)
 
-http405(response, behavior = "stop", message_template)
+http405(response, behavior = "auto", message_template, muffle = FALSE)
 
-http406(response, behavior = "stop", message_template)
+http406(response, behavior = "auto", message_template, muffle = FALSE)
 
-http407(response, behavior = "stop", message_template)
+http407(response, behavior = "auto", message_template, muffle = FALSE)
 
-http408(response, behavior = "stop", message_template)
+http408(response, behavior = "auto", message_template, muffle = FALSE)
 
-http409(response, behavior = "stop", message_template)
+http409(response, behavior = "auto", message_template, muffle = FALSE)
 
-http410(response, behavior = "stop", message_template)
+http410(response, behavior = "auto", message_template, muffle = FALSE)
 
-http411(response, behavior = "stop", message_template)
+http411(response, behavior = "auto", message_template, muffle = FALSE)
 
-http412(response, behavior = "stop", message_template)
+http412(response, behavior = "auto", message_template, muffle = FALSE)
 
-http413(response, behavior = "stop", message_template)
+http413(response, behavior = "auto", message_template, muffle = FALSE)
 
-http414(response, behavior = "stop", message_template)
+http414(response, behavior = "auto", message_template, muffle = FALSE)
 
-http415(response, behavior = "stop", message_template)
+http415(response, behavior = "auto", message_template, muffle = FALSE)
 
-http416(response, behavior = "stop", message_template)
+http416(response, behavior = "auto", message_template, muffle = FALSE)
 
-http417(response, behavior = "stop", message_template)
+http417(response, behavior = "auto", message_template, muffle = FALSE)
 
-http418(response, behavior = "stop", message_template)
+http418(response, behavior = "auto", message_template, muffle = FALSE)
 
-http419(response, behavior = "stop", message_template)
+http419(response, behavior = "auto", message_template, muffle = FALSE)
 
-http420(response, behavior = "stop", message_template)
+http420(response, behavior = "auto", message_template, muffle = FALSE)
 
-http422(response, behavior = "stop", message_template)
+http422(response, behavior = "auto", message_template, muffle = FALSE)
 
-http423(response, behavior = "stop", message_template)
+http423(response, behavior = "auto", message_template, muffle = FALSE)
 
-http424(response, behavior = "stop", message_template)
+http424(response, behavior = "auto", message_template, muffle = FALSE)
 
-http425(response, behavior = "stop", message_template)
+http425(response, behavior = "auto", message_template, muffle = FALSE)
 
-http426(response, behavior = "stop", message_template)
+http426(response, behavior = "auto", message_template, muffle = FALSE)
 
-http428(response, behavior = "stop", message_template)
+http428(response, behavior = "auto", message_template, muffle = FALSE)
 
-http429(response, behavior = "stop", message_template)
+http429(response, behavior = "auto", message_template, muffle = FALSE)
 
-http431(response, behavior = "stop", message_template)
+http431(response, behavior = "auto", message_template, muffle = FALSE)
 
-http440(response, behavior = "stop", message_template)
+http440(response, behavior = "auto", message_template, muffle = FALSE)
 
-http444(response, behavior = "stop", message_template)
+http444(response, behavior = "auto", message_template, muffle = FALSE)
 
-http449(response, behavior = "stop", message_template)
+http449(response, behavior = "auto", message_template, muffle = FALSE)
 
-http450(response, behavior = "stop", message_template)
+http450(response, behavior = "auto", message_template, muffle = FALSE)
 
-http451(response, behavior = "stop", message_template)
+http451(response, behavior = "auto", message_template, muffle = FALSE)
 
-http494(response, behavior = "stop", message_template)
+http494(response, behavior = "auto", message_template, muffle = FALSE)
 
-http495(response, behavior = "stop", message_template)
+http495(response, behavior = "auto", message_template, muffle = FALSE)
 
-http496(response, behavior = "stop", message_template)
+http496(response, behavior = "auto", message_template, muffle = FALSE)
 
-http497(response, behavior = "stop", message_template)
+http497(response, behavior = "auto", message_template, muffle = FALSE)
 
-http498(response, behavior = "stop", message_template)
+http498(response, behavior = "auto", message_template, muffle = FALSE)
 
-http499(response, behavior = "stop", message_template)
+http499(response, behavior = "auto", message_template, muffle = FALSE)
 
-http500(response, behavior = "stop", message_template)
+http500(response, behavior = "auto", message_template, muffle = FALSE)
 
-http501(response, behavior = "stop", message_template)
+http501(response, behavior = "auto", message_template, muffle = FALSE)
 
-http502(response, behavior = "stop", message_template)
+http502(response, behavior = "auto", message_template, muffle = FALSE)
 
-http503(response, behavior = "stop", message_template)
+http503(response, behavior = "auto", message_template, muffle = FALSE)
 
-http504(response, behavior = "stop", message_template)
+http504(response, behavior = "auto", message_template, muffle = FALSE)
 
-http505(response, behavior = "stop", message_template)
+http505(response, behavior = "auto", message_template, muffle = FALSE)
 
-http506(response, behavior = "stop", message_template)
+http506(response, behavior = "auto", message_template, muffle = FALSE)
 
-http507(response, behavior = "stop", message_template)
+http507(response, behavior = "auto", message_template, muffle = FALSE)
 
-http508(response, behavior = "stop", message_template)
+http508(response, behavior = "auto", message_template, muffle = FALSE)
 
-http509(response, behavior = "stop", message_template)
+http509(response, behavior = "auto", message_template, muffle = FALSE)
 
-http510(response, behavior = "stop", message_template)
+http510(response, behavior = "auto", message_template, muffle = FALSE)
 
-http511(response, behavior = "stop", message_template)
+http511(response, behavior = "auto", message_template, muffle = FALSE)
 
-http598(response, behavior = "stop", message_template)
+http598(response, behavior = "auto", message_template, muffle = FALSE)
 
-http599(response, behavior = "stop", message_template)
+http599(response, behavior = "auto", message_template, muffle = FALSE)
 
 http(response, behavior = "auto", message_template, muffle = FALSE)
 }
@@ -238,7 +238,7 @@ http(response, behavior = "auto", message_template, muffle = FALSE)
 \item{response}{The result of a call via \pkg{crul}, \pkg{curl}, or
 \pkg{httr}}
 
-\item{behavior}{Behavior of the error. See Details}
+\item{behavior}{Behavior of the error. default: auto. See Details}
 
 \item{message_template}{A message template. optional. use whisker
 templating. names to use are: reason and status. use in template
@@ -320,6 +320,15 @@ if (requireNamespace("httr")) {
  \dontrun{http(res)}
  http(res, behavior = "warning")
  http(res, behavior = "message")
+}
+
+# muffle responses
+if (requireNamespace("crul")) {
+ library("crul")
+ res <- HttpClient$new("https://httpbin.org")$get("status/201")
+ \dontrun{http(res)}
+ http(res, behavior = "warning")
+ http(res, muffle = TRUE)
 }
 }
 \seealso{

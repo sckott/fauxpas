@@ -10,7 +10,7 @@ test_that("http100 works", {
 
   expect_message(http100(res, behavior = "message"), "I'm a teapot")
   expect_warning(http100(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http100(res), "I'm a teapot")
+  expect_error(http100(res))
 
   expect_null(suppressMessages(http100(res, behavior = "message")))
 })
@@ -48,7 +48,7 @@ test_that("http101 works", {
 
   expect_message(http101(res, behavior = "message"), "I'm a teapot")
   expect_warning(http101(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http101(res), "I'm a teapot")
+  expect_error(http101(res))
 
   expect_null(suppressMessages(http101(res, behavior = "message")))
 })
@@ -86,7 +86,7 @@ test_that("http102 works", {
 
   expect_message(http102(res, behavior = "message"), "I'm a teapot")
   expect_warning(http102(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http102(res), "I'm a teapot")
+  expect_error(http102(res))
 
   expect_null(suppressMessages(http102(res, behavior = "message")))
 })
@@ -124,7 +124,7 @@ test_that("http200 works", {
 
   expect_message(http200(res, behavior = "message"), "I'm a teapot")
   expect_warning(http200(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http200(res), "I'm a teapot")
+  expect_error(http200(res))
 
   expect_null(suppressMessages(http200(res, behavior = "message")))
 })
@@ -162,7 +162,7 @@ test_that("http201 works", {
 
   expect_message(http201(res, behavior = "message"), "I'm a teapot")
   expect_warning(http201(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http201(res), "I'm a teapot")
+  expect_error(http201(res))
 
   expect_null(suppressMessages(http201(res, behavior = "message")))
 })
@@ -200,7 +200,7 @@ test_that("http202 works", {
 
   expect_message(http202(res, behavior = "message"), "I'm a teapot")
   expect_warning(http202(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http202(res), "I'm a teapot")
+  expect_error(http202(res))
 
   expect_null(suppressMessages(http202(res, behavior = "message")))
 })
@@ -238,7 +238,7 @@ test_that("http203 works", {
 
   expect_message(http203(res, behavior = "message"), "I'm a teapot")
   expect_warning(http203(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http203(res), "I'm a teapot")
+  expect_error(http203(res))
 
   expect_null(suppressMessages(http203(res, behavior = "message")))
 })
@@ -276,7 +276,7 @@ test_that("http204 works", {
 
   expect_message(http204(res, behavior = "message"), "I'm a teapot")
   expect_warning(http204(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http204(res), "I'm a teapot")
+  expect_error(http204(res))
 
   expect_null(suppressMessages(http204(res, behavior = "message")))
 })
@@ -314,7 +314,7 @@ test_that("http205 works", {
 
   expect_message(http205(res, behavior = "message"), "I'm a teapot")
   expect_warning(http205(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http205(res), "I'm a teapot")
+  expect_error(http205(res))
 
   expect_null(suppressMessages(http205(res, behavior = "message")))
 })
@@ -352,7 +352,7 @@ test_that("http206 works", {
 
   expect_message(http206(res, behavior = "message"), "I'm a teapot")
   expect_warning(http206(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http206(res), "I'm a teapot")
+  expect_error(http206(res))
 
   expect_null(suppressMessages(http206(res, behavior = "message")))
 })
@@ -390,7 +390,7 @@ test_that("http207 works", {
 
   expect_message(http207(res, behavior = "message"), "I'm a teapot")
   expect_warning(http207(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http207(res), "I'm a teapot")
+  expect_error(http207(res))
 
   expect_null(suppressMessages(http207(res, behavior = "message")))
 })
@@ -428,7 +428,7 @@ test_that("http208 works", {
 
   expect_message(http208(res, behavior = "message"), "I'm a teapot")
   expect_warning(http208(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http208(res), "I'm a teapot")
+  expect_error(http208(res))
 
   expect_null(suppressMessages(http208(res, behavior = "message")))
 })
@@ -466,7 +466,7 @@ test_that("http226 works", {
 
   expect_message(http226(res, behavior = "message"), "I'm a teapot")
   expect_warning(http226(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http226(res), "I'm a teapot")
+  expect_error(http226(res))
 
   expect_null(suppressMessages(http226(res, behavior = "message")))
 })
@@ -504,7 +504,7 @@ test_that("http300 works", {
 
   expect_message(http300(res, behavior = "message"), "I'm a teapot")
   expect_warning(http300(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http300(res), "I'm a teapot")
+  expect_error(http300(res))
 
   expect_null(suppressMessages(http300(res, behavior = "message")))
 })
@@ -542,7 +542,7 @@ test_that("http301 works", {
 
   expect_message(http301(res, behavior = "message"), "I'm a teapot")
   expect_warning(http301(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http301(res), "I'm a teapot")
+  expect_error(http301(res))
 
   expect_null(suppressMessages(http301(res, behavior = "message")))
 })
@@ -580,7 +580,7 @@ test_that("http302 works", {
 
   expect_message(http302(res, behavior = "message"), "I'm a teapot")
   expect_warning(http302(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http302(res), "I'm a teapot")
+  expect_error(http302(res))
 
   expect_null(suppressMessages(http302(res, behavior = "message")))
 })
@@ -618,7 +618,7 @@ test_that("http303 works", {
 
   expect_message(http303(res, behavior = "message"), "I'm a teapot")
   expect_warning(http303(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http303(res), "I'm a teapot")
+  expect_error(http303(res))
 
   expect_null(suppressMessages(http303(res, behavior = "message")))
 })
@@ -656,7 +656,7 @@ test_that("http304 works", {
 
   expect_message(http304(res, behavior = "message"), "I'm a teapot")
   expect_warning(http304(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http304(res), "I'm a teapot")
+  expect_error(http304(res))
 
   expect_null(suppressMessages(http304(res, behavior = "message")))
 })
@@ -694,7 +694,7 @@ test_that("http305 works", {
 
   expect_message(http305(res, behavior = "message"), "I'm a teapot")
   expect_warning(http305(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http305(res), "I'm a teapot")
+  expect_error(http305(res))
 
   expect_null(suppressMessages(http305(res, behavior = "message")))
 })
@@ -732,7 +732,7 @@ test_that("http306 works", {
 
   expect_message(http306(res, behavior = "message"), "I'm a teapot")
   expect_warning(http306(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http306(res), "I'm a teapot")
+  expect_error(http306(res))
 
   expect_null(suppressMessages(http306(res, behavior = "message")))
 })
@@ -770,7 +770,7 @@ test_that("http307 works", {
 
   expect_message(http307(res, behavior = "message"), "I'm a teapot")
   expect_warning(http307(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http307(res), "I'm a teapot")
+  expect_error(http307(res))
 
   expect_null(suppressMessages(http307(res, behavior = "message")))
 })
@@ -808,7 +808,7 @@ test_that("http308 works", {
 
   expect_message(http308(res, behavior = "message"), "I'm a teapot")
   expect_warning(http308(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http308(res), "I'm a teapot")
+  expect_error(http308(res))
 
   expect_null(suppressMessages(http308(res, behavior = "message")))
 })
@@ -846,7 +846,7 @@ test_that("http400 works", {
 
   expect_message(http400(res, behavior = "message"), "I'm a teapot")
   expect_warning(http400(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http400(res), "I'm a teapot")
+  expect_error(http400(res))
 
   expect_null(suppressMessages(http400(res, behavior = "message")))
 })
@@ -884,7 +884,7 @@ test_that("http401 works", {
 
   expect_message(http401(res, behavior = "message"), "I'm a teapot")
   expect_warning(http401(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http401(res), "I'm a teapot")
+  expect_error(http401(res))
 
   expect_null(suppressMessages(http401(res, behavior = "message")))
 })
@@ -922,7 +922,7 @@ test_that("http402 works", {
 
   expect_message(http402(res, behavior = "message"), "I'm a teapot")
   expect_warning(http402(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http402(res), "I'm a teapot")
+  expect_error(http402(res))
 
   expect_null(suppressMessages(http402(res, behavior = "message")))
 })
@@ -960,7 +960,7 @@ test_that("http403 works", {
 
   expect_message(http403(res, behavior = "message"), "I'm a teapot")
   expect_warning(http403(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http403(res), "I'm a teapot")
+  expect_error(http403(res))
 
   expect_null(suppressMessages(http403(res, behavior = "message")))
 })
@@ -998,7 +998,7 @@ test_that("http404 works", {
 
   expect_message(http404(res, behavior = "message"), "I'm a teapot")
   expect_warning(http404(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http404(res), "I'm a teapot")
+  expect_error(http404(res))
 
   expect_null(suppressMessages(http404(res, behavior = "message")))
 })
@@ -1036,7 +1036,7 @@ test_that("http405 works", {
 
   expect_message(http405(res, behavior = "message"), "I'm a teapot")
   expect_warning(http405(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http405(res), "I'm a teapot")
+  expect_error(http405(res))
 
   expect_null(suppressMessages(http405(res, behavior = "message")))
 })
@@ -1074,7 +1074,7 @@ test_that("http406 works", {
 
   expect_message(http406(res, behavior = "message"), "I'm a teapot")
   expect_warning(http406(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http406(res), "I'm a teapot")
+  expect_error(http406(res))
 
   expect_null(suppressMessages(http406(res, behavior = "message")))
 })
@@ -1112,7 +1112,7 @@ test_that("http407 works", {
 
   expect_message(http407(res, behavior = "message"), "I'm a teapot")
   expect_warning(http407(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http407(res), "I'm a teapot")
+  expect_error(http407(res))
 
   expect_null(suppressMessages(http407(res, behavior = "message")))
 })
@@ -1150,7 +1150,7 @@ test_that("http408 works", {
 
   expect_message(http408(res, behavior = "message"), "I'm a teapot")
   expect_warning(http408(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http408(res), "I'm a teapot")
+  expect_error(http408(res))
 
   expect_null(suppressMessages(http408(res, behavior = "message")))
 })
@@ -1188,7 +1188,7 @@ test_that("http409 works", {
 
   expect_message(http409(res, behavior = "message"), "I'm a teapot")
   expect_warning(http409(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http409(res), "I'm a teapot")
+  expect_error(http409(res))
 
   expect_null(suppressMessages(http409(res, behavior = "message")))
 })
@@ -1226,7 +1226,7 @@ test_that("http410 works", {
 
   expect_message(http410(res, behavior = "message"), "I'm a teapot")
   expect_warning(http410(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http410(res), "I'm a teapot")
+  expect_error(http410(res))
 
   expect_null(suppressMessages(http410(res, behavior = "message")))
 })
@@ -1264,7 +1264,7 @@ test_that("http411 works", {
 
   expect_message(http411(res, behavior = "message"), "I'm a teapot")
   expect_warning(http411(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http411(res), "I'm a teapot")
+  expect_error(http411(res))
 
   expect_null(suppressMessages(http411(res, behavior = "message")))
 })
@@ -1302,7 +1302,7 @@ test_that("http412 works", {
 
   expect_message(http412(res, behavior = "message"), "I'm a teapot")
   expect_warning(http412(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http412(res), "I'm a teapot")
+  expect_error(http412(res))
 
   expect_null(suppressMessages(http412(res, behavior = "message")))
 })
@@ -1340,7 +1340,7 @@ test_that("http413 works", {
 
   expect_message(http413(res, behavior = "message"), "I'm a teapot")
   expect_warning(http413(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http413(res), "I'm a teapot")
+  expect_error(http413(res))
 
   expect_null(suppressMessages(http413(res, behavior = "message")))
 })
@@ -1378,7 +1378,7 @@ test_that("http414 works", {
 
   expect_message(http414(res, behavior = "message"), "I'm a teapot")
   expect_warning(http414(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http414(res), "I'm a teapot")
+  expect_error(http414(res))
 
   expect_null(suppressMessages(http414(res, behavior = "message")))
 })
@@ -1416,7 +1416,7 @@ test_that("http415 works", {
 
   expect_message(http415(res, behavior = "message"), "I'm a teapot")
   expect_warning(http415(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http415(res), "I'm a teapot")
+  expect_error(http415(res))
 
   expect_null(suppressMessages(http415(res, behavior = "message")))
 })
@@ -1454,7 +1454,7 @@ test_that("http416 works", {
 
   expect_message(http416(res, behavior = "message"), "I'm a teapot")
   expect_warning(http416(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http416(res), "I'm a teapot")
+  expect_error(http416(res))
 
   expect_null(suppressMessages(http416(res, behavior = "message")))
 })
@@ -1492,7 +1492,7 @@ test_that("http417 works", {
 
   expect_message(http417(res, behavior = "message"), "I'm a teapot")
   expect_warning(http417(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http417(res), "I'm a teapot")
+  expect_error(http417(res))
 
   expect_null(suppressMessages(http417(res, behavior = "message")))
 })
@@ -1530,7 +1530,7 @@ test_that("http418 works", {
 
   expect_message(http418(res, behavior = "message"), "I'm a teapot")
   expect_warning(http418(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http418(res), "I'm a teapot")
+  expect_error(http418(res))
 
   expect_null(suppressMessages(http418(res, behavior = "message")))
 })
@@ -1568,7 +1568,7 @@ test_that("http419 works", {
 
   expect_message(http419(res, behavior = "message"), "I'm a teapot")
   expect_warning(http419(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http419(res), "I'm a teapot")
+  expect_error(http419(res))
 
   expect_null(suppressMessages(http419(res, behavior = "message")))
 })
@@ -1606,7 +1606,7 @@ test_that("http420 works", {
 
   expect_message(http420(res, behavior = "message"), "I'm a teapot")
   expect_warning(http420(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http420(res), "I'm a teapot")
+  expect_error(http420(res))
 
   expect_null(suppressMessages(http420(res, behavior = "message")))
 })
@@ -1644,7 +1644,7 @@ test_that("http422 works", {
 
   expect_message(http422(res, behavior = "message"), "I'm a teapot")
   expect_warning(http422(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http422(res), "I'm a teapot")
+  expect_error(http422(res))
 
   expect_null(suppressMessages(http422(res, behavior = "message")))
 })
@@ -1682,7 +1682,7 @@ test_that("http423 works", {
 
   expect_message(http423(res, behavior = "message"), "I'm a teapot")
   expect_warning(http423(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http423(res), "I'm a teapot")
+  expect_error(http423(res))
 
   expect_null(suppressMessages(http423(res, behavior = "message")))
 })
@@ -1720,7 +1720,7 @@ test_that("http424 works", {
 
   expect_message(http424(res, behavior = "message"), "I'm a teapot")
   expect_warning(http424(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http424(res), "I'm a teapot")
+  expect_error(http424(res))
 
   expect_null(suppressMessages(http424(res, behavior = "message")))
 })
@@ -1758,7 +1758,7 @@ test_that("http425 works", {
 
   expect_message(http425(res, behavior = "message"), "I'm a teapot")
   expect_warning(http425(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http425(res), "I'm a teapot")
+  expect_error(http425(res))
 
   expect_null(suppressMessages(http425(res, behavior = "message")))
 })
@@ -1796,7 +1796,7 @@ test_that("http426 works", {
 
   expect_message(http426(res, behavior = "message"), "I'm a teapot")
   expect_warning(http426(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http426(res), "I'm a teapot")
+  expect_error(http426(res))
 
   expect_null(suppressMessages(http426(res, behavior = "message")))
 })
@@ -1834,7 +1834,7 @@ test_that("http428 works", {
 
   expect_message(http428(res, behavior = "message"), "I'm a teapot")
   expect_warning(http428(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http428(res), "I'm a teapot")
+  expect_error(http428(res))
 
   expect_null(suppressMessages(http428(res, behavior = "message")))
 })
@@ -1872,7 +1872,7 @@ test_that("http429 works", {
 
   expect_message(http429(res, behavior = "message"), "I'm a teapot")
   expect_warning(http429(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http429(res), "I'm a teapot")
+  expect_error(http429(res))
 
   expect_null(suppressMessages(http429(res, behavior = "message")))
 })
@@ -1910,7 +1910,7 @@ test_that("http431 works", {
 
   expect_message(http431(res, behavior = "message"), "I'm a teapot")
   expect_warning(http431(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http431(res), "I'm a teapot")
+  expect_error(http431(res))
 
   expect_null(suppressMessages(http431(res, behavior = "message")))
 })
@@ -1948,7 +1948,7 @@ test_that("http440 works", {
 
   expect_message(http440(res, behavior = "message"), "I'm a teapot")
   expect_warning(http440(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http440(res), "I'm a teapot")
+  expect_error(http440(res))
 
   expect_null(suppressMessages(http440(res, behavior = "message")))
 })
@@ -1986,7 +1986,7 @@ test_that("http444 works", {
 
   expect_message(http444(res, behavior = "message"), "I'm a teapot")
   expect_warning(http444(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http444(res), "I'm a teapot")
+  expect_error(http444(res))
 
   expect_null(suppressMessages(http444(res, behavior = "message")))
 })
@@ -2024,7 +2024,7 @@ test_that("http449 works", {
 
   expect_message(http449(res, behavior = "message"), "I'm a teapot")
   expect_warning(http449(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http449(res), "I'm a teapot")
+  expect_error(http449(res))
 
   expect_null(suppressMessages(http449(res, behavior = "message")))
 })
@@ -2062,7 +2062,7 @@ test_that("http450 works", {
 
   expect_message(http450(res, behavior = "message"), "I'm a teapot")
   expect_warning(http450(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http450(res), "I'm a teapot")
+  expect_error(http450(res))
 
   expect_null(suppressMessages(http450(res, behavior = "message")))
 })
@@ -2100,7 +2100,7 @@ test_that("http451 works", {
 
   expect_message(http451(res, behavior = "message"), "I'm a teapot")
   expect_warning(http451(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http451(res), "I'm a teapot")
+  expect_error(http451(res))
 
   expect_null(suppressMessages(http451(res, behavior = "message")))
 })
@@ -2138,7 +2138,7 @@ test_that("http494 works", {
 
   expect_message(http494(res, behavior = "message"), "I'm a teapot")
   expect_warning(http494(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http494(res), "I'm a teapot")
+  expect_error(http494(res))
 
   expect_null(suppressMessages(http494(res, behavior = "message")))
 })
@@ -2176,7 +2176,7 @@ test_that("http495 works", {
 
   expect_message(http495(res, behavior = "message"), "I'm a teapot")
   expect_warning(http495(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http495(res), "I'm a teapot")
+  expect_error(http495(res))
 
   expect_null(suppressMessages(http495(res, behavior = "message")))
 })
@@ -2214,7 +2214,7 @@ test_that("http496 works", {
 
   expect_message(http496(res, behavior = "message"), "I'm a teapot")
   expect_warning(http496(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http496(res), "I'm a teapot")
+  expect_error(http496(res))
 
   expect_null(suppressMessages(http496(res, behavior = "message")))
 })
@@ -2252,7 +2252,7 @@ test_that("http497 works", {
 
   expect_message(http497(res, behavior = "message"), "I'm a teapot")
   expect_warning(http497(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http497(res), "I'm a teapot")
+  expect_error(http497(res))
 
   expect_null(suppressMessages(http497(res, behavior = "message")))
 })
@@ -2290,7 +2290,7 @@ test_that("http498 works", {
 
   expect_message(http498(res, behavior = "message"), "I'm a teapot")
   expect_warning(http498(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http498(res), "I'm a teapot")
+  expect_error(http498(res))
 
   expect_null(suppressMessages(http498(res, behavior = "message")))
 })
@@ -2328,7 +2328,7 @@ test_that("http499 works", {
 
   expect_message(http499(res, behavior = "message"), "I'm a teapot")
   expect_warning(http499(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http499(res), "I'm a teapot")
+  expect_error(http499(res))
 
   expect_null(suppressMessages(http499(res, behavior = "message")))
 })
@@ -2366,7 +2366,7 @@ test_that("http500 works", {
 
   expect_message(http500(res, behavior = "message"), "I'm a teapot")
   expect_warning(http500(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http500(res), "I'm a teapot")
+  expect_error(http500(res))
 
   expect_null(suppressMessages(http500(res, behavior = "message")))
 })
@@ -2404,7 +2404,7 @@ test_that("http501 works", {
 
   expect_message(http501(res, behavior = "message"), "I'm a teapot")
   expect_warning(http501(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http501(res), "I'm a teapot")
+  expect_error(http501(res))
 
   expect_null(suppressMessages(http501(res, behavior = "message")))
 })
@@ -2442,7 +2442,7 @@ test_that("http502 works", {
 
   expect_message(http502(res, behavior = "message"), "I'm a teapot")
   expect_warning(http502(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http502(res), "I'm a teapot")
+  expect_error(http502(res))
 
   expect_null(suppressMessages(http502(res, behavior = "message")))
 })
@@ -2480,7 +2480,7 @@ test_that("http503 works", {
 
   expect_message(http503(res, behavior = "message"), "I'm a teapot")
   expect_warning(http503(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http503(res), "I'm a teapot")
+  expect_error(http503(res))
 
   expect_null(suppressMessages(http503(res, behavior = "message")))
 })
@@ -2518,7 +2518,7 @@ test_that("http504 works", {
 
   expect_message(http504(res, behavior = "message"), "I'm a teapot")
   expect_warning(http504(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http504(res), "I'm a teapot")
+  expect_error(http504(res))
 
   expect_null(suppressMessages(http504(res, behavior = "message")))
 })
@@ -2556,7 +2556,7 @@ test_that("http505 works", {
 
   expect_message(http505(res, behavior = "message"), "I'm a teapot")
   expect_warning(http505(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http505(res), "I'm a teapot")
+  expect_error(http505(res))
 
   expect_null(suppressMessages(http505(res, behavior = "message")))
 })
@@ -2594,7 +2594,7 @@ test_that("http506 works", {
 
   expect_message(http506(res, behavior = "message"), "I'm a teapot")
   expect_warning(http506(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http506(res), "I'm a teapot")
+  expect_error(http506(res))
 
   expect_null(suppressMessages(http506(res, behavior = "message")))
 })
@@ -2632,7 +2632,7 @@ test_that("http507 works", {
 
   expect_message(http507(res, behavior = "message"), "I'm a teapot")
   expect_warning(http507(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http507(res), "I'm a teapot")
+  expect_error(http507(res))
 
   expect_null(suppressMessages(http507(res, behavior = "message")))
 })
@@ -2670,7 +2670,7 @@ test_that("http508 works", {
 
   expect_message(http508(res, behavior = "message"), "I'm a teapot")
   expect_warning(http508(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http508(res), "I'm a teapot")
+  expect_error(http508(res))
 
   expect_null(suppressMessages(http508(res, behavior = "message")))
 })
@@ -2708,7 +2708,7 @@ test_that("http509 works", {
 
   expect_message(http509(res, behavior = "message"), "I'm a teapot")
   expect_warning(http509(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http509(res), "I'm a teapot")
+  expect_error(http509(res))
 
   expect_null(suppressMessages(http509(res, behavior = "message")))
 })
@@ -2746,7 +2746,7 @@ test_that("http510 works", {
 
   expect_message(http510(res, behavior = "message"), "I'm a teapot")
   expect_warning(http510(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http510(res), "I'm a teapot")
+  expect_error(http510(res))
 
   expect_null(suppressMessages(http510(res, behavior = "message")))
 })
@@ -2784,7 +2784,7 @@ test_that("http511 works", {
 
   expect_message(http511(res, behavior = "message"), "I'm a teapot")
   expect_warning(http511(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http511(res), "I'm a teapot")
+  expect_error(http511(res))
 
   expect_null(suppressMessages(http511(res, behavior = "message")))
 })
@@ -2822,7 +2822,7 @@ test_that("http598 works", {
 
   expect_message(http598(res, behavior = "message"), "I'm a teapot")
   expect_warning(http598(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http598(res), "I'm a teapot")
+  expect_error(http598(res))
 
   expect_null(suppressMessages(http598(res, behavior = "message")))
 })
@@ -2860,7 +2860,7 @@ test_that("http599 works", {
 
   expect_message(http599(res, behavior = "message"), "I'm a teapot")
   expect_warning(http599(res, behavior = "warning"), "I'm a teapot")
-  expect_error(http599(res), "I'm a teapot")
+  expect_error(http599(res))
 
   expect_null(suppressMessages(http599(res, behavior = "message")))
 })

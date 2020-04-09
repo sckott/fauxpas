@@ -1,24 +1,27 @@
 error_http_generator <- function(code) {
   sprintf(
-    "http%2$s_ <- function(response, behavior = \"stop\", message_template) {
+    "http%2$s_ <- function(response, behavior = \"auto\", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
   tmp <- %s$new(behavior = behavior, message_template = message_template)
   tmp$do(response)
 }
 #' @export
 #' @rdname http
-http%2$s <- function(response, behavior = \"stop\", message_template) {
+http%2$s <- function(response, behavior = \"auto\", message_template, muffle = FALSE) {
   UseMethod(\"http%2$s\")
 }
 #' @export
-http%2$s.default <- function(response, behavior = \"stop\", message_template) {
-  stop(\"no 'http%2$s' method for \", class(response), call. = FALSE)
+http%2$s.default <- function(response, behavior = \"auto\", message_template, muffle = FALSE) {
+  stop(\"no 'http%2$s' method for \", class(response)[[1L]], call. = FALSE)
 }
 #' @export
 http%2$s.response <- http%2$s_
 #' @export
 http%2$s.HttpResponse <- http%2$s_
 #' @export
-http%2$s.list <- function(response, behavior = \"stop\", message_template) {
+http%2$s.list <- function(response, behavior = \"auto\", message_template, muffle = FALSE) {
   check_curl_list(response)
   http%2$s_(response, behavior, message_template)
 }\n",
@@ -58,7 +61,7 @@ test_that(\"http%2$s works\", {
 
   expect_message(http%2$s(res, behavior = \"message\"), \"I'm a teapot\")
   expect_warning(http%2$s(res, behavior = \"warning\"), \"I'm a teapot\")
-  expect_error(http%2$s(res), \"I'm a teapot\")
+  expect_error(http%2$s(res))
 
   expect_null(suppressMessages(http%2$s(res, behavior = \"message\")))
 })
