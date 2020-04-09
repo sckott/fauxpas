@@ -20,6 +20,9 @@ use whisker templating. names to use are: reason, status, message.
 use in template like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
 \code{\{\{message\}\}}. Note that this is ignored here, but is
 used in the \code{HTTP*} methods (e.g. \code{HTTPBadRequest})}
+
+\item{muffle}{(logical) whether to not respond when status codes
+in 1xx-3xx series. Default: \code{FALSE}}
 }
 \description{
 Error class
@@ -137,6 +140,12 @@ if (requireNamespace("crul")) {
  )
  yy$message_template
  \dontrun{yy$do(res)}
+
+ # muffle responses
+ (x <- Error$new(muffle = TRUE))
+ res <- crul::HttpClient$new("https://httpbin.org/status/226")$get()
+ z <- x$do(res)
+ z
 }
 }
 \seealso{

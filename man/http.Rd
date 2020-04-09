@@ -325,10 +325,14 @@ if (requireNamespace("httr")) {
 # muffle responses
 if (requireNamespace("crul")) {
  library("crul")
- res <- HttpClient$new("https://httpbin.org")$get("status/201")
- \dontrun{http(res)}
- http(res, behavior = "warning")
- http(res, muffle = TRUE)
+ res201 <- HttpClient$new("https://httpbin.org")$get("status/201")
+ res404 <- HttpClient$new("https://httpbin.org")$get("status/404")
+ # status codes < 300 CAN be muffled - i.e., return the http response object
+ http(res201, muffle = TRUE)
+ # status codes > 300 CAN NOT be muffled - i.e., return the http response object
+ \dontrun{
+ http(res404, muffle = TRUE)
+ }
 }
 }
 \seealso{

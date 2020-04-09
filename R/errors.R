@@ -9,6 +9,8 @@
 #' use in template like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
 #' \code{\{\{message\}\}}. Note that this is ignored here, but is
 #' used in the \code{HTTP*} methods (e.g. \code{HTTPBadRequest})
+#' @param muffle (logical) whether to not respond when status codes
+#' in 1xx-3xx series. Default: \code{FALSE}
 #'
 #' @details
 #' \strong{Methods}
@@ -108,6 +110,12 @@
 #'  )
 #'  yy$message_template
 #'  \dontrun{yy$do(res)}
+#' 
+#'  # muffle responses
+#'  (x <- Error$new(muffle = TRUE))
+#'  res <- crul::HttpClient$new("https://httpbin.org/status/226")$get()
+#'  z <- x$do(res)
+#'  z
 #' }
 Error <- R6::R6Class(
   "Error",
@@ -118,9 +126,10 @@ Error <- R6::R6Class(
     call. = FALSE,
     message_template = NULL,
     message_template_verbose = NULL,
+    muffle = FALSE,
 
     initialize = function(behavior = "stop", call. = FALSE, message_template,
-                          message_template_verbose) {
+                          message_template_verbose, muffle = FALSE) {
 
       stopifnot(inherits(behavior, "character"))
       if (!behavior %in% c('stop', 'warning', 'message')) {
@@ -158,6 +167,8 @@ Error <- R6::R6Class(
       if (missing(message_template_verbose)) {
         self$message_template_verbose <- "{{reason}} (HTTP {{status}}).\n - {{message}}"
       }
+
+      self$muffle <- muffle
     },
 
     print = function(...) {
@@ -172,6 +183,8 @@ Error <- R6::R6Class(
 
     do = function(response, mssg = "", template = self$message_template) {
       call <- if (self$call.) sys.call(-1) else NULL
+      stat <- private$fetch_status(response)
+      if (self$muffle) if (stat < 300) return(invisible(response))
       eval(parse(text = self$behavior))(
         private$make_condition(response, private$behavior_type, call, mssg, template)
       )
