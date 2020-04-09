@@ -15,8 +15,8 @@
 #' internally but of course you could pass in a list with the right named
 #' elements, while the values are complete nonsense, in which case
 #' we'll probably fail badly. There's not much we can do.
-#' 
-#' @note These \code{http*} methods only use \code{$do} and not 
+#'
+#' @note These \code{http*} methods only use \code{$do} and not
 #' \code{$do_verbose}.
 #'
 #' @examples
@@ -55,7 +55,7 @@
 #'  http(res, behavior = "warning")
 #'  http(res, behavior = "message")
 #' }
-#' 
+#'
 #' # muffle responses
 #' if (requireNamespace("crul")) {
 #'  library("crul")
@@ -115,7 +115,7 @@ check_curl_list <- function(x) {
 toggle_behavior <- function(status, behavior) {
   stopifnot(inherits(behavior, "character"))
   if (!behavior %in% c('stop', 'warning', 'message', 'auto')) {
-    stop("'behavior' must be one of stop, warning, message, or auto", 
+    stop("'behavior' must be one of stop, warning, message, or auto",
       call. = FALSE)
   }
   switch(
@@ -131,8 +131,8 @@ toggle_behavior <- function(status, behavior) {
         '500' = "stop"
       )
     },
-    stop = "error", 
-    warning = "warning", 
+    stop = "stop",
+    warning = "warning",
     message = "message"
   )
 }

@@ -253,7 +253,7 @@ in 1xx-3xx series. Default: \code{FALSE}}
 higher level error wrappers
 }
 \note{
-These \code{http*} methods only use \code{$do} and not 
+These \code{http*} methods only use \code{$do} and not
 \code{$do_verbose}.
 }
 \section{behavior parameter options}{
