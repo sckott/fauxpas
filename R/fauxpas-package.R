@@ -1,8 +1,5 @@
-#' HTTP Error Helpers
-#' 
-#' @section HTTP status codes:
-#' 
-#'
+#' @title fauxpas
+#' @description HTTP Error Helpers
 #' @name fauxpas-package
 #' @importFrom R6 R6Class
 #' @importFrom httpcode http_code

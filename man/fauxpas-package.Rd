@@ -4,7 +4,7 @@
 \name{fauxpas-package}
 \alias{fauxpas-package}
 \alias{fauxpas}
-\title{HTTP Error Helpers}
+\title{fauxpas}
 \description{
 HTTP Error Helpers
 }
