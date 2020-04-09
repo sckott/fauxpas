@@ -12,7 +12,7 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", 
     comment = c(ORCID = "0000-0003-1444-9135"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/fauxpas
+URL: https://docs.ropensci.org/fauxpas, https://github.com/ropensci/fauxpas
 BugReports: https://github.com/ropensci/fauxpas/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
