@@ -20,7 +20,7 @@ Language: en-US
 Roxygen: list(r6 = FALSE)
 Imports:
     R6 (>= 2.1.2),
-    httpcode (>= 0.2.9.91),
+    httpcode (>= 0.3.0),
     whisker
 Suggests:
     crul (>= 0.5.0),
