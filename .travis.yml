@@ -3,9 +3,6 @@ cache: packages
 dist: trusty
 os: linux
 
-r_github_packages:
-  - sckott/httpcode
-
 r_binary_packages:
   - covr
 
