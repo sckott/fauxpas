@@ -10,14 +10,13 @@
 |collate  |en_US.UTF-8                                 |
 |ctype    |en_US.UTF-8                                 |
 |tz       |US/Pacific                                  |
-|date     |2020-04-10                                  |
+|date     |2020-04-13                                  |
 
 # Dependencies
 
-|package  |old   |new      |Δ  |
-|:--------|:-----|:--------|:--|
-|fauxpas  |0.2.0 |0.2.1.94 |*  |
-|httpcode |NA    |0.3.0.91 |*  |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|fauxpas |0.2.0 |0.5.0 |*  |
 
 # Revdeps
 
