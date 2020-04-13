@@ -39,7 +39,7 @@ Dev version
 
 
 ```r
-devtools::install_github("ropensci/fauxpas")
+remotes::install_github("ropensci/fauxpas")
 ```
 
 
@@ -128,7 +128,9 @@ x$do_verbose(res)
 * Please [report any issues or bugs](https://github.com/ropensci/fauxpas/issues)
 * License: MIT
 * Get citation information for `fauxpas` in R doing `citation(package = 'fauxpas')`
-* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+* Please note that this project is released with a [Contributor Code of Conduct][coc].
 By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[coc]: https://github.com/ropensci/fauxpas/blob/master/CODE_OF_CONDUCT.md
