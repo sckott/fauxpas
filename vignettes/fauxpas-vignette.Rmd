@@ -35,7 +35,6 @@ custom functions and message templates
 
 To see example of `fauxpas` usage in other packages, check out the code within any of:
 
-- [nneo](https://github.com/ropenscilabs/nneo)
 - [rorcid](https://github.com/ropensci/rorcid)
 
 There are __a lot__ of functions in this package. Don't be scared away by that. 
@@ -68,7 +67,7 @@ Dev version
 
 ```{r eval=FALSE}
 # install.packages("remotes")
-remotes::install_github("ropensci/fauxpas")
+remotes::install_github("sckott/fauxpas")
 ```
 
 ```{r}

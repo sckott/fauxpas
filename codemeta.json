@@ -1,14 +1,12 @@
 {
-  "@context": [
-    "http://purl.org/codemeta/2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "fauxpas",
-  "description": "HTTP error helpers. Methods included for general purpose HTTP \n    error handling, as well as individual methods for every HTTP status\n    code, both via status code numbers as well as their descriptive names.\n    Supports ability to adjust behavior to stop, message or warning.\n    Includes ability to use custom whisker template to have any configuration\n    of status code, short description, and verbose message. Currently \n    supports integration with 'crul', 'curl', and 'httr'.",
+  "description": "HTTP error helpers. Methods included for general purpose HTTP error handling, as well as individual methods for every HTTP status code, both via status code numbers as well as their descriptive names. Supports ability to adjust behavior to stop, message or warning. Includes ability to use custom whisker template to have any configuration of status code, short description, and verbose message. Currently supports integration with 'crul', 'curl', and 'httr'.",
   "name": "fauxpas: HTTP Error Helpers",
-  "codeRepository": "https://github.com/ropensci/fauxpas",
-  "issueTracker": "https://github.com/ropensci/fauxpas/issues",
+  "relatedLink": "https://sckott.github.io/fauxpas",
+  "codeRepository": "https://github.com/sckott/fauxpas",
+  "issueTracker": "https://github.com/sckott/fauxpas/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.5.0",
   "programmingLanguage": {
@@ -16,11 +14,11 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 Patched (2020-03-11 r78147)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
-    "name": "Central R Archive Network (CRAN)",
+    "name": "Comprehensive R Archive Network (CRAN)",
     "url": "https://cran.r-project.org"
   },
   "author": [
@@ -118,8 +116,8 @@
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R6",
       "name": "R6",
@@ -132,7 +130,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=R6"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "httpcode",
       "name": "httpcode",
@@ -145,7 +143,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httpcode"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "whisker",
       "name": "whisker",
@@ -156,17 +154,10 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=whisker"
-    }
-  ],
-  "contIntegration": "https://travis-ci.org/ropensci/fauxpas",
-  "releaseNotes": "https://github.com/ropensci/fauxpas/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/fauxpas/blob/master/README.md",
-  "fileSize": "0KB",
+    },
+    "SystemRequirements": null
+  },
   "applicationCategory": "Web",
-  "isPartOf": "https://ropensci.org",
-  "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error", "error-handling", "rstats", "r", "r-package"],
-  "relatedLink": "https://docs.ropensci.org/fauxpas",
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {}
+  "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error"],
+  "fileSize": "234.03KB"
 }

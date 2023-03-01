@@ -11,7 +11,7 @@
 ## Reverse dependencies
 
 * I have run R CMD check on the 6 downstream dependencies
-(<https://github.com/ropensci/fauxpas/blob/master/revdep/README.md>).
+(<https://github.com/sckott/fauxpas/blob/master/revdep/README.md>).
 No problems were found.
 
 ---

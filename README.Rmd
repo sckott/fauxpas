@@ -6,11 +6,12 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = FALSE
 )
 ```
 
-[![R-check](https://github.com/ropensci/fauxpas/workflows/R-check/badge.svg)](https://github.com/ropensci/fauxpas/actions?query=workflow%3AR-check)
+[![R-check](https://github.com/sckott/fauxpas/workflows/R-check/badge.svg)](https://github.com/sckott/fauxpas/actions?query=workflow%3AR-check)
 [![cran checks](https://cranchecks.info/badges/worst/fauxpas)](https://cranchecks.info/pkgs/fauxpas)
 [![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/metacran/cranlogs.app)
@@ -37,14 +38,14 @@ Info Links:
 
 CRAN version
 
-```{r eval=FALSE}
+```{r}
 install.packages("fauxpas")
 ```
 
 Dev version
 
-```{r eval=FALSE}
-remotes::install_github("ropensci/fauxpas")
+```{r}
+remotes::install_github("sckott/fauxpas")
 ```
 
 ```{r}
@@ -53,7 +54,7 @@ library("fauxpas")
 
 ## use with crul
 
-```{r eval=FALSE}
+```{r}
 library("crul")
 cli <- HttpClient$new("https://httpbin.org/status/414")
 res <- cli$get()
@@ -63,7 +64,7 @@ http414(res)
 #> Error: Request-URI Too Long (HTTP 414).
 ```
 
-```{r eval=FALSE}
+```{r}
 x <- HTTPRequestURITooLong$new()
 x$do_verbose(res)
 #> Error: Request-URI Too Long (HTTP 414).
@@ -79,7 +80,7 @@ x$do_verbose(res)
 
 ## use with curl
 
-```{r eval=FALSE}
+```{r}
 library("curl")
 h <- curl::new_handle()
 curl::handle_setopt(h)
@@ -90,7 +91,7 @@ http404(resp)
 #> Error: Not Found (HTTP 404).
 ```
 
-```{r eval=FALSE}
+```{r}
 x <- HTTPNotFound$new()
 x$do_verbose(resp)
 #> Error:  Not Found (HTTP 404).
@@ -105,14 +106,14 @@ x$do_verbose(resp)
 
 ## use with httr
 
-```{r eval=FALSE}
+```{r}
 library("httr")
 res <- GET("https://httpbin.org/status/405")
 http405(res)
 #> Error: Method Not Allowed (HTTP 405).
 ```
 
-```{r eval=FALSE}
+```{r}
 x <- HTTPMethodNotAllowed$new()
 x$do_verbose(res)
 #> Error: Method Not Allowed (HTTP 405).
@@ -123,9 +124,6 @@ x$do_verbose(res)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/fauxpas/issues)
+* Please [report any issues or bugs](https://github.com/sckott/fauxpas/issues)
 * License: MIT
 * Get citation information for `fauxpas` in R doing `citation(package = 'fauxpas')`
-* Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
-
-[![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
