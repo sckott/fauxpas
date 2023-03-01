@@ -3,8 +3,8 @@ fauxpas
 
 
 
-[![R-check](https://github.com/sckott/fauxpas/workflows/R-check/badge.svg)](https://github.com/sckott/fauxpas/actions?query=workflow%3AR-check)
-[![cran checks](https://cranchecks.info/badges/worst/fauxpas)](https://cranchecks.info/pkgs/fauxpas)
+[![R-check](https://github.com/sckott/fauxpas/actions/workflows/R-check.yml/badge.svg?branch=main)](https://github.com/sckott/fauxpas/actions/workflows/R-check.yml)
+[![cran checks](https://badges.cranchecks.info/worst/fauxpas.svg)](https://cloud.r-project.org/web/checks/check_results_fauxpas.html)
 [![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/metacran/cranlogs.app)
 
