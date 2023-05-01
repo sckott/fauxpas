@@ -56,7 +56,9 @@
 #'
 #'  # warn
 #'  (x <- Error$new(behavior = "warning"))
+#'  \dontrun{
 #'  x$do(res)
+#'  }
 #'
 #'  # do vs. do_verbose
 #'  x <- HTTPRequestURITooLong$new(behavior = "stop")
@@ -113,9 +115,10 @@
 #' 
 #'  # muffle responses
 #'  (x <- Error$new(muffle = TRUE))
-#'  res <- crul::HttpClient$new("https://httpbin.org/status/226")$get()
-#'  z <- x$do(res)
-#'  z
+#'  try({
+#'    res <- crul::HttpClient$new("https://httpbin.org/status/226")$get()
+#'    x$do(res)
+#'  }, silent = TRUE)
 #' }
 Error <- R6::R6Class(
   "Error",

@@ -23,18 +23,24 @@
 #' if (requireNamespace("crul")) {
 #'  library("crul")
 #'  res <- HttpClient$new("https://httpbin.org/status/418")$get()
-#'  \dontrun{http(res)}
-#'  http(res, behavior = "warning")
+#'  \dontrun{
+#'    http(res)
+#'    http(res, behavior = "warning")
+#'  }
 #'  http(res, behavior = "message")
 #'
 #'  res <- HttpClient$new("https://httpbin.org/status/414")$get()
-#'  \dontrun{http414(res)}
-#'  http(res, behavior = "warning")
+#'  \dontrun{
+#'    http414(res)
+#'    http(res, behavior = "warning")
+#'  }
 #'  http(res, behavior = "message")
 #'
 #'  res <- HttpClient$new("https://httpbin.org/asdfafadsf")$get()
-#'  \dontrun{http404(res)}
-#'  http(res, behavior = "warning")
+#'  \dontrun{
+#'    http404(res)
+#'    http(res, behavior = "warning")
+#'  }
 #'  http(res, behavior = "message")
 #' }
 #'
@@ -43,16 +49,20 @@
 #'  h <- curl::new_handle()
 #'  curl::handle_setopt(h)
 #'  res <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
-#'  \dontrun{http(res)}
-#'  http(res, behavior = "warning")
+#'  \dontrun{
+#'    http(res)
+#'    http(res, behavior = "warning")
+#'  }
 #'  http(res, behavior = "message")
 #' }
 #'
 #' if (requireNamespace("httr")) {
 #'  library("httr")
 #'  res <- GET("https://httpbin.org/status/418")
-#'  \dontrun{http(res)}
-#'  http(res, behavior = "warning")
+#'  \dontrun{
+#'    http(res)
+#'    http(res, behavior = "warning")
+#'  }
 #'  http(res, behavior = "message")
 #' }
 #'
