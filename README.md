@@ -4,9 +4,9 @@ fauxpas
 
 
 [![R-check](https://github.com/sckott/fauxpas/actions/workflows/R-check.yml/badge.svg?branch=main)](https://github.com/sckott/fauxpas/actions/workflows/R-check.yml)
-[![cran checks](https://badges.cranchecks.info/worst/fauxpas.svg)](https://cloud.r-project.org/web/checks/check_results_fauxpas.html)
+[![cran checks](https://badges.cranchecks.info/worst/fauxpas.svg)](https://github.com/sckott/fauxpas)
 [![cran version](http://www.r-pkg.org/badges/version/fauxpas)](https://cran.r-project.org/package=fauxpas)
-[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/metacran/cranlogs.app)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/fauxpas)](https://github.com/r-hub/cranlogs.app)
 
 `fauxpas` does http errors
 
@@ -24,7 +24,7 @@ Info Links:
 * HTTP on wikipedia: <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol>
 * HTTP2 on wikipedia: <https://en.wikipedia.org/wiki/HTTP/2>
 * HTTP/1.1: <https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>
-* HTTP/2: <https://tools.ietf.org/html/rfc7540>
+* HTTP/2: <https://datatracker.ietf.org/doc/html/rfc7540>
 
 ## Install
 

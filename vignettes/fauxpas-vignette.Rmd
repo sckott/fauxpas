@@ -33,10 +33,6 @@ for any error
 * Provide flexiblity for what to do on an HTTP error, including
 custom functions and message templates
 
-To see example of `fauxpas` usage in other packages, check out the code within any of:
-
-- [rorcid](https://github.com/ropensci/rorcid)
-
 There are __a lot__ of functions in this package. Don't be scared away by that. 
 There are a few major sets of functions that are easy to understand and use:
 
