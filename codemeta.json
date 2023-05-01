@@ -4,17 +4,17 @@
   "identifier": "fauxpas",
   "description": "HTTP error helpers. Methods included for general purpose HTTP error handling, as well as individual methods for every HTTP status code, both via status code numbers as well as their descriptive names. Supports ability to adjust behavior to stop, message or warning. Includes ability to use custom whisker template to have any configuration of status code, short description, and verbose message. Currently supports integration with 'crul', 'curl', and 'httr'.",
   "name": "fauxpas: HTTP Error Helpers",
-  "relatedLink": "https://sckott.github.io/fauxpas",
+  "relatedLink": "https://sckott.github.io/fauxpas/",
   "codeRepository": "https://github.com/sckott/fauxpas",
   "issueTracker": "https://github.com/sckott/fauxpas/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
+  "runtimePlatform": "R version 4.2.3 (2023-03-15)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -159,5 +159,5 @@
   },
   "applicationCategory": "Web",
   "keywords": ["http", "https", "API", "web-services", "curl", "errors", "error"],
-  "fileSize": "234.03KB"
+  "fileSize": "234.115KB"
 }
