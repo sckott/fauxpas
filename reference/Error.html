@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fauxpas</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.2</span>
       </span>
     </div>
 
@@ -158,7 +158,9 @@ in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co"># warn</span></span></span>
 <span class="r-in"><span> <span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">Error</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span> <span class="va">x</span><span class="op">$</span><span class="fu">do</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co"># do vs. do_verbose</span></span></span>
 <span class="r-in"><span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="va"><a href="Error-Classes.html">HTTPRequestURITooLong</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>behavior <span class="op">=</span> <span class="st">"stop"</span><span class="op">)</span></span></span>
@@ -215,26 +217,11 @@ in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co"># muffle responses</span></span></span>
 <span class="r-in"><span> <span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">Error</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>muffle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">crul</span><span class="fu">::</span><span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/status/226"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">$</span><span class="fu">do</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">z</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>   <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">crul</span><span class="fu">::</span><span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/status/226"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="va">x</span><span class="op">$</span><span class="fu">do</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">}</span>, silent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>I'm a teapot (HTTP 418)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;crul response&gt; </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   url: https://httpbin.org/status/226</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   request_headers: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     User-Agent: libcurl/7.87.0 r-curl/5.0.0 crul/1.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Accept-Encoding: gzip, deflate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Accept: application/json, text/xml, application/xml, */*</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   response_headers: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     status: HTTP/2 226</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     date: Mon, 01 May 2023 22:54:59 GMT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     content-type: text/html; charset=utf-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     content-length: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     server: gunicorn/19.9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     access-control-allow-origin: *</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     access-control-allow-credentials: true</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   status: 226</span>
 </code></pre></div>
     </div>
   </div>
