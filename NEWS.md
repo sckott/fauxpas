@@ -1,3 +1,12 @@
+fauxpas 0.5.2
+=============
+
+### BUG FIXES
+
+* No user facing changes - just tidying up the package links, etc.
+* Make examples fail gracefully
+
+
 fauxpas 0.5.0
 =============
 
