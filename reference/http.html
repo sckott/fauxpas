@@ -280,78 +280,10 @@ we'll probably fail badly. There's not much we can do.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"crul"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://docs.ropensci.org/crul/" class="external-link">"crul"</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/status/418"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/status/414"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="fu">http414</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/asdfafadsf"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="fu">http404</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> I'm a teapot (HTTP 418)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request-URI Too Long (HTTP 414)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Not Found (HTTP 404)</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"curl"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/jeroen/curl" class="external-link">"curl"</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">h</span> <span class="op">&lt;-</span> <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/curl/man/handle.html" class="external-link">new_handle</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/curl/man/handle.html" class="external-link">handle_setopt</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/curl/man/curl_fetch.html" class="external-link">curl_fetch_memory</a></span><span class="op">(</span><span class="st">"https://httpbin.org/status/418"</span>, <span class="va">h</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Using libcurl 7.87.0 with LibreSSL/3.3.6</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> I'm a teapot (HTTP 418)</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"httr"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://httr.r-lib.org/" class="external-link">"httr"</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html" class="external-link">GET</a></span><span class="op">(</span><span class="st">"https://httpbin.org/status/418"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span>   <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"warning"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘httr’</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:curl’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     handle_reset</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:crul’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     handle</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> I'm a teapot (HTTP 418)</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># muffle responses</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"crul"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://docs.ropensci.org/crul/" class="external-link">"crul"</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res201</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"status/201"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="va">res404</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org"</span><span class="op">)</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"status/404"</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="co"># status codes &lt; 300 CAN be muffled - i.e., return the http response object</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res201</span>, muffle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="co"># status codes &gt; 300 CAN NOT be muffled - i.e., return the http response object</span></span></span>
-<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="fu">http</span><span class="op">(</span><span class="va">res404</span>, muffle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span> <span class="op">}</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>url<span class="op">=</span><span class="st">"https://a.com"</span>, status_code<span class="op">=</span><span class="fl">200</span>, type<span class="op">=</span><span class="st">"application/xml"</span>, </span></span>
+<span class="r-in"><span> headers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rawConversion.html" class="external-link">charToRaw</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, modified<span class="op">=</span><span class="cn">NA</span>, times<span class="op">=</span><span class="fl">5</span>, content<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rawConversion.html" class="external-link">charToRaw</a></span><span class="op">(</span><span class="st">'b'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> OK (HTTP 200)</span>
 </code></pre></div>
     </div>
   </div>
