@@ -286,64 +286,9 @@ we'll probably fail badly. There's not much we can do.
 }
 
 \examples{
-if (requireNamespace("crul")) {
- library("crul")
- res <- HttpClient$new("https://httpbin.org/status/418")$get()
- \dontrun{
-   http(res)
-   http(res, behavior = "warning")
- }
- http(res, behavior = "message")
-
- res <- HttpClient$new("https://httpbin.org/status/414")$get()
- \dontrun{
-   http414(res)
-   http(res, behavior = "warning")
- }
- http(res, behavior = "message")
-
- res <- HttpClient$new("https://httpbin.org/asdfafadsf")$get()
- \dontrun{
-   http404(res)
-   http(res, behavior = "warning")
- }
- http(res, behavior = "message")
-}
-
-if (requireNamespace("curl")) {
- library("curl")
- h <- curl::new_handle()
- curl::handle_setopt(h)
- res <- curl::curl_fetch_memory("https://httpbin.org/status/418", h)
- \dontrun{
-   http(res)
-   http(res, behavior = "warning")
- }
- http(res, behavior = "message")
-}
-
-if (requireNamespace("httr")) {
- library("httr")
- res <- GET("https://httpbin.org/status/418")
- \dontrun{
-   http(res)
-   http(res, behavior = "warning")
- }
- http(res, behavior = "message")
-}
-
-# muffle responses
-if (requireNamespace("crul")) {
- library("crul")
- res201 <- HttpClient$new("https://httpbin.org")$get("status/201")
- res404 <- HttpClient$new("https://httpbin.org")$get("status/404")
- # status codes < 300 CAN be muffled - i.e., return the http response object
- http(res201, muffle = TRUE)
- # status codes > 300 CAN NOT be muffled - i.e., return the http response object
- \dontrun{
- http(res404, muffle = TRUE)
- }
-}
+res <- list(url="https://a.com", status_code=200, type="application/xml", 
+ headers=charToRaw("a"), modified=NA, times=5, content=charToRaw('b'))
+http(res, behavior = "message")
 }
 \seealso{
 \code{\link{Error}}, \code{\link[fauxpas]{Error-Classes}}

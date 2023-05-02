@@ -120,41 +120,10 @@ also have:
 }
 }
 \examples{
-if (requireNamespace("crul")) {
-
- library("crul")
- res <- HttpClient$new("https://httpbin.org/status/414")$get()
- x <- HTTPRequestURITooLong$new()
- x
- \dontrun{
- x$do(res)
- x$do_verbose(res)
- }
-
- # behavior
- x <- HTTPRequestURITooLong$new(behavior = "warning")
- \dontrun{
- x$do(res)
- x$do_verbose(res)
- }
-
- x <- HTTPRequestURITooLong$new(behavior = "message")
- \dontrun{
- x$do(res)
- x$do_verbose(res)
- }
-
- # with message template
- (x <- HTTPRequestURITooLong$new(
-   message_template = "{{reason}} ............ {{status}}",
-   message_template_verbose = "{{reason}} .>.>.>.>.>.> {{status}}\n {{message}}"
- ))
- \dontrun{
- x$do(res)
- x$do_verbose(res)
- }
-}
-
+HTTPRequestURITooLong$new(
+  message_template = "{{reason}} ............ {{status}}",
+  message_template_verbose = "{{reason}} .>.>.>.>.>.> {{status}}\n {{message}}"
+)
 }
 \seealso{
 \code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
