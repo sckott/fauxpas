@@ -127,3 +127,4 @@ x$do_verbose(res)
 * Please [report any issues or bugs](https://github.com/sckott/fauxpas/issues)
 * License: MIT
 * Get citation information for `fauxpas` in R doing `citation(package = 'fauxpas')`
+* Please note that the fauxpas project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
