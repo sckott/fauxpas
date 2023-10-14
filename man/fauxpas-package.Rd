@@ -2,13 +2,23 @@
 % Please edit documentation in R/fauxpas-package.R
 \docType{package}
 \name{fauxpas-package}
-\alias{fauxpas-package}
 \alias{fauxpas}
-\title{fauxpas}
+\alias{fauxpas-package}
+\title{fauxpas: HTTP Error Helpers}
 \description{
-HTTP Error Helpers
+HTTP error helpers. Methods included for general purpose HTTP error handling, as well as individual methods for every HTTP status code, both via status code numbers as well as their descriptive names. Supports ability to adjust behavior to stop, message or warning. Includes ability to use custom whisker template to have any configuration of status code, short description, and verbose message. Currently supports integration with 'crul', 'curl', and 'httr'.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://sckott.github.io/fauxpas/}
+  \item \url{https://github.com/sckott/fauxpas}
+  \item Report bugs at \url{https://github.com/sckott/fauxpas/issues}
+}
+
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+\strong{Maintainer}: Scott Chamberlain \email{myrmecocystus@gmail.com} (\href{https://orcid.org/0000-0003-1444-9135}{ORCID})
+
 }
-\keyword{package}
+\keyword{internal}
