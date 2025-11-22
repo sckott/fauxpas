@@ -30,7 +30,7 @@ Error class
 \details{
 \strong{Methods}
 \itemize{
-  \item \code{do(response, mssg)} {
+  \item {\code{do(response, mssg)}} {
 
   Execute condition, whether it be message, warning, or error.
 
