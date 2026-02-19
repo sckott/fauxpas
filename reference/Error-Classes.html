@@ -61,30 +61,36 @@ the Error class in this package."><!-- mathjax --><script src="https://cdnjs.clo
 
     <div class="ref-description">
     <p>These error classes are for each HTTP error, and inherit from
-the <code><a href="Error.html">Error</a></code> class in this package.</p>
+the <a href="Error.html">Error</a> class in this package.</p>
     </div>
 
 
     <div id="details">
     <h2>Details</h2>
-    <p>In addition to what's available in <code><a href="Error.html">Error</a></code>,
+    <p>In addition to what's available in <a href="Error.html">Error</a>,
 these classes have a single variable <code>mssg</code> that is the very
 verbose complete message describing the HTTP condition in detail.
 You can include that message in your condition by using <code>do_verbose</code>
 (see below)</p>
-<p><strong>Methods</strong></p>
-<p>In addition to the methods documented in <code><a href="Error.html">Error</a></code>, these methods
-also have:</p><ul><li><p><code>do_verbose(response, template)</code>   Execute condition, whether it be message, warning, or error.  </p><ul><li><p>response: is any response from <span class="pkg">crul</span>, <span class="pkg">curl</span>, or <span class="pkg">httr</span>
-  Execute condition, whether it be message, warning, error, or your
-  own custom function. This method uses <code>message_template_verbose</code>,
-  and uses it's default value.</p></li>
-<li><p>template: a template to use for the verbose message, see <code><a href="Error.html">Error</a></code>
-  for details</p></li>
+    </div>
+    <div id="methods">
+    <h2>Methods</h2>
+
+
+
+<p>In addition to the methods documented in <a href="Error.html">Error</a>, these classes
+also have:</p><ul><li><p><code>do_verbose(response, template)</code>:</p>
+<p>Execute condition, whether it be message, warning, or error.</p><ul><li><p>response: is any response from <code>crul</code>, <code>curl</code>, or <code>httr</code>
+Execute condition, whether it be message, warning, error, or your
+own custom function. This method uses <code>message_template_verbose</code>,
+and uses it's default value.</p></li>
+<li><p>template: a template to use for the verbose message, see <a href="Error.html">Error</a>
+for details</p></li>
 </ul></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="Error.html">Error</a></code>, <code><a href="http.html">http</a></code></p></div>
+    <div class="dont-index"><p><a href="Error.html">Error</a>, <a href="http.html">http</a></p></div>
     </div>
 
     <div id="ref-examples">

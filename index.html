@@ -104,10 +104,11 @@
 </h2>
 <p>CRAN version</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fauxpas"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"fauxpas"</span><span class="op">)</span></span></code></pre></div>
 <p>Dev version</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"sckott/fauxpas"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sckott/fauxpas"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://sckott.github.io/fauxpas/" class="external-link">"fauxpas"</a></span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -119,21 +120,17 @@
 <span><span class="va">cli</span> <span class="op">&lt;-</span> <span class="va"><a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">HttpClient</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"https://httpbin.org/status/414"</span><span class="op">)</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">cli</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/http.html">http</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Request-URI Too Long (HTTP 414).</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Request-URI Too Long (HTTP 414)</span></span>
 <span><span class="fu"><a href="reference/http.html">http414</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Request-URI Too Long (HTTP 414).</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Request-URI Too Long (HTTP 414)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/Error-Classes.html">HTTPRequestURITooLong</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="fu">do_verbose</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Request-URI Too Long (HTTP 414).</span></span>
-<span><span class="co">#&gt; - The server is refusing to service the request because the Request-URI is</span></span>
-<span><span class="co">#&gt;    longer than the server is willing to interpret. This rare condition is only likely</span></span>
-<span><span class="co">#&gt;    to occur when a client has improperly converted a POST request to a GET request</span></span>
-<span><span class="co">#&gt;    with long query information, when the client has descended into a URI black hole</span></span>
-<span><span class="co">#&gt;    of redirection (e.g., a redirected URI prefix that points to a suffix of itself),</span></span>
-<span><span class="co">#&gt;    or when the server is under attack by a client attempting to exploit security</span></span>
-<span><span class="co">#&gt;    holes present in some servers using fixed-length buffers for reading or</span></span>
-<span><span class="co">#&gt;    manipulating the Request-URI.</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Request-URI Too Long (HTTP 414).</span></span>
+<span><span class="co">#&gt;  - The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret. This rare condition is only likely to occur when a client has improperly converted a POST request to a GET request with long query information, when the client has descended into a URI 'black hole' of redirection (e.g., a redirected URI prefix that points to a suffix of itself), or when the server is under attack by a client attempting to exploit security holes present in some servers using fixed-length buffers for reading or manipulating the Request-URI.</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="use-with-curl">use with curl<a class="anchor" aria-label="anchor" href="#use-with-curl"></a>
@@ -144,20 +141,17 @@
 <span><span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/handle.html" class="external-link">handle_setopt</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span>
 <span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">curl</span><span class="fu">::</span><span class="fu"><a href="https://jeroen.r-universe.dev/curl/reference/curl_fetch.html" class="external-link">curl_fetch_memory</a></span><span class="op">(</span><span class="st">"https://httpbin.org/status/404"</span>, <span class="va">h</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/http.html">http</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Not Found (HTTP 404).</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Not Found (HTTP 404)</span></span>
 <span><span class="fu"><a href="reference/http.html">http404</a></span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Not Found (HTTP 404).</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Not Found (HTTP 404)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/Error-Classes.html">HTTPNotFound</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="fu">do_verbose</span><span class="op">(</span><span class="va">resp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error:  Not Found (HTTP 404).</span></span>
-<span><span class="co">#&gt;  - The server has not found anything matching the Request-URI. No indication is</span></span>
-<span><span class="co">#&gt; given of whether the condition is temporary or permanent. The 410 (Gone) status</span></span>
-<span><span class="co">#&gt; code SHOULD be used if the server knows, through some internally configurable</span></span>
-<span><span class="co">#&gt; mechanism, that an old resource is permanently unavailable and has no forwarding</span></span>
-<span><span class="co">#&gt; address. #&gt; This status code is commonly used when the server does not wish to</span></span>
-<span><span class="co">#&gt; reveal exactly why the request has been refused, or when no other response is</span></span>
-<span><span class="co">#&gt; applicable.</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Not Found (HTTP 404).</span></span>
+<span><span class="co">#&gt;  - The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent. The 410 (Gone) status code SHOULD be used if the server knows, through some internally configurable mechanism, that an old resource is permanently unavailable and has no forwarding address. This status code is commonly used when the server does not wish to reveal exactly why the request has been refused, or when no other response is applicable.</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="use-with-httr">use with httr<a class="anchor" aria-label="anchor" href="#use-with-httr"></a>
@@ -166,14 +160,14 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://httr.r-lib.org/" class="external-link">"httr"</a></span><span class="op">)</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html" class="external-link">GET</a></span><span class="op">(</span><span class="st">"https://httpbin.org/status/405"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/http.html">http405</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Method Not Allowed (HTTP 405).</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Method Not Allowed (HTTP 405)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/Error-Classes.html">HTTPMethodNotAllowed</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="fu">do_verbose</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error: Method Not Allowed (HTTP 405).</span></span>
-<span><span class="co">#&gt;  - The method specified in the Request-Line is not allowed for the resource</span></span>
-<span><span class="co">#&gt; identified by the Request-URI. The response MUST include an Allow header</span></span>
-<span><span class="co">#&gt; containing a list of valid methods for the requested resource.</span></span></code></pre></div>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! Method Not Allowed (HTTP 405).</span></span>
+<span><span class="co">#&gt;  - The method specified in the Request-Line is not allowed for the resource identified by the Request-URI. The response MUST include an Allow header containing a list of valid methods for the requested resource.</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="meta">Meta<a class="anchor" aria-label="anchor" href="#meta"></a>

@@ -149,6 +149,8 @@
 <span></span>
 <span><span class="fu">http420</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">http421</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">http422</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">http423</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -215,6 +217,22 @@
 <span></span>
 <span><span class="fu">http599</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">http520</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http521</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http522</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http523</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http524</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http525</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http526</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">http527</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">http</span><span class="op">(</span><span class="va">response</span>, behavior <span class="op">=</span> <span class="st">"auto"</span>, <span class="va">message_template</span>, muffle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -257,7 +275,7 @@ in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 <li><p>warning - use <code>warning</code></p></li>
 <li><p>message - use <code>message</code></p></li>
 <li><p>auto - toggle between <code>stop</code> and <code>message</code> depending
- on the HTTP status code series. Defaults will be:</p><ul><li><p>1xx: <code>message</code></p></li>
+on the HTTP status code series. Defaults will be:</p><ul><li><p>1xx: <code>message</code></p></li>
 <li><p>2xx: <code>message</code></p></li>
 <li><p>3xx: <code>message</code></p></li>
 <li><p>4xx: <code>stop</code></p></li>
@@ -277,12 +295,12 @@ we'll probably fail badly. There's not much we can do.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="Error.html">Error</a></code>, <code><a href="Error-Classes.html">Error-Classes</a></code></p></div>
+    <div class="dont-index"><p><a href="Error.html">Error</a>, <a href="Error-Classes.html">Error-Classes</a></p></div>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>url<span class="op">=</span><span class="st">"https://a.com"</span>, status_code<span class="op">=</span><span class="fl">200</span>, type<span class="op">=</span><span class="st">"application/xml"</span>, </span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>url<span class="op">=</span><span class="st">"https://a.com"</span>, status_code<span class="op">=</span><span class="fl">200</span>, type<span class="op">=</span><span class="st">"application/xml"</span>,</span></span>
 <span class="r-in"><span> headers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rawConversion.html" class="external-link">charToRaw</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, modified<span class="op">=</span><span class="cn">NA</span>, times<span class="op">=</span><span class="fl">5</span>, content<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rawConversion.html" class="external-link">charToRaw</a></span><span class="op">(</span><span class="st">'b'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">http</span><span class="op">(</span><span class="va">res</span>, behavior <span class="op">=</span> <span class="st">"message"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> OK (HTTP 200)</span>

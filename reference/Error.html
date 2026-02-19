@@ -97,18 +97,6 @@ used in the <code>HTTP*</code> methods (e.g. <code>HTTPBadRequest</code>)</p></d
 in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 
 </dl></div>
-    <div id="details">
-    <h2>Details</h2>
-    <p><strong>Methods</strong></p><ul><li><p><code>do(response, mssg)</code>   Execute condition, whether it be message, warning, or error.  </p><ul><li><p>response: is any response from <span class="pkg">crul</span>, <span class="pkg">curl</span>, or <span class="pkg">httr</span>
-  Execute condition, whether it be message, warning, error, or your
-  own custom function. This method uses <code>message_template_verbose</code>,
-  and uses it's default value.</p></li>
-<li><p>mssg: character string message to include in call. ignored if
-  template does not have a <code>message</code> entry</p></li>
-</ul></li>
-<li><p><code>set_behavior(behavior)</code></p>
-<p>Set behavior, same as setting behavior on initializing with <code>$new()</code></p></li>
-</ul></div>
     <div id="behavior-parameter-options">
     <h2>behavior parameter options</h2>
 
@@ -117,7 +105,7 @@ in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 <li><p>warning - use <code>warning</code></p></li>
 <li><p>message - use <code>message</code></p></li>
 <li><p>auto - toggle between <code>stop</code> and <code>message</code> depending
- on the HTTP status code series. Defaults will be:</p><ul><li><p>1xx: <code>message</code></p></li>
+on the HTTP status code series. Defaults will be:</p><ul><li><p>1xx: <code>message</code></p></li>
 <li><p>2xx: <code>message</code></p></li>
 <li><p>3xx: <code>message</code></p></li>
 <li><p>4xx: <code>stop</code></p></li>
@@ -125,9 +113,25 @@ in 1xx-3xx series. Default: <code>FALSE</code></p></dd>
 </ul></li>
 </ul><p>Of course, you can always override the defaults.</p>
     </div>
+    <div id="methods">
+    <h2>Methods</h2>
+
+
+<ul><li><p><code>do(response, mssg, template)</code>:</p>
+<p>Execute condition, whether it be message, warning, or error.</p><ul><li><p>response: is any response from <span class="pkg">crul</span>, <span class="pkg">curl</span>, or <span class="pkg">httr</span>
+Execute condition, whether it be message, warning, error, or your
+own custom function. This method uses <code>message_template_verbose</code>,
+and uses it's default value.</p></li>
+<li><p>mssg: character string message to include in call. ignored if
+template does not have a <code>message</code> entry</p></li>
+<li><p>template: set a template; by default uses <code>message_template</code></p></li>
+</ul></li>
+<li><p><code>set_behavior(behavior)</code>:</p><ul><li><p>Set behavior, same as setting behavior on initializing with <code>$new()</code></p></li>
+</ul></li>
+</ul></div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="http.html">http</a></code>, <code><a href="Error-Classes.html">Error-Classes</a></code></p></div>
+    <div class="dont-index"><p><a href="http.html">http</a>, <a href="Error-Classes.html">Error-Classes</a></p></div>
     </div>
 
     <div id="ref-examples">
