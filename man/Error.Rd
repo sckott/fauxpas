@@ -17,9 +17,9 @@ of the error message. Default: \code{FALSE}}
 
 \item{message_template_verbose}{A verbose message template. optional.
 use whisker templating. names to use are: reason, status, message.
-use in template like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
-\code{\{\{message\}\}}. Note that this is ignored here, but is
-used in the \code{HTTP*} methods (e.g. \code{HTTPBadRequest})}
+use in template like \code{{{reason}}}, \code{{{status}}}, and
+\code{{{message}}}. Note that this is ignored here, but is
+used in the \verb{HTTP*} methods (e.g. \code{HTTPBadRequest})}
 
 \item{muffle}{(logical) whether to not respond when status codes
 in 1xx-3xx series. Default: \code{FALSE}}
@@ -27,46 +27,46 @@ in 1xx-3xx series. Default: \code{FALSE}}
 \description{
 Error class
 }
-\details{
-\strong{Methods}
-\itemize{
-  \item {\code{do(response, mssg)}} {
-
-  Execute condition, whether it be message, warning, or error.
-
-  \itemize{
-   \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
-  Execute condition, whether it be message, warning, error, or your
-  own custom function. This method uses \code{message_template_verbose},
-  and uses it's default value.
-   \item mssg: character string message to include in call. ignored if
-  template does not have a \code{message} entry
-   }
-  }
-
-  \item \code{set_behavior(behavior)}
-
-  Set behavior, same as setting behavior on initializing with \code{$new()}
-}
-}
 \section{behavior parameter options}{
 
 \itemize{
- \item stop - use \code{stop}
- \item warning - use \code{warning}
- \item message - use \code{message}
- \item auto - toggle between \code{stop} and \code{message} depending
- on the HTTP status code series. Defaults will be:
- \itemize{
-  \item 1xx: \code{message}
-  \item 2xx: \code{message}
-  \item 3xx: \code{message}
-  \item 4xx: \code{stop}
-  \item 5xx: \code{stop}
- }
+\item stop - use \code{stop}
+\item warning - use \code{warning}
+\item message - use \code{message}
+\item auto - toggle between \code{stop} and \code{message} depending
+on the HTTP status code series. Defaults will be:
+\itemize{
+\item 1xx: \code{message}
+\item 2xx: \code{message}
+\item 3xx: \code{message}
+\item 4xx: \code{stop}
+\item 5xx: \code{stop}
+}
 }
 
 Of course, you can always override the defaults.
+}
+
+\section{Methods}{
+
+\itemize{
+\item \code{do(response, mssg, template)}:
+
+Execute condition, whether it be message, warning, or error.
+\itemize{
+\item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+Execute condition, whether it be message, warning, error, or your
+own custom function. This method uses \code{message_template_verbose},
+and uses it's default value.
+\item mssg: character string message to include in call. ignored if
+template does not have a \code{message} entry
+\item template: set a template; by default uses \code{message_template}
+}
+\item \code{set_behavior(behavior)}:
+\itemize{
+\item Set behavior, same as setting behavior on initializing with \verb{$new()}
+}
+}
 }
 
 \examples{
@@ -77,5 +77,5 @@ z$set_behavior("warning")
 z
 }
 \seealso{
-\code{\link[fauxpas]{http}}, \code{\link[fauxpas]{Error-Classes}}
+\link{http}, \link{Error-Classes}
 }

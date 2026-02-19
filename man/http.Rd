@@ -44,6 +44,7 @@
 \alias{http418}
 \alias{http419}
 \alias{http420}
+\alias{http421}
 \alias{http422}
 \alias{http423}
 \alias{http424}
@@ -77,6 +78,14 @@
 \alias{http511}
 \alias{http598}
 \alias{http599}
+\alias{http520}
+\alias{http521}
+\alias{http522}
+\alias{http523}
+\alias{http524}
+\alias{http525}
+\alias{http526}
+\alias{http527}
 \alias{http}
 \title{higher level error wrappers}
 \usage{
@@ -166,6 +175,8 @@ http419(response, behavior = "auto", message_template, muffle = FALSE)
 
 http420(response, behavior = "auto", message_template, muffle = FALSE)
 
+http421(response, behavior = "auto", message_template, muffle = FALSE)
+
 http422(response, behavior = "auto", message_template, muffle = FALSE)
 
 http423(response, behavior = "auto", message_template, muffle = FALSE)
@@ -232,6 +243,22 @@ http598(response, behavior = "auto", message_template, muffle = FALSE)
 
 http599(response, behavior = "auto", message_template, muffle = FALSE)
 
+http520(response, behavior = "auto", message_template, muffle = FALSE)
+
+http521(response, behavior = "auto", message_template, muffle = FALSE)
+
+http522(response, behavior = "auto", message_template, muffle = FALSE)
+
+http523(response, behavior = "auto", message_template, muffle = FALSE)
+
+http524(response, behavior = "auto", message_template, muffle = FALSE)
+
+http525(response, behavior = "auto", message_template, muffle = FALSE)
+
+http526(response, behavior = "auto", message_template, muffle = FALSE)
+
+http527(response, behavior = "auto", message_template, muffle = FALSE)
+
 http(response, behavior = "auto", message_template, muffle = FALSE)
 }
 \arguments{
@@ -253,24 +280,24 @@ in 1xx-3xx series. Default: \code{FALSE}}
 higher level error wrappers
 }
 \note{
-These \code{http*} methods only use \code{$do} and not
-\code{$do_verbose}.
+These \verb{http*} methods only use \verb{$do} and not
+\verb{$do_verbose}.
 }
 \section{behavior parameter options}{
 
 \itemize{
- \item stop - use \code{stop}
- \item warning - use \code{warning}
- \item message - use \code{message}
- \item auto - toggle between \code{stop} and \code{message} depending
- on the HTTP status code series. Defaults will be:
- \itemize{
-  \item 1xx: \code{message}
-  \item 2xx: \code{message}
-  \item 3xx: \code{message}
-  \item 4xx: \code{stop}
-  \item 5xx: \code{stop}
- }
+\item stop - use \code{stop}
+\item warning - use \code{warning}
+\item message - use \code{message}
+\item auto - toggle between \code{stop} and \code{message} depending
+on the HTTP status code series. Defaults will be:
+\itemize{
+\item 1xx: \code{message}
+\item 2xx: \code{message}
+\item 3xx: \code{message}
+\item 4xx: \code{stop}
+\item 5xx: \code{stop}
+}
 }
 
 Of course, you can always override the defaults.
@@ -286,10 +313,10 @@ we'll probably fail badly. There's not much we can do.
 }
 
 \examples{
-res <- list(url="https://a.com", status_code=200, type="application/xml", 
+res <- list(url="https://a.com", status_code=200, type="application/xml",
  headers=charToRaw("a"), modified=NA, times=5, content=charToRaw('b'))
 http(res, behavior = "message")
 }
 \seealso{
-\code{\link{Error}}, \code{\link[fauxpas]{Error-Classes}}
+\link{Error}, \link{Error-Classes}
 }

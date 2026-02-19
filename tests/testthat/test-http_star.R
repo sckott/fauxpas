@@ -1639,6 +1639,44 @@ test_that("http420 fails well with malformed curl pkg response objects", {
 })
 
 
+test_that("http421 works", {
+  skip_on_cran()
+
+  expect_message(http421(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http421(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http421(res))
+
+  expect_null(suppressMessages(http421(res, behavior = "message")))
+})
+
+test_that("http421 fails well", {
+  skip_on_cran()
+
+  expect_error(http421(5), "no 'http421' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http421(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http421(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http421 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http421(list()),
+     "curl response list must have named elements")
+  expect_error(http421(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http421(alst), "is not TRUE")
+})
+
+
 test_that("http422 works", {
   skip_on_cran()
 
@@ -2890,5 +2928,309 @@ test_that("http599 fails well with malformed curl pkg response objects", {
      "found list names 'a' - indicating input not likely a")
   alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
   expect_error(http599(alst), "is not TRUE")
+})
+
+
+test_that("http520 works", {
+  skip_on_cran()
+
+  expect_message(http520(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http520(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http520(res))
+
+  expect_null(suppressMessages(http520(res, behavior = "message")))
+})
+
+test_that("http520 fails well", {
+  skip_on_cran()
+
+  expect_error(http520(5), "no 'http520' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http520(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http520(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http520 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http520(list()),
+     "curl response list must have named elements")
+  expect_error(http520(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http520(alst), "is not TRUE")
+})
+
+
+test_that("http521 works", {
+  skip_on_cran()
+
+  expect_message(http521(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http521(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http521(res))
+
+  expect_null(suppressMessages(http521(res, behavior = "message")))
+})
+
+test_that("http521 fails well", {
+  skip_on_cran()
+
+  expect_error(http521(5), "no 'http521' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http521(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http521(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http521 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http521(list()),
+     "curl response list must have named elements")
+  expect_error(http521(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http521(alst), "is not TRUE")
+})
+
+
+test_that("http522 works", {
+  skip_on_cran()
+
+  expect_message(http522(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http522(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http522(res))
+
+  expect_null(suppressMessages(http522(res, behavior = "message")))
+})
+
+test_that("http522 fails well", {
+  skip_on_cran()
+
+  expect_error(http522(5), "no 'http522' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http522(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http522(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http522 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http522(list()),
+     "curl response list must have named elements")
+  expect_error(http522(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http522(alst), "is not TRUE")
+})
+
+
+test_that("http523 works", {
+  skip_on_cran()
+
+  expect_message(http523(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http523(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http523(res))
+
+  expect_null(suppressMessages(http523(res, behavior = "message")))
+})
+
+test_that("http523 fails well", {
+  skip_on_cran()
+
+  expect_error(http523(5), "no 'http523' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http523(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http523(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http523 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http523(list()),
+     "curl response list must have named elements")
+  expect_error(http523(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http523(alst), "is not TRUE")
+})
+
+
+test_that("http524 works", {
+  skip_on_cran()
+
+  expect_message(http524(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http524(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http524(res))
+
+  expect_null(suppressMessages(http524(res, behavior = "message")))
+})
+
+test_that("http524 fails well", {
+  skip_on_cran()
+
+  expect_error(http524(5), "no 'http524' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http524(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http524(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http524 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http524(list()),
+     "curl response list must have named elements")
+  expect_error(http524(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http524(alst), "is not TRUE")
+})
+
+
+test_that("http525 works", {
+  skip_on_cran()
+
+  expect_message(http525(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http525(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http525(res))
+
+  expect_null(suppressMessages(http525(res, behavior = "message")))
+})
+
+test_that("http525 fails well", {
+  skip_on_cran()
+
+  expect_error(http525(5), "no 'http525' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http525(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http525(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http525 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http525(list()),
+     "curl response list must have named elements")
+  expect_error(http525(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http525(alst), "is not TRUE")
+})
+
+
+test_that("http526 works", {
+  skip_on_cran()
+
+  expect_message(http526(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http526(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http526(res))
+
+  expect_null(suppressMessages(http526(res, behavior = "message")))
+})
+
+test_that("http526 fails well", {
+  skip_on_cran()
+
+  expect_error(http526(5), "no 'http526' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http526(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http526(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http526 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http526(list()),
+     "curl response list must have named elements")
+  expect_error(http526(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http526(alst), "is not TRUE")
+})
+
+
+test_that("http527 works", {
+  skip_on_cran()
+
+  expect_message(http527(res, behavior = "message"), "I'm a teapot")
+  expect_warning(http527(res, behavior = "warning"), "I'm a teapot")
+  expect_error(http527(res))
+
+  expect_null(suppressMessages(http527(res, behavior = "message")))
+})
+
+test_that("http527 fails well", {
+  skip_on_cran()
+
+  expect_error(http527(5), "no 'http527' method for numeric")
+
+  res <- HttpClient$new("https://httpbin.org/status/418")$get()
+
+  # behavior fails well
+  expect_error(http527(res, behavior = "asdfasdf"),
+     "'behavior' must be one of")
+
+  # message_template fails well
+  expect_error(http527(res, message_template = 5),
+     "'message_template' must be of class character")
+})
+
+test_that("http527 fails well with malformed curl pkg response objects", {
+  skip_on_cran()
+
+  expect_error(http527(list()),
+     "curl response list must have named elements")
+  expect_error(http527(list(a = 5)),
+     "found list names 'a' - indicating input not likely a")
+  alst <- list(url=5, status_code=5, headers=5, modified=5, times=5)
+  expect_error(http527(alst), "is not TRUE")
 })
 

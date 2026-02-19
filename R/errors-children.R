@@ -4,44 +4,10 @@ gv <- function(x) {
   tryCatch(
     httpcode::http_code(x, TRUE)$verbose_explanation,
     error = function(e) NULL
-  ) %||% ""
+  ) %||%
+    ""
 }
 
-# error_child_generator <- function(class_name, x) {
-#   self <- super <- NULL
-#   R6::R6Class(
-#     class_name,
-#     inherit = Error,
-#     public = list(
-#       name = class_name,
-#       status_code = x,
-#       mssg = gv(x),
-#       message_template_verbose = NULL,
-#
-#       initialize = function(behavior = "stop", call. = FALSE, message_template,
-#                             message_template_verbose) {
-#         super$initialize(behavior = behavior, call. = call.,
-#                          message_template = message_template)
-#         if (missing(message_template_verbose)) {
-#           self$message_template_verbose <- "{{reason}} (HTTP {{status}}).\n - {{message}}"
-#         }
-#       },
-#
-#       print = function(...) {
-#         cat(sprintf("<%s>", self$name), sep = "\n")
-#         cat(paste0("  behavior: ", self$behavior), sep = "\n")
-#         cat(paste0("  message_template: ", self$message_template), sep = "\n")
-#         cat(paste0("  message_template_verbose: ", self$message_template_verbose), sep = "\n")
-#         invisible()
-#       },
-#
-#       do_verbose = function(response) {
-#         # super$do(response, self$mssg, "{{reason}} (HTTP {{status}}).\n - {{message}}")
-#         super$do(response, self$mssg, self$message_template_verbose)
-#       }
-#     )
-#   )
-# }
 
 error_child_generator <- function(class_name, x) {
   self <- super <- NULL
@@ -53,7 +19,10 @@ error_child_generator <- function(class_name, x) {
       status_code = x,
       mssg = gv(x),
 
-      do_verbose = function(response, template = self$message_template_verbose) {
+      do_verbose = function(
+        response,
+        template = self$message_template_verbose
+      ) {
         super$do(response, self$mssg, template)
       }
     )
@@ -64,35 +33,31 @@ error_child_generator <- function(class_name, x) {
 #' Individual error classes
 #'
 #' These error classes are for each HTTP error, and inherit from
-#' the \code{\link{Error}} class in this package.
+#' the [Error] class in this package.
 #'
-#' @details In addition to what's available in \code{\link{Error}},
-#' these classes have a single variable \code{mssg} that is the very
+#' @details In addition to what's available in [Error],
+#' these classes have a single variable `mssg` that is the very
 #' verbose complete message describing the HTTP condition in detail.
-#' You can include that message in your condition by using \code{do_verbose}
+#' You can include that message in your condition by using `do_verbose`
 #' (see below)
 #'
-#' \strong{Methods}
+#' @section Methods:
 #'
-#' In addition to the methods documented in \code{\link{Error}}, these methods
+#' In addition to the methods documented in [Error], these classes
 #' also have:
-#' \itemize{
-#'   \item \code{do_verbose(response, template)} {
+#'
+#' * `do_verbose(response, template)`:
 #'
 #'   Execute condition, whether it be message, warning, or error.
 #'
-#'   \itemize{
-#'    \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+#'   * response: is any response from `crul`, `curl`, or `httr`
 #'   Execute condition, whether it be message, warning, error, or your
-#'   own custom function. This method uses \code{message_template_verbose},
+#'   own custom function. This method uses `message_template_verbose`,
 #'   and uses it's default value.
-#'    \item template: a template to use for the verbose message, see \code{\link{Error}}
+#'   * template: a template to use for the verbose message, see [Error]
 #'   for details
-#'   }
-#'   }
-#' }
 #'
-#' @seealso \code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
+#' @seealso [fauxpas::Error], [fauxpas::http]
 #'
 #' @examples
 #' HTTPRequestURITooLong$new(
@@ -119,7 +84,6 @@ HTTPSwitchProtocol <- error_child_generator("HTTPSwitchProtocol", 101)
 HTTPProcessing <- error_child_generator("HTTPProcessing", 102)
 
 
-
 # 200 ----------------------
 #' @export
 #' @rdname Error-Classes
@@ -136,7 +100,9 @@ HTTPAccepted <- error_child_generator("HTTPAccepted", 202)
 #' @export
 #' @rdname Error-Classes
 HTTPNonAuthoritativeInformation <- error_child_generator(
-  "HTTPNonAuthoritativeInformation", 203)
+  "HTTPNonAuthoritativeInformation",
+  203
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -201,8 +167,6 @@ HTTPTemporaryRedirect <- error_child_generator("HTTPTemporaryRedirect", 307)
 HTTPPermanentRedirect <- error_child_generator("HTTPPermanentRedirect", 308)
 
 
-
-
 # 400 ----------------------
 #' @export
 #' @rdname Error-Classes
@@ -234,7 +198,10 @@ HTTPNotAcceptable <- error_child_generator("HTTPNotAcceptable", 406)
 
 #' @export
 #' @rdname Error-Classes
-HTTPProxyAuthenticationRequired <- error_child_generator("HTTPProxyAuthenticationRequired", 407)
+HTTPProxyAuthenticationRequired <- error_child_generator(
+  "HTTPProxyAuthenticationRequired",
+  407
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -258,7 +225,10 @@ HTTPPreconditionFailed <- error_child_generator("HTTPPreconditionFailed", 412)
 
 #' @export
 #' @rdname Error-Classes
-HTTPRequestEntityTooLarge <- error_child_generator("HTTPRequestEntityTooLarge", 413)
+HTTPRequestEntityTooLarge <- error_child_generator(
+  "HTTPRequestEntityTooLarge",
+  413
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -266,11 +236,17 @@ HTTPRequestURITooLong <- error_child_generator("HTTPRequestURITooLong", 414)
 
 #' @export
 #' @rdname Error-Classes
-HTTPUnsupportedMediaType <- error_child_generator("HTTPUnsupportedMediaType", 415)
+HTTPUnsupportedMediaType <- error_child_generator(
+  "HTTPUnsupportedMediaType",
+  415
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPRequestRangeNotSatisfiable <- error_child_generator("HTTPRequestRangeNotSatisfiable", 416)
+HTTPRequestRangeNotSatisfiable <- error_child_generator(
+  "HTTPRequestRangeNotSatisfiable",
+  416
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -282,7 +258,10 @@ HTTPTeaPot <- error_child_generator("HTTPTeaPot", 418)
 
 #' @export
 #' @rdname Error-Classes
-HTTPAuthenticationTimeout <- error_child_generator("HTTPAuthenticationTimeout", 419)
+HTTPAuthenticationTimeout <- error_child_generator(
+  "HTTPAuthenticationTimeout",
+  419
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -314,7 +293,10 @@ HTTPUpgradeRequired <- error_child_generator("HTTPUpgradeRequired", 426)
 
 #' @export
 #' @rdname Error-Classes
-HTTPPreconditionRequired <- error_child_generator("HTTPPreconditionRequired", 428)
+HTTPPreconditionRequired <- error_child_generator(
+  "HTTPPreconditionRequired",
+  428
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -322,7 +304,10 @@ HTTPTooManyRequests <- error_child_generator("HTTPTooManyRequests", 429)
 
 #' @export
 #' @rdname Error-Classes
-HTTPRequestHeaderFieldsTooLarge <- error_child_generator("HTTPRequestHeaderFieldsTooLarge", 431)
+HTTPRequestHeaderFieldsTooLarge <- error_child_generator(
+  "HTTPRequestHeaderFieldsTooLarge",
+  431
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -338,15 +323,24 @@ HTTPRetryWith <- error_child_generator("HTTPRetryWith", 449)
 
 #' @export
 #' @rdname Error-Classes
-HTTPBlockedByWindowsParentalControls <- error_child_generator("HTTPBlockedByWindowsParentalControls", 450)
+HTTPBlockedByWindowsParentalControls <- error_child_generator(
+  "HTTPBlockedByWindowsParentalControls",
+  450
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPUnavailableForLegalReasons <- error_child_generator("HTTPUnavailableForLegalReasons", 451)
+HTTPUnavailableForLegalReasons <- error_child_generator(
+  "HTTPUnavailableForLegalReasons",
+  451
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPRequestHeaderTooLarge <- error_child_generator("HTTPRequestHeaderTooLarge", 494)
+HTTPRequestHeaderTooLarge <- error_child_generator(
+  "HTTPRequestHeaderTooLarge",
+  494
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -367,7 +361,6 @@ HTTPTokenExpiredInvalid <- error_child_generator("HTTPTokenExpiredInvalid", 498)
 #' @export
 #' @rdname Error-Classes
 HTTPClientClosedRequest <- error_child_generator("HTTPClientClosedRequest", 499)
-
 
 
 # 500 ----------------------
@@ -394,11 +387,17 @@ HTTPGatewayTimeout <- error_child_generator("HTTPGatewayTimeout", 504)
 
 #' @export
 #' @rdname Error-Classes
-HTTPHTTPVersionNotSupported <- error_child_generator("HTTPHTTPVersionNotSupported", 505)
+HTTPHTTPVersionNotSupported <- error_child_generator(
+  "HTTPHTTPVersionNotSupported",
+  505
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPVariantAlsoNegotiates <- error_child_generator("HTTPVariantAlsoNegotiates", 506)
+HTTPVariantAlsoNegotiates <- error_child_generator(
+  "HTTPVariantAlsoNegotiates",
+  506
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -410,7 +409,10 @@ HTTPLoopDetected <- error_child_generator("HTTPLoopDetected", 508)
 
 #' @export
 #' @rdname Error-Classes
-HTTPBandwidthLimitExceeded <- error_child_generator("HTTPBandwidthLimitExceeded", 509)
+HTTPBandwidthLimitExceeded <- error_child_generator(
+  "HTTPBandwidthLimitExceeded",
+  509
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -418,21 +420,33 @@ HTTPNotExtended <- error_child_generator("HTTPNotExtended", 510)
 
 #' @export
 #' @rdname Error-Classes
-HTTPNetworkAuthenticationRequired <- error_child_generator("HTTPNetworkAuthenticationRequired", 511)
+HTTPNetworkAuthenticationRequired <- error_child_generator(
+  "HTTPNetworkAuthenticationRequired",
+  511
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPNetworkReadTimeoutError <- error_child_generator("HTTPNetworkReadTimeoutError", 598)
+HTTPNetworkReadTimeoutError <- error_child_generator(
+  "HTTPNetworkReadTimeoutError",
+  598
+)
 
 #' @export
 #' @rdname Error-Classes
-HTTPNetworkConnectTimeoutError <- error_child_generator("HTTPNetworkConnectTimeoutError", 599)
+HTTPNetworkConnectTimeoutError <- error_child_generator(
+  "HTTPNetworkConnectTimeoutError",
+  599
+)
 
 
 # Cloudflare
 #' @export
 #' @rdname Error-Classes
-HTTPWebServerReturnedUnknownError <- error_child_generator("HTTPWebServerReturnedUnknownError", 520)
+HTTPWebServerReturnedUnknownError <- error_child_generator(
+  "HTTPWebServerReturnedUnknownError",
+  520
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -456,7 +470,10 @@ HTTPSSLHandshakeFailed <- error_child_generator("HTTPSSLHandshakeFailed", 525)
 
 #' @export
 #' @rdname Error-Classes
-HTTPInvalidSSLCertificate <- error_child_generator("HTTPInvalidSSLCertificate ", 526)
+HTTPInvalidSSLCertificate <- error_child_generator(
+  "HTTPInvalidSSLCertificate ",
+  526
+)
 
 #' @export
 #' @rdname Error-Classes
@@ -465,27 +482,94 @@ HTTPRailgunError <- error_child_generator("HTTPRailgunError", 527)
 
 ## all children
 fauxpas_env <- new.env()
-assign("http_children", list(
-  HTTPContinue, HTTPSwitchProtocol, HTTPProcessing, HTTPOK, HTTPCreated, HTTPAccepted,
-  HTTPNonAuthoritativeInformation, HTTPNoContent, HTTPResetContent, HTTPPartialContent,
-  HTTPMultiStatus, HTTPAlreadyReported, HTTPImUsed, HTTPMultipleChoices, HTTPMovedPermanently,
-  HTTPFound, HTTPSeeOther, HTTPNotModified, HTTPUseProxy, HTTPSwitchProxy,
-  HTTPTemporaryRedirect, HTTPPermanentRedirect, HTTPBadRequest, HTTPUnauthorized,
-  HTTPPaymentRequired, HTTPForbidden, HTTPNotFound, HTTPMethodNotAllowed, HTTPNotAcceptable,
-  HTTPProxyAuthenticationRequired, HTTPRequestTimeout, HTTPConflict, HTTPGone, HTTPLengthRequired,
-  HTTPPreconditionFailed, HTTPRequestEntityTooLarge, HTTPRequestURITooLong,
-  HTTPUnsupportedMediaType, HTTPRequestRangeNotSatisfiable, HTTPExpectationFailed,
-  HTTPTeaPot, HTTPAuthenticationTimeout, HTTPMethodFailure, HTTPMisdirectedRequest,
-  HTTPUnprocessableEntity,
-  HTTPLocked, HTTPFailedDependency, HTTPUnorderedCollection, HTTPUpgradeRequired,
-  HTTPPreconditionRequired, HTTPTooManyRequests, HTTPRequestHeaderFieldsTooLarge,
-  HTTPLoginTimeout, HTTPNoResponse, HTTPRetryWith, HTTPBlockedByWindowsParentalControls,
-  HTTPUnavailableForLegalReasons, HTTPRequestHeaderTooLarge, HTTPCertError, HTTPNoCert,
-  HTTPHTTPToHTTPS, HTTPTokenExpiredInvalid, HTTPClientClosedRequest, HTTPInternalServerError,
-  HTTPNotImplemented, HTTPBadGateway, HTTPServiceUnavailable, HTTPGatewayTimeout,
-  HTTPHTTPVersionNotSupported, HTTPVariantAlsoNegotiates, HTTPInsufficientStorage,
-  HTTPLoopDetected, HTTPBandwidthLimitExceeded, HTTPNotExtended, HTTPNetworkAuthenticationRequired,
-  HTTPNetworkReadTimeoutError, HTTPNetworkConnectTimeoutError, HTTPWebServerReturnedUnknownError,
-  HTTPWebServerIsDown, HTTPConnectionTimedOut, HTTPOriginIsUnreachable, HTTPATimeoutOccurred,
-  HTTPSSLHandshakeFailed, HTTPInvalidSSLCertificate, HTTPRailgunError
-), envir = fauxpas_env)
+assign(
+  "http_children",
+  list(
+    HTTPContinue,
+    HTTPSwitchProtocol,
+    HTTPProcessing,
+    HTTPOK,
+    HTTPCreated,
+    HTTPAccepted,
+    HTTPNonAuthoritativeInformation,
+    HTTPNoContent,
+    HTTPResetContent,
+    HTTPPartialContent,
+    HTTPMultiStatus,
+    HTTPAlreadyReported,
+    HTTPImUsed,
+    HTTPMultipleChoices,
+    HTTPMovedPermanently,
+    HTTPFound,
+    HTTPSeeOther,
+    HTTPNotModified,
+    HTTPUseProxy,
+    HTTPSwitchProxy,
+    HTTPTemporaryRedirect,
+    HTTPPermanentRedirect,
+    HTTPBadRequest,
+    HTTPUnauthorized,
+    HTTPPaymentRequired,
+    HTTPForbidden,
+    HTTPNotFound,
+    HTTPMethodNotAllowed,
+    HTTPNotAcceptable,
+    HTTPProxyAuthenticationRequired,
+    HTTPRequestTimeout,
+    HTTPConflict,
+    HTTPGone,
+    HTTPLengthRequired,
+    HTTPPreconditionFailed,
+    HTTPRequestEntityTooLarge,
+    HTTPRequestURITooLong,
+    HTTPUnsupportedMediaType,
+    HTTPRequestRangeNotSatisfiable,
+    HTTPExpectationFailed,
+    HTTPTeaPot,
+    HTTPAuthenticationTimeout,
+    HTTPMethodFailure,
+    HTTPMisdirectedRequest,
+    HTTPUnprocessableEntity,
+    HTTPLocked,
+    HTTPFailedDependency,
+    HTTPUnorderedCollection,
+    HTTPUpgradeRequired,
+    HTTPPreconditionRequired,
+    HTTPTooManyRequests,
+    HTTPRequestHeaderFieldsTooLarge,
+    HTTPLoginTimeout,
+    HTTPNoResponse,
+    HTTPRetryWith,
+    HTTPBlockedByWindowsParentalControls,
+    HTTPUnavailableForLegalReasons,
+    HTTPRequestHeaderTooLarge,
+    HTTPCertError,
+    HTTPNoCert,
+    HTTPHTTPToHTTPS,
+    HTTPTokenExpiredInvalid,
+    HTTPClientClosedRequest,
+    HTTPInternalServerError,
+    HTTPNotImplemented,
+    HTTPBadGateway,
+    HTTPServiceUnavailable,
+    HTTPGatewayTimeout,
+    HTTPHTTPVersionNotSupported,
+    HTTPVariantAlsoNegotiates,
+    HTTPInsufficientStorage,
+    HTTPLoopDetected,
+    HTTPBandwidthLimitExceeded,
+    HTTPNotExtended,
+    HTTPNetworkAuthenticationRequired,
+    HTTPNetworkReadTimeoutError,
+    HTTPNetworkConnectTimeoutError,
+    HTTPWebServerReturnedUnknownError,
+    HTTPWebServerIsDown,
+    HTTPConnectionTimedOut,
+    HTTPOriginIsUnreachable,
+    HTTPATimeoutOccurred,
+    HTTPSSLHandshakeFailed,
+    HTTPInvalidSSLCertificate,
+    HTTPRailgunError
+  ),
+  envir = fauxpas_env
+)

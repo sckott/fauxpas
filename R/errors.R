@@ -3,41 +3,35 @@
 #' @export
 #' @template params
 #' @param call.	(logical) indicating if the call should become part
-#' of the error message. Default: \code{FALSE}
+#' of the error message. Default: `FALSE`
 #' @param message_template_verbose A verbose message template. optional.
 #' use whisker templating. names to use are: reason, status, message.
-#' use in template like \code{\{\{reason\}\}}, \code{\{\{status\}\}}, and
-#' \code{\{\{message\}\}}. Note that this is ignored here, but is
-#' used in the \code{HTTP*} methods (e.g. \code{HTTPBadRequest})
+#' use in template like `{{reason}}`, `{{status}}`, and
+#' `{{message}}`. Note that this is ignored here, but is
+#' used in the `HTTP*` methods (e.g. `HTTPBadRequest`)
 #' @param muffle (logical) whether to not respond when status codes
-#' in 1xx-3xx series. Default: \code{FALSE}
+#' in 1xx-3xx series. Default: `FALSE`
 #'
-#' @details
-#' \strong{Methods}
-#' \itemize{
-#'   \item {\code{do(response, mssg)}} {
+#' @section Methods:
+#' * `do(response, mssg, template)`:
 #'
 #'   Execute condition, whether it be message, warning, or error.
 #'
-#'   \itemize{
-#'    \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
+#'   * response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
 #'   Execute condition, whether it be message, warning, error, or your
-#'   own custom function. This method uses \code{message_template_verbose},
+#'   own custom function. This method uses `message_template_verbose`,
 #'   and uses it's default value.
-#'    \item mssg: character string message to include in call. ignored if
-#'   template does not have a \code{message} entry
-#'    }
-#'   }
+#'   * mssg: character string message to include in call. ignored if
+#'   template does not have a `message` entry
+#'   * template: set a template; by default uses `message_template`
 #'
-#'   \item \code{set_behavior(behavior)}
+#' * `set_behavior(behavior)`:
 #'
-#'   Set behavior, same as setting behavior on initializing with \code{$new()}
-#' }
+#'   * Set behavior, same as setting behavior on initializing with `$new()`
 #'
 #' @format NULL
-#' @usage NULL
 #'
-#' @seealso \code{\link[fauxpas]{http}}, \code{\link[fauxpas]{Error-Classes}}
+#' @seealso [fauxpas::http], [fauxpas::Error-Classes]
 #'
 #' @examples
 #' Error$new()

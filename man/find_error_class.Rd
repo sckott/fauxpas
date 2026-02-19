@@ -10,7 +10,7 @@ find_error_class(status_code)
 \item{status_code}{(numeric,integer) A status code}
 }
 \value{
-an object of class \code{R6ClassGenerator}. call \code{$new()}
+an object of class \code{R6ClassGenerator}. call \verb{$new()}
 to initialize a new instance
 }
 \description{
@@ -28,5 +28,5 @@ find_error_class(418)$new()
 \dontrun{find_error_class(999)}
 }
 \seealso{
-\code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{Error-Classes}}
+\link{Error}, \link{Error-Classes}
 }

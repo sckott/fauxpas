@@ -90,35 +90,35 @@
 \title{Individual error classes}
 \description{
 These error classes are for each HTTP error, and inherit from
-the \code{\link{Error}} class in this package.
+the \link{Error} class in this package.
 }
 \details{
-In addition to what's available in \code{\link{Error}},
+In addition to what's available in \link{Error},
 these classes have a single variable \code{mssg} that is the very
 verbose complete message describing the HTTP condition in detail.
 You can include that message in your condition by using \code{do_verbose}
 (see below)
+}
+\section{Methods}{
 
-\strong{Methods}
 
-In addition to the methods documented in \code{\link{Error}}, these methods
+In addition to the methods documented in \link{Error}, these classes
 also have:
 \itemize{
-  \item \code{do_verbose(response, template)} {
+\item \code{do_verbose(response, template)}:
 
-  Execute condition, whether it be message, warning, or error.
-
-  \itemize{
-   \item response: is any response from \pkg{crul}, \pkg{curl}, or \pkg{httr}
-  Execute condition, whether it be message, warning, error, or your
-  own custom function. This method uses \code{message_template_verbose},
-  and uses it's default value.
-   \item template: a template to use for the verbose message, see \code{\link{Error}}
-  for details
-  }
-  }
+Execute condition, whether it be message, warning, or error.
+\itemize{
+\item response: is any response from \code{crul}, \code{curl}, or \code{httr}
+Execute condition, whether it be message, warning, error, or your
+own custom function. This method uses \code{message_template_verbose},
+and uses it's default value.
+\item template: a template to use for the verbose message, see \link{Error}
+for details
 }
 }
+}
+
 \examples{
 HTTPRequestURITooLong$new(
   message_template = "{{reason}} ............ {{status}}",
@@ -126,5 +126,5 @@ HTTPRequestURITooLong$new(
 )
 }
 \seealso{
-\code{\link[fauxpas]{Error}}, \code{\link[fauxpas]{http}}
+\link{Error}, \link{http}
 }

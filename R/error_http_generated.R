@@ -1118,6 +1118,32 @@ http420.list <- function(response, behavior = "auto", message_template, muffle =
   http420_(response, behavior, message_template)
 }
 
+http421_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPMisdirectedRequest$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http421 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http421")
+}
+#' @export
+http421.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http421' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http421.response <- http421_
+#' @export
+http421.HttpResponse <- http421_
+#' @export
+http421.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http421_(response, behavior, message_template)
+}
+
 http422_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
   stat <- fetch_status(response)
   if (muffle) if (stat < 300) return(invisible(response))
@@ -1974,5 +2000,213 @@ http599.HttpResponse <- http599_
 http599.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
   check_curl_list(response)
   http599_(response, behavior, message_template)
+}
+
+http520_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPWebServerReturnedUnknownError$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http520 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http520")
+}
+#' @export
+http520.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http520' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http520.response <- http520_
+#' @export
+http520.HttpResponse <- http520_
+#' @export
+http520.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http520_(response, behavior, message_template)
+}
+
+http521_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPWebServerIsDown$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http521 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http521")
+}
+#' @export
+http521.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http521' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http521.response <- http521_
+#' @export
+http521.HttpResponse <- http521_
+#' @export
+http521.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http521_(response, behavior, message_template)
+}
+
+http522_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPConnectionTimedOut$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http522 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http522")
+}
+#' @export
+http522.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http522' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http522.response <- http522_
+#' @export
+http522.HttpResponse <- http522_
+#' @export
+http522.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http522_(response, behavior, message_template)
+}
+
+http523_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPOriginIsUnreachable$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http523 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http523")
+}
+#' @export
+http523.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http523' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http523.response <- http523_
+#' @export
+http523.HttpResponse <- http523_
+#' @export
+http523.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http523_(response, behavior, message_template)
+}
+
+http524_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPATimeoutOccurred$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http524 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http524")
+}
+#' @export
+http524.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http524' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http524.response <- http524_
+#' @export
+http524.HttpResponse <- http524_
+#' @export
+http524.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http524_(response, behavior, message_template)
+}
+
+http525_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPSSLHandshakeFailed$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http525 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http525")
+}
+#' @export
+http525.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http525' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http525.response <- http525_
+#' @export
+http525.HttpResponse <- http525_
+#' @export
+http525.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http525_(response, behavior, message_template)
+}
+
+http526_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPInvalidSSLCertificate $new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http526 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http526")
+}
+#' @export
+http526.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http526' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http526.response <- http526_
+#' @export
+http526.HttpResponse <- http526_
+#' @export
+http526.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http526_(response, behavior, message_template)
+}
+
+http527_ <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stat <- fetch_status(response)
+  if (muffle) if (stat < 300) return(invisible(response))
+  behavior <- toggle_behavior(stat, behavior)
+  tmp <- HTTPRailgunError$new(behavior = behavior, message_template = message_template)
+  tmp$do(response)
+}
+#' @export
+#' @rdname http
+http527 <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  UseMethod("http527")
+}
+#' @export
+http527.default <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  stop("no 'http527' method for ", class(response)[[1L]], call. = FALSE)
+}
+#' @export
+http527.response <- http527_
+#' @export
+http527.HttpResponse <- http527_
+#' @export
+http527.list <- function(response, behavior = "auto", message_template, muffle = FALSE) {
+  check_curl_list(response)
+  http527_(response, behavior, message_template)
 }
 
